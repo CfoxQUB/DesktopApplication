@@ -1,0 +1,35 @@
+﻿<Window x:Class="TimetablingClientApplication.CreateEvents"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CreateEvents" Height="546.702" MinHeight="439.702" Width="863.642" MinWidth="686.642"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Viewbox Stretch="Uniform" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid Height="504" Width="831">
+            <Label Name="PageName" Content="Create New Event" HorizontalAlignment="Left" Margin="332,10,0,0" VerticalAlignment="Top" Height="37" Width="159" RenderTransformOrigin="1.495,0.392" FontSize="15" FontWeight="SemiBold"/>
+        <Label Name="Title" Content="Title:" HorizontalAlignment="Left" Margin="103,89,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="EventTitle" HorizontalAlignment="Left" Height="23" Margin="152,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="144"/>
+        <Label Name="Description" Content="Description:" HorizontalAlignment="Left" Margin="65,120,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="EventDescription" HorizontalAlignment="Left" Height="66" Margin="152,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
+        <Label Name="Time" Content="Time:" HorizontalAlignment="Left" Margin="441,129,0,0" VerticalAlignment="Top"/>
+        <Label Name="Date"  Content="Date:" HorizontalAlignment="Left" Margin="442,90,0,0" VerticalAlignment="Top"/>
+        <Label Name="EventType"  Content="Event Type: " HorizontalAlignment="Left" Margin="76,198,0,0" VerticalAlignment="Top"/>
+        <Button Content="Create Event" Click="Create_Event" Margin="490,438,60,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,2.227" Height="38"/>
+        <ComboBox Name="EventTypeSelect" HorizontalAlignment="Left" Margin="152,207,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}"/>
+        <DatePicker Name="StartDate" HorizontalAlignment="Left" Margin="491,92,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox Name="TimeList" HorizontalAlignment="Left" Height="23" Margin="491,132,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.488,0.469" Background="{x:Null}"/>
+        <Label Name="Repeats"  Content="Repeat Type: " HorizontalAlignment="Left" Margin="43,411,0,0" VerticalAlignment="Top"/>
+        <Label Name="Duration"  Content="Duration: " HorizontalAlignment="Left" Margin="421,160,0,0" VerticalAlignment="Top" Width="77"/>
+        <ComboBox Name="DurationList" HorizontalAlignment="Left" Height="23" Margin="490,163,0,0" VerticalAlignment="Top" Width="97" Background="{x:Null}"/>
+        <ComboBox Name="RepeatSelect" HorizontalAlignment="Left" Margin="139,415,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}"/>
+        <Label Name="Buildings"  Content="Building: " HorizontalAlignment="Left" Margin="432,319,0,0" VerticalAlignment="Top"/>
+            <ComboBox Name="BuildingSelect" HorizontalAlignment="Left" Margin="491,323,0,0" VerticalAlignment="Top" Width="177" SelectionChanged="Building_Selection_Changed" Background="{x:Null}"/>
+        <Label Name="Rooms"  Content="Room:" HorizontalAlignment="Left" Margin="442,356,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="RoomSelect" HorizontalAlignment="Left" Margin="491,360,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="67,40,0,0" TextWrapping="Wrap" Text="Basic Information" VerticalAlignment="Top" Width="739" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" />
+            <TextBox HorizontalAlignment="Left" Height="20" Margin="67,278,0,0" TextWrapping="Wrap" Text="Additional Information" VerticalAlignment="Top" Width="739" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" />
+            <ComboBox Name="CourseSelect" HorizontalAlignment="Left" Margin="139,327,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" SelectionChanged="Course_Selection_Changed"/>
+            <ComboBox Name="ModuleSelect" HorizontalAlignment="Left" Margin="139,360,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}"/>
+            <Label Content="Course:" HorizontalAlignment="Left" Margin="76,323,0,0" VerticalAlignment="Top"/>
+            <Label Content="Module:" HorizontalAlignment="Left" Margin="72,356,0,0" VerticalAlignment="Top"/>
+        </Grid>
+    </Viewbox>
+</Window>

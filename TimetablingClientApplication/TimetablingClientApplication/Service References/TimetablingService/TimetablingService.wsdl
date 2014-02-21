@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TimetablingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49185/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49185/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49185/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITimetablingService_Check_Email_Not_Exist_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check_Email_Not_Exist" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Check_Email_Not_Exist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Check_Email_Not_ExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Register_User_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register_User" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Register_User_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Register_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_EditEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_EditEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_DeleteEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_DeleteEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnWeeksEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEvents" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnWeeksEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEvents" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnUserTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnUserTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnUserTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnUserTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildings" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourses_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourses" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCoursesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseModules_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseModules" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseModules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingIdFromBuildingName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingIdFromBuildingName" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingIdFromBuildingName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingIdFromBuildingNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseIdFromCourseName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseIdFromCourseName" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseIdFromCourseName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseIdFromCourseNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomId" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingRooms" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomBuilding_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomBuilding" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomBuilding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomEvents" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnTimes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTimes" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnTimes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRepeatTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRepeatTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRepeatTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRepeatTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewBuilding_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewBuilding" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewBuilding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRoom" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRoomType_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRoomType" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRoomType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRoomTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRepeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRepeat" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRepeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRepeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSetting" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_SearchFunction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchFunction" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_SearchFunction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchFunctionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITimetablingService">
+    <wsdl:operation name="Check_Email_Not_Exist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Check_Email_Not_Exist" message="tns:ITimetablingService_Check_Email_Not_Exist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Check_Email_Not_ExistResponse" message="tns:ITimetablingService_Check_Email_Not_Exist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register_User">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Register_User" message="tns:ITimetablingService_Register_User_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Register_UserResponse" message="tns:ITimetablingService_Register_User_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Login" message="tns:ITimetablingService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/LoginResponse" message="tns:ITimetablingService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateEvent" message="tns:ITimetablingService_CreateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateEventResponse" message="tns:ITimetablingService_CreateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/EditEvent" message="tns:ITimetablingService_EditEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/EditEventResponse" message="tns:ITimetablingService_EditEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/DeleteEvent" message="tns:ITimetablingService_DeleteEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/DeleteEventResponse" message="tns:ITimetablingService_DeleteEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnWeeksEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEvents" message="tns:ITimetablingService_ReturnWeeksEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsResponse" message="tns:ITimetablingService_ReturnWeeksEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEvents" message="tns:ITimetablingService_ReturnEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsResponse" message="tns:ITimetablingService_ReturnEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventTypes" message="tns:ITimetablingService_ReturnEventTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventTypesResponse" message="tns:ITimetablingService_ReturnEventTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnUserTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnUserTypes" message="tns:ITimetablingService_ReturnUserTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnUserTypesResponse" message="tns:ITimetablingService_ReturnUserTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypes" message="tns:ITimetablingService_ReturnRoomTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypesResponse" message="tns:ITimetablingService_ReturnRoomTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildings" message="tns:ITimetablingService_ReturnBuildings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingsResponse" message="tns:ITimetablingService_ReturnBuildings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourses" message="tns:ITimetablingService_ReturnCourses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCoursesResponse" message="tns:ITimetablingService_ReturnCourses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseModules">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseModules" message="tns:ITimetablingService_ReturnCourseModules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseModulesResponse" message="tns:ITimetablingService_ReturnCourseModules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingIdFromBuildingName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingName" message="tns:ITimetablingService_ReturnBuildingIdFromBuildingName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingNameResponse" message="tns:ITimetablingService_ReturnBuildingIdFromBuildingName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseIdFromCourseName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseName" message="tns:ITimetablingService_ReturnCourseIdFromCourseName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseNameResponse" message="tns:ITimetablingService_ReturnCourseIdFromCourseName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomId" message="tns:ITimetablingService_ReturnRoomId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomIdResponse" message="tns:ITimetablingService_ReturnRoomId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingRooms" message="tns:ITimetablingService_ReturnBuildingRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingRoomsResponse" message="tns:ITimetablingService_ReturnBuildingRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomBuilding">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomBuilding" message="tns:ITimetablingService_ReturnRoomBuilding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomBuildingResponse" message="tns:ITimetablingService_ReturnRoomBuilding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomEvents" message="tns:ITimetablingService_ReturnRoomEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomEventsResponse" message="tns:ITimetablingService_ReturnRoomEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnTimes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimes" message="tns:ITimetablingService_ReturnTimes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimesResponse" message="tns:ITimetablingService_ReturnTimes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRepeatTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypes" message="tns:ITimetablingService_ReturnRepeatTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypesResponse" message="tns:ITimetablingService_ReturnRepeatTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewBuilding">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuilding" message="tns:ITimetablingService_CreateNewBuilding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse" message="tns:ITimetablingService_CreateNewBuilding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoom" message="tns:ITimetablingService_CreateNewRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomResponse" message="tns:ITimetablingService_CreateNewRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRoomType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomType" message="tns:ITimetablingService_CreateNewRoomType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomTypeResponse" message="tns:ITimetablingService_CreateNewRoomType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRepeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRepeat" message="tns:ITimetablingService_CreateNewRepeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRepeatResponse" message="tns:ITimetablingService_CreateNewRepeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateSetting" message="tns:ITimetablingService_CreateSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateSettingResponse" message="tns:ITimetablingService_CreateSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFunction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/SearchFunction" message="tns:ITimetablingService_SearchFunction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/SearchFunctionResponse" message="tns:ITimetablingService_SearchFunction_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITimetablingService" type="tns:ITimetablingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Check_Email_Not_Exist">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Check_Email_Not_Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register_User">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Register_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEvent">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEvent">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/EditEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/DeleteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnWeeksEvents">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEvents">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventTypes">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnUserTypes">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnUserTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomTypes">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildings">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourses">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseModules">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingIdFromBuildingName">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseIdFromCourseName">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomId">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingRooms">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomBuilding">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomEvents">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnTimes">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRepeatTypes">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRepeatTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewBuilding">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRoom">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRoomType">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewRoomType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRepeat">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewRepeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSetting">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFunction">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/SearchFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TimetablingService">
+    <wsdl:port name="BasicHttpBinding_ITimetablingService" binding="tns:BasicHttpBinding_ITimetablingService">
+      <soap:address location="http://localhost:49185/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
