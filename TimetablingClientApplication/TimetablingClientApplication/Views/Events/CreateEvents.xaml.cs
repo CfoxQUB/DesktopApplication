@@ -20,67 +20,67 @@ namespace TimetablingClientApplication
     /// </summary>
     public partial class CreateEvents : Window
     {
-        public static TimetablingService.TimetablingServiceClient client = new TimetablingService.TimetablingServiceClient();
-        int LoggedInUserId = new int();
-        public CreateEvents(int UserId)
+        public static TimetablingService.TimetablingServiceClient Client = new TimetablingService.TimetablingServiceClient();
+        int loggedInUserId;
+        public CreateEvents(int userId)
         {
             InitializeComponent();
-            LoggedInUserId = UserId;
-            var EventTypes = client.ReturnEventTypes();
+            loggedInUserId = userId;
+            var eventTypes = Client.ReturnEventTypes();
 
-            var TimesList = client.ReturnTimes();
+            var timesList = Client.ReturnTimes();
 
-            var RepeatsList = client.ReturnRepeatTypes();
+            var repeatsList = Client.ReturnRepeatTypes();
 
-            var BuildingsList = client.ReturnBuildings();
+            var buildingsList = Client.ReturnBuildings();
 
-            var CoursesList = client.ReturnCourses();
+            var coursesList = Client.ReturnCourses();
 
-            var ModulesList = client.ReturnCourseModules(CoursesList.First().CourseId);
+            var modulesList = Client.ReturnCourseModules(coursesList.First().CourseId);
 
-            var RoomsList = client.ReturnBuildingRooms(BuildingsList.First().BuildingId);
+            var roomsList = Client.ReturnBuildingRooms(buildingsList.First().BuildingId);
            
-            foreach( var x in EventTypes)
+            foreach( var x in eventTypes)
             {
                 EventTypeSelect.Items.Add(x.TypeName);
             }
 
-            foreach( var x in TimesList)
+            foreach( var x in timesList)
             {
                 TimeList.Items.Add(x.TimeLiteral);
             }
 
-            foreach (var x in RepeatsList)
+            foreach (var x in repeatsList)
             {
                 RepeatSelect.Items.Add(x.RepeatTypeName);
             }
 
-            foreach (var x in BuildingsList)
+            foreach (var x in buildingsList)
             {
                 BuildingSelect.Items.Add(x.BuildingName);
             }
 
-            foreach (var x in CoursesList)
+            foreach (var x in coursesList)
             {
                 CourseSelect.Items.Add(x.CourseName);
             }
 
-            foreach (var x in RoomsList)
+            foreach (var x in roomsList)
             {
                 RoomSelect.Items.Add(x.RoomName);
             }
 
-            EventTypeSelect.Text = EventTypes.First().TypeName;
-            TimeList.Text = TimesList.First().TimeLiteral;
-            RepeatSelect.Text = RepeatsList.First().RepeatTypeName;
-            BuildingSelect.Text = BuildingsList.First().BuildingName;
-            RoomSelect.Text = RoomsList.First().RoomName;
-            CourseSelect.Text = CoursesList.First().CourseName;
-            ModuleSelect.Text = ModulesList.First().ModuleName;
+            EventTypeSelect.Text = eventTypes.First().TypeName;
+            TimeList.Text = timesList.First().TimeLiteral;
+            RepeatSelect.Text = repeatsList.First().RepeatTypeName;
+            BuildingSelect.Text = buildingsList.First().BuildingName;
+            RoomSelect.Text = roomsList.First().RoomName;
+            CourseSelect.Text = coursesList.First().CourseName;
+            ModuleSelect.Text = modulesList.First().ModuleName;
 
-            this.DurationList.Items.Add(15);
-            this.DurationList.Items.Add(30);
-            this.DurationList.Items.Add(60);
+            DurationList.Items.Add(15);
+            DurationList.Items.Add(30);
+            DurationList.Items.Add(60);
             DurationList.Text = "15";
             StartDate.SelectedDate = DateTime.Now.Date.AddDays(7);
           
@@ -91,14 +91,14 @@ namespace TimetablingClientApplication
 
         private void MenuItem_NewEvent_Click(object sender, RoutedEventArgs e)
         {
-            CreateEvents createEvents = new CreateEvents(LoggedInUserId);
+            CreateEvents createEvents = new CreateEvents(loggedInUserId);
             createEvents.Show();
             this.Close();
         }
 
         private void MenuItem_EditEvent_Click(object sender, RoutedEventArgs e)
         {
-            EditEvents editEvents = new EditEvents(LoggedInUserId);
+            EditEvents editEvents = new EditEvents(loggedInUserId);
             editEvents.Show();
             this.Close();
         }
@@ -109,14 +109,14 @@ namespace TimetablingClientApplication
 
         public void Create_Event(object sender, RoutedEventArgs e)
         {
-           client.CreateEvent(EventTitle.Text, LoggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
+           Client.CreateEvent(EventTitle.Text, loggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
         }
 
         public void Building_Selection_Changed(object sender, RoutedEventArgs e)
         {
             var tempName = BuildingSelect.SelectedItem;
-            var buildingId = client.ReturnBuildingIdFromBuildingName(tempName.ToString());
-            var roomList = client.ReturnBuildingRooms(buildingId);
+            var buildingId = Client.ReturnBuildingIdFromBuildingName(tempName.ToString());
+            var roomList = Client.ReturnBuildingRooms(buildingId);
             RoomSelect.Items.Clear();
 
             foreach (var x in roomList)
@@ -130,8 +130,8 @@ namespace TimetablingClientApplication
         public void Course_Selection_Changed(object sender, RoutedEventArgs e)
         {
             var tempName = CourseSelect.SelectedItem;
-            var CourseId = client.ReturnCourseIdFromCourseName(tempName.ToString());
-            var moduleList = client.ReturnCourseModules(CourseId);
+            var courseId = Client.ReturnCourseIdFromCourseName(tempName.ToString());
+            var moduleList = Client.ReturnCourseModules(courseId);
             ModuleSelect.Items.Clear();
 
             foreach (var x in moduleList)
@@ -139,7 +139,7 @@ namespace TimetablingClientApplication
                 ModuleSelect.Items.Add(x.ModuleName);
             }
             ModuleSelect.Text = moduleList.First().ModuleName;
-            return;
+
         }
 
         #endregion

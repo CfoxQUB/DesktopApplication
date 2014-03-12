@@ -1,0 +1,74 @@
+﻿<Window x:Class="TimetablingClientApplication.Views.MasterViews.MasterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MasterView" WindowState="Maximized" MinWidth="1000" MinHeight="550" Height="550" Width="1000">
+  <Viewbox Stretch="UniformToFill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,-3" >
+        <Grid MinWidth="550"  Height="550" Width="1000">
+            <Menu Margin="0,0,0,525" Grid.ColumnSpan="5" Background="{x:Null}" MinHeight="30">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New Event" Click="MenuItem_NewEvent_Click">
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Edit Event" Click="MenuItem_EditEvent_Click">
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Delete Event" >
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_View All Events">
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Cut" Command="Cut">
+                        <MenuItem.Icon>
+                            <Image/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Copy" Command="Copy">
+                        <MenuItem.Icon>
+                            <Image  />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Paste" Command="Paste">
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_View">
+                    <MenuItem Header="_Timetables" Click="Menuitem_TimetableView_Click">
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Events">
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Database">
+                        <MenuItem.Icon>
+                            <Image />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Window" />
+                <MenuItem Header="_Help" />
+            </Menu>
+            <Frame Name="Frame" NavigationUIVisibility="Hidden" Source="\Views\MasterViews\EventPage.xaml" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0,22,0,55" >
+                
+            </Frame>
+
+        </Grid>
+        
+    </Viewbox>
+</Window>
