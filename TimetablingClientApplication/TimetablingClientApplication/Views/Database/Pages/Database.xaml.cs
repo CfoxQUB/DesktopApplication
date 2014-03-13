@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TimetablingClientApplication
+namespace TimetablingClientApplication.Views.Database
 {
     /// <summary>
-    /// Interaction logic for Tables.xaml
+    /// Interaction logic for Database.xaml
     /// </summary>
-    public partial class Tables : Window
+    public partial class Database : Page
     {
-        public Tables()
+        public Database()
         {
             InitializeComponent();
         }

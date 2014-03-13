@@ -186,4 +186,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RepeatType" nillable="true" type="tns:RepeatType" />
+  <xs:complexType name="ArrayOfTimetableObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimetableObject" nillable="true" type="tns:TimetableObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTimetableObject" nillable="true" type="tns:ArrayOfTimetableObject" />
+  <xs:complexType name="TimetableObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Enumerations" type="xs:int" />
+      <xs:element minOccurs="0" name="Timeslot" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimetableObject" nillable="true" type="tns:TimetableObject" />
 </xs:schema>

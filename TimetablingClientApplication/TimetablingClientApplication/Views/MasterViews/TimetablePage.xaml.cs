@@ -16,103 +16,14 @@ using System.Windows.Shapes;
 namespace TimetablingClientApplication.Views.MasterViews
 {
     /// <summary>
-    /// Interaction logic for EventPage.xaml
+    /// Interaction logic for TimetablePage.xaml
     /// </summary>
-    public partial class EventPage : Page
+    public partial class TimetablePage : Page
     {
-        private TimetablingService.TimetablingServiceClient client = new TimetablingService.TimetablingServiceClient();
-
-        private ObservableCollection<TimetablingService.Event> EventsList = new ObservableCollection<TimetablingService.Event>();
-        private bool _buildingSelected;
-        //private int LoggedInUserId;
-
-        public EventPage()
+        public TimetablePage()
         {
             InitializeComponent();
-            _buildingSelected = false;
-            //LoggedInUserId = userId;
-            var eventList = client.ReturnEvents();
-            var buildingsList = client.ReturnBuildings();
-
-            var roomsList = client.ReturnBuildingRooms(buildingsList.First().BuildingId);
-
-            if (eventList != null)
-            {
-                foreach (TimetablingService.Event e in eventList)
-                {
-                    EventsList.Add(e);
-                }
-            }
-
-            foreach (TimetablingService.Building b in buildingsList)
-            {
-                BuildingList.Items.Add(b.BuildingName);
-            }
-
-            foreach (TimetablingService.Room r in roomsList)
-            {
-                RoomList.Items.Add(r.RoomName);
-            }
-            
-            BuildingList.Text = buildingsList.First().BuildingName;
-            RoomList.Text = roomsList.First().RoomName;
-            
-           ListedEvents.ItemsSource = EventsList;
-           
-        }
-        
-        public void Building_Selection_Changed(object sender, RoutedEventArgs e)
-        {
-            _buildingSelected = false;
-            var tempName = BuildingList.SelectedItem;
-            var buildingId = client.ReturnBuildingIdFromBuildingName(tempName.ToString());
-            var roomList = client.ReturnBuildingRooms(buildingId);
-
-            RoomList.Items.Clear();         
-            
-            foreach (var x in roomList)
-            {
-                RoomList.Items.Add(x.RoomName);
-            }
-            RoomList.Text = roomList.First().RoomName;
-            var events = client.ReturnRoomEvents(roomList.First().RoomId);
-            EventsList.Clear();
- 
-            foreach (TimetablingService.Event s in events)
-            {
-                EventsList.Add(s);
-            }
-
-            ListedEvents.ItemsSource = EventsList;
-            _buildingSelected = true;
-      
         }
 
-        public void Room_Selection_Changed(object sender, RoutedEventArgs e)
-        {
-            if (_buildingSelected == false)
-            {
-                _buildingSelected = true;
-                return;
-            }
-
-            var tempName = BuildingList.SelectedItem;
-            var buildingId = client.ReturnBuildingIdFromBuildingName(tempName.ToString());
-
-            var tempRoom = RoomList.SelectedItem;
-            var roomId = client.ReturnRoomId(buildingId, RoomList.SelectedItem.ToString());
-            var events = client.ReturnRoomEvents(roomId);
-     
-            EventsList.Clear();
-
-            foreach (TimetablingService.Event s in events)
-            {
-                EventsList.Add(s);
-            }
-
-            ListedEvents.ItemsSource = EventsList;
-           
-        }
-    
     }
 }

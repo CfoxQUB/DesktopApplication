@@ -41,8 +41,7 @@ namespace TimetablingClientApplication.Views.MasterViews
 
         private void Menuitem_TimetableView_Click(object sender, RoutedEventArgs e)
         {
-            Timetable timetableView = new Timetable(_userId);
-            timetableView.Show();
+            Frame.Navigate(new TimetablePage());
         }
         #endregion
     }

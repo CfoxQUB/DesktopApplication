@@ -1468,6 +1468,67 @@ namespace TimetablingClientApplication.TimetablingService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TimetableObject", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class TimetableObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EnumerationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TimeslotField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Enumerations {
+            get {
+                return this.EnumerationsField;
+            }
+            set {
+                if ((this.EnumerationsField.Equals(value) != true)) {
+                    this.EnumerationsField = value;
+                    this.RaisePropertyChanged("Enumerations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Timeslot {
+            get {
+                return this.TimeslotField;
+            }
+            set {
+                if ((this.TimeslotField.Equals(value) != true)) {
+                    this.TimeslotField = value;
+                    this.RaisePropertyChanged("Timeslot");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TimetablingService.ITimetablingService")]
     public interface ITimetablingService {
@@ -1587,10 +1648,10 @@ namespace TimetablingClientApplication.TimetablingService {
         System.Threading.Tasks.Task<int> ReturnRoomBuildingAsync(int roomId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRoomEvents", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRoomEventsResponse")]
-        TimetablingClientApplication.TimetablingService.Event[] ReturnRoomEvents(int RoomName);
+        TimetablingClientApplication.TimetablingService.Event[] ReturnRoomEvents(int roomName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRoomEvents", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRoomEventsResponse")]
-        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnRoomEventsAsync(int RoomName);
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnRoomEventsAsync(int roomName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimesResponse")]
         TimetablingClientApplication.TimetablingService.Time[] ReturnTimes();
@@ -1603,6 +1664,12 @@ namespace TimetablingClientApplication.TimetablingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRepeatTypesResponse")]
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.RepeatType[]> ReturnRepeatTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplay", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayResponse")]
+        TimetablingClientApplication.TimetablingService.TimetableObject[] ReturnTimetableDisplay();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplay", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayResponse")]
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableObject[]> ReturnTimetableDisplayAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewBuilding", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse")]
         int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity);
@@ -1820,12 +1887,12 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.ReturnRoomBuildingAsync(roomId);
         }
         
-        public TimetablingClientApplication.TimetablingService.Event[] ReturnRoomEvents(int RoomName) {
-            return base.Channel.ReturnRoomEvents(RoomName);
+        public TimetablingClientApplication.TimetablingService.Event[] ReturnRoomEvents(int roomName) {
+            return base.Channel.ReturnRoomEvents(roomName);
         }
         
-        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnRoomEventsAsync(int RoomName) {
-            return base.Channel.ReturnRoomEventsAsync(RoomName);
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnRoomEventsAsync(int roomName) {
+            return base.Channel.ReturnRoomEventsAsync(roomName);
         }
         
         public TimetablingClientApplication.TimetablingService.Time[] ReturnTimes() {
@@ -1842,6 +1909,14 @@ namespace TimetablingClientApplication.TimetablingService {
         
         public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.RepeatType[]> ReturnRepeatTypesAsync() {
             return base.Channel.ReturnRepeatTypesAsync();
+        }
+        
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] ReturnTimetableDisplay() {
+            return base.Channel.ReturnTimetableDisplay();
+        }
+        
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableObject[]> ReturnTimetableDisplayAsync() {
+            return base.Channel.ReturnTimetableDisplayAsync();
         }
         
         public int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity) {

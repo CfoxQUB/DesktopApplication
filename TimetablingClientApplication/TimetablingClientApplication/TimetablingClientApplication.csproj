@@ -56,13 +56,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\Events\CreateEvents.xaml.cs">
+    <Compile Include="Service References\TimetablingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Pages\Database.xaml.cs">
+      <DependentUpon>Database.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\Windows\CreateEvents.xaml.cs">
       <DependentUpon>CreateEvents.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Events\EditEvents.xaml.cs">
+    <Compile Include="Views\Events\Windows\EditEvents.xaml.cs">
       <DependentUpon>EditEvents.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MasterViews\EventPage.xaml.cs">
+    <Compile Include="Views\MasterViews\TimetablePage.xaml.cs">
+      <DependentUpon>TimetablePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\Pages\EventPage.xaml.cs">
       <DependentUpon>EventPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MasterViews\MasterView.xaml.cs">
@@ -71,30 +82,23 @@
     <Compile Include="Views\Startup\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service References\TimetablingService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Database\Tables.xaml.cs">
-      <DependentUpon>Tables.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Timetables\Timetable.xaml.cs">
-      <DependentUpon>Timetable.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Views\Events\CreateEvents.xaml">
+    <Page Include="Views\Database\Pages\Database.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Events\EditEvents.xaml">
+    <Page Include="Views\Events\Windows\CreateEvents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Events\Event.xaml">
+    <Page Include="Views\Events\Windows\EditEvents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MasterViews\EventPage.xaml">
+    <Page Include="Views\MasterViews\TimetablePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Events\Pages\EventPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,22 +114,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\Events\Event.xaml.cs">
-      <DependentUpon>Event.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Startup\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Startup\Register.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Database\Tables.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Timetables\Timetable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,6 +182,9 @@
     <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.Time.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.TimetableObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.UserType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -201,6 +197,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Database\Windows\" />
+    <Folder Include="Views\Timetables\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\TimetablingService\" />
@@ -217,7 +217,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

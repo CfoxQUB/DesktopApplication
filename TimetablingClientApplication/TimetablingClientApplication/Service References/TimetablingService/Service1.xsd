@@ -282,7 +282,7 @@
   <xs:element name="ReturnRoomEvents">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RoomName" type="xs:int" />
+        <xs:element minOccurs="0" name="roomName" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -314,6 +314,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnRepeatTypesResult" nillable="true" type="q13:ArrayOfRepeatType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnTimetableDisplay">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnTimetableDisplayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnTimetableDisplayResult" nillable="true" type="q14:ArrayOfTimetableObject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -408,7 +420,7 @@
   <xs:element name="SearchFunctionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="SearchFunctionResult" nillable="true" type="q14:ArrayOfEvent" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="SearchFunctionResult" nillable="true" type="q15:ArrayOfEvent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

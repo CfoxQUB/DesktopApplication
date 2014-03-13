@@ -64,7 +64,7 @@
                 <MenuItem Header="_Window" />
                 <MenuItem Header="_Help" />
             </Menu>
-            <Frame Name="Frame" NavigationUIVisibility="Hidden" Source="\Views\MasterViews\EventPage.xaml" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0,22,0,55" >
+            <Frame Name="Frame" NavigationUIVisibility="Hidden" Source="\Views\Events\Pages\EventPage.xaml" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0,22,0,55" >
                 
             </Frame>
 

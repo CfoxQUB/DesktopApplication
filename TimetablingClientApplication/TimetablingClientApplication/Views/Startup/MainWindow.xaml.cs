@@ -85,9 +85,7 @@ namespace TimetablingClientApplication
             {
                 validationError.Content = "Login Success";
 
-                Event openApplication= new Event(loginStatus);
-                openApplication.Show();
-                this.Close();
+                
             }
             else 
             {
