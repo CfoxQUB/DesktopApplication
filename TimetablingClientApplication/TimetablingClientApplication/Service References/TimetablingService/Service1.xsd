@@ -122,6 +122,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ReturnTimetableDisplayListObject">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnTimetableDisplayListObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnTimetableDisplayListObjectResult" nillable="true" type="q3:TimetableDisplayListObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ReturnEvents">
     <xs:complexType>
       <xs:sequence />
@@ -130,7 +142,7 @@
   <xs:element name="ReturnEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventsResult" nillable="true" type="q3:ArrayOfEvent" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventsResult" nillable="true" type="q4:ArrayOfEvent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -142,19 +154,7 @@
   <xs:element name="ReturnEventTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventTypesResult" nillable="true" type="q4:ArrayOfEventType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReturnUserTypes">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReturnUserTypesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnUserTypesResult" nillable="true" type="q5:ArrayOfUserType" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventTypesResult" nillable="true" type="q5:ArrayOfEventType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -317,15 +317,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReturnTimetableDisplay">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReturnTimetableDisplayResponse">
+  <xs:element name="ReturnWeeksEventsiWithFilters">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnTimetableDisplayResult" nillable="true" type="q14:ArrayOfTimetableObject" />
+        <xs:element minOccurs="0" name="dateRequested" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
+        <xs:element minOccurs="0" name="moduleId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnWeeksEventsiWithFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnWeeksEventsiWithFiltersResult" nillable="true" type="q14:ArrayOfEvent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

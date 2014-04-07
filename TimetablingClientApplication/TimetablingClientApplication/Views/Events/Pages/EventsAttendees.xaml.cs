@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TimetablingClientApplication.Views.MasterViews
+namespace TimetablingClientApplication.Views.Events.Pages
 {
     /// <summary>
-    /// Interaction logic for TimetablePage.xaml
+    /// Interaction logic for EventsAttendees.xaml
     /// </summary>
-    public partial class TimetablePage : Page
+    public partial class EventsAttendees : Page
     {
-        public TimetablePage()
+        public EventsAttendees()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MasterView" WindowState="Maximized" MinWidth="1000" MinHeight="550" Height="550" Width="1000">
   <Viewbox Stretch="UniformToFill" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,-3" >
-        <Grid MinWidth="550"  Height="550" Width="1000">
+        <Grid MinWidth="550"  Height="589" Width="1115">
             <Menu Margin="0,0,0,525" Grid.ColumnSpan="5" Background="{x:Null}" MinHeight="30">
                 <MenuItem Header="_File">
                     <MenuItem Header="_New Event" Click="MenuItem_NewEvent_Click">
@@ -50,7 +50,7 @@
                             <Image />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Events">
+                    <MenuItem Header="_Weekly" Click="Menuitem_WeeklyView_Click">
                         <MenuItem.Icon>
                             <Image />
                         </MenuItem.Icon>
@@ -64,10 +64,32 @@
                 <MenuItem Header="_Window" />
                 <MenuItem Header="_Help" />
             </Menu>
-            <Frame Name="Frame" NavigationUIVisibility="Hidden" Source="\Views\Events\Pages\EventPage.xaml" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0,22,0,55" >
-                
-            </Frame>
-
+            <TreeView Name="NavigationTreeView" HorizontalAlignment="Left" Height="357" VerticalAlignment="Top" Margin="25,74,0,0" Width="122" BorderThickness="0,1,1,1" BorderBrush="#FFBABDC3" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TreeViewItem IsExpanded="True" Header="Timetables" FontSize="11" Height="56" Width="152">
+                    <TreeViewItem Header="Overview" Margin="-10,0,0,0" MouseDoubleClick="Open_Timetable_Summary_Page"/>
+                    <TreeViewItem Header="Timetables" Margin="-11,0,0,0" MouseDoubleClick="Open_Timetable_Building_Page"/>
+                    
+                </TreeViewItem>
+                <TreeViewItem IsExpanded="True" x:Name="TimeTableMain" Header="Events" FontSize="11" Height="88" Width="152">
+                    <TreeViewItem x:Name="TimeTableSub1" Header="Create Event" Margin="-9,0,0,0" MouseDoubleClick="Open_Event_Page"/>
+                    <TreeViewItem x:Name="TimeTableSub2" Header="Edit Events" Margin="-9,0,0,0" MouseDoubleClick="Open_Edit_Events_Page"/>
+                    <TreeViewItem x:Name="TimeTableSub3" Header="Events Summary" Margin="-9,0,0,0" MouseDoubleClick="Open_Events_Summary_Page"/>
+                    <TreeViewItem x:Name="Timetablesub4" Header="Events Attendees" Margin="-9,0,0,0" MouseDoubleClick="Open_Events_Attendees_Page"/>
+                </TreeViewItem>
+                <TreeViewItem IsExpanded="True" Header="Database" FontSize="11" Height="116" Width="152">
+                    <TreeViewItem Header="Events" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Buildings" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Courses" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Students" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Staff" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Settings" Margin="-11,0,0,0"/>
+                </TreeViewItem>
+            </TreeView>
+            <Button Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="25,436,0,0" VerticalAlignment="Top" Width="54" Click="Button_Click_1" Height="25"/>
+            <Button Name="ForwardButton" Content="Next" HorizontalAlignment="Left" Margin="93,436,0,0" VerticalAlignment="Top" Width="54" Click="Button_Click_2" Height="25"/>
+            <Label Content="Navigation" FontSize="16" FontWeight="Medium" Margin="25,43,968,515"/>
+            <Frame Name="Frame" Source="\Views\Timetables\Pages\TimetableToolPage.xaml" HorizontalContentAlignment="Stretch" Margin="175,22,-10,37" Height="530" Width="930" VerticalContentAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+            
         </Grid>
         
     </Viewbox>

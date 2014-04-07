@@ -2,16 +2,15 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ConorFoxProject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="User">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="CurrentlyLoggedIn" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastLogin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastLogin" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserForename" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserId" type="xs:int" />
       <xs:element minOccurs="0" name="UserSurname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserTitle" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UserType" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserType" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
@@ -24,25 +23,50 @@
   <xs:complexType name="Event">
     <xs:sequence>
       <xs:element minOccurs="0" name="AdditionalNotes" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Attendants" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Course" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Course" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Duration" type="xs:int" />
       <xs:element minOccurs="0" name="EventDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventId" type="xs:int" />
       <xs:element minOccurs="0" name="EventTitle" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EventType" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="LastDateEdited" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="LastUserEdited" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Module" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Repeats" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventType" type="xs:int" />
+      <xs:element minOccurs="0" name="LastDateEdited" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastUserEdited" type="xs:int" />
+      <xs:element minOccurs="0" name="Module" type="xs:int" />
+      <xs:element minOccurs="0" name="Repeats" type="xs:int" />
+      <xs:element minOccurs="0" name="Room" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Time" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Event" nillable="true" type="tns:Event" />
+  <xs:complexType name="TimetableDisplayListObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FridayList" nillable="true" type="tns:ArrayOfTimetableObject" />
+      <xs:element minOccurs="0" name="MondayList" nillable="true" type="tns:ArrayOfTimetableObject" />
+      <xs:element minOccurs="0" name="SaturdayList" nillable="true" type="tns:ArrayOfTimetableObject" />
+      <xs:element minOccurs="0" name="SundayList" nillable="true" type="tns:ArrayOfTimetableObject" />
+      <xs:element minOccurs="0" name="ThursdayList" nillable="true" type="tns:ArrayOfTimetableObject" />
+      <xs:element minOccurs="0" name="TuesdayList" nillable="true" type="tns:ArrayOfTimetableObject" />
+      <xs:element minOccurs="0" name="WednesdayList" nillable="true" type="tns:ArrayOfTimetableObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimetableDisplayListObject" nillable="true" type="tns:TimetableDisplayListObject" />
+  <xs:complexType name="ArrayOfTimetableObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimetableObject" nillable="true" type="tns:TimetableObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTimetableObject" nillable="true" type="tns:ArrayOfTimetableObject" />
+  <xs:complexType name="TimetableObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Enumerations" type="xs:int" />
+      <xs:element minOccurs="0" name="Percentage" type="xs:int" />
+      <xs:element minOccurs="0" name="Timeslot" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimetableObject" nillable="true" type="tns:TimetableObject" />
   <xs:complexType name="ArrayOfEventType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EventType" nillable="true" type="tns:EventType" />
@@ -60,20 +84,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EventType" nillable="true" type="tns:EventType" />
-  <xs:complexType name="ArrayOfUserType">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserType" nillable="true" type="tns:UserType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfUserType" nillable="true" type="tns:ArrayOfUserType" />
-  <xs:complexType name="UserType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="UserTypeDescription" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UserTypeId" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UserType" nillable="true" type="tns:UserType" />
   <xs:complexType name="ArrayOfRoomType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RoomType" nillable="true" type="tns:RoomType" />
@@ -82,7 +92,7 @@
   <xs:element name="ArrayOfRoomType" nillable="true" type="tns:ArrayOfRoomType" />
   <xs:complexType name="RoomType">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="RoomTypeId" type="xs:int" />
       <xs:element minOccurs="0" name="RoomeTypeDescription" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -100,7 +110,7 @@
       <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BuildingId" type="xs:int" />
       <xs:element minOccurs="0" name="BuildingName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BuildingNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BuildingNumber" type="xs:int" />
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -117,9 +127,9 @@
       <xs:element minOccurs="0" name="CourseDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CourseId" type="xs:int" />
       <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
+      <xs:element minOccurs="0" name="Duration" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Course" nillable="true" type="tns:Course" />
@@ -131,9 +141,9 @@
   <xs:element name="ArrayOfModule" nillable="true" type="tns:ArrayOfModule" />
   <xs:complexType name="Module">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="LastEdited" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
+      <xs:element minOccurs="0" name="LastEdited" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ModuleDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModuleId" type="xs:int" />
       <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
@@ -148,12 +158,12 @@
   <xs:element name="ArrayOfRoom" nillable="true" type="tns:ArrayOfRoom" />
   <xs:complexType name="Room">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Building" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Capacity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Building" type="xs:int" />
+      <xs:element minOccurs="0" name="Capacity" type="xs:int" />
       <xs:element minOccurs="0" name="RoomDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RoomId" type="xs:int" />
       <xs:element minOccurs="0" name="RoomName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RoomType" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RoomType" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Room" nillable="true" type="tns:Room" />
@@ -179,24 +189,11 @@
   <xs:element name="ArrayOfRepeatType" nillable="true" type="tns:ArrayOfRepeatType" />
   <xs:complexType name="RepeatType">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="RepeatDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RepeatTypeId" type="xs:int" />
       <xs:element minOccurs="0" name="RepeatTypeName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RepeatType" nillable="true" type="tns:RepeatType" />
-  <xs:complexType name="ArrayOfTimetableObject">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimetableObject" nillable="true" type="tns:TimetableObject" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTimetableObject" nillable="true" type="tns:ArrayOfTimetableObject" />
-  <xs:complexType name="TimetableObject">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Enumerations" type="xs:int" />
-      <xs:element minOccurs="0" name="Timeslot" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TimetableObject" nillable="true" type="tns:TimetableObject" />
 </xs:schema>

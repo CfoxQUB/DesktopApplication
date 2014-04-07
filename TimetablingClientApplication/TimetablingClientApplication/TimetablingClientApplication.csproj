@@ -64,14 +64,20 @@
     <Compile Include="Views\Database\Pages\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Events\Pages\CreateEventsPage.xaml.cs">
+      <DependentUpon>CreateEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\Pages\EditEventsPage.xaml.cs">
+      <DependentUpon>EditEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\Pages\EventsAttendees.xaml.cs">
+      <DependentUpon>EventsAttendees.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Events\Windows\CreateEvents.xaml.cs">
       <DependentUpon>CreateEvents.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Events\Windows\EditEvents.xaml.cs">
       <DependentUpon>EditEvents.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MasterViews\TimetablePage.xaml.cs">
-      <DependentUpon>TimetablePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Events\Pages\EventPage.xaml.cs">
       <DependentUpon>EventPage.xaml</DependentUpon>
@@ -79,10 +85,28 @@
     <Compile Include="Views\MasterViews\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Startup\Register.xaml.cs">
+    <Compile Include="Views\Startup\Windows\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Timetables\Pages\RoomTimetableTool.xaml.cs">
+      <DependentUpon>RoomTimetableTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Timetables\Pages\TimetableToolPage.xaml.cs">
+      <DependentUpon>TimetableToolPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Database\Pages\Database.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\Pages\CreateEventsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\Pages\EditEventsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\Pages\EventsAttendees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,10 +118,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MasterViews\TimetablePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\Events\Pages\EventPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,7 +126,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Startup\MainWindow.xaml">
+    <Page Include="Views\Startup\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -114,11 +134,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\Startup\MainWindow.xaml.cs">
+    <Compile Include="Views\Startup\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Startup\Register.xaml">
+    <Page Include="Views\Startup\Windows\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Timetables\Pages\RoomTimetableTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Timetables\Pages\TimetableToolPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,10 +210,7 @@
     <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.Time.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.TimetableObject.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.UserType.datasource">
+    <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.TimetableDisplayListObject.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TimetablingService\TimetablingService.wsdl" />
@@ -200,7 +225,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Database\Windows\" />
-    <Folder Include="Views\Timetables\" />
+    <Folder Include="Views\Startup\Pages\" />
+    <Folder Include="Views\Timetables\Windows\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\TimetablingService\" />

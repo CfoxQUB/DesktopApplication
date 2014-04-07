@@ -23,13 +23,10 @@ namespace TimetablingClientApplication.TimetablingService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CurrentlyLoggedInField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> LastLoginField;
+        private System.DateTime LastLoginField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -50,7 +47,7 @@ namespace TimetablingClientApplication.TimetablingService {
         private string UserTitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> UserTypeField;
+        private int UserTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -63,7 +60,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -76,20 +73,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CurrentlyLoggedIn {
-            get {
-                return this.CurrentlyLoggedInField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CurrentlyLoggedInField, value) != true)) {
-                    this.CurrentlyLoggedInField = value;
-                    this.RaisePropertyChanged("CurrentlyLoggedIn");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastLogin {
+        public System.DateTime LastLogin {
             get {
                 return this.LastLoginField;
             }
@@ -180,7 +164,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> UserType {
+        public int UserType {
             get {
                 return this.UserTypeField;
             }
@@ -215,16 +199,13 @@ namespace TimetablingClientApplication.TimetablingService {
         private string AdditionalNotesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> AttendantsField;
+        private int CourseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CourseField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DurationField;
+        private int DurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EventDescriptionField;
@@ -236,31 +217,31 @@ namespace TimetablingClientApplication.TimetablingService {
         private string EventTitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> EventTypeField;
+        private int EventTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> LastDateEditedField;
+        private System.DateTime LastDateEditedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> LastUserEditedField;
+        private int LastUserEditedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> ModuleField;
+        private int ModuleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RepeatsField;
+        private int RepeatsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RoomField;
+        private int RoomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> StartDateField;
+        private System.DateTime StartDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> TimeField;
+        private int TimeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -286,20 +267,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Attendants {
-            get {
-                return this.AttendantsField;
-            }
-            set {
-                if ((this.AttendantsField.Equals(value) != true)) {
-                    this.AttendantsField = value;
-                    this.RaisePropertyChanged("Attendants");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Course {
+        public int Course {
             get {
                 return this.CourseField;
             }
@@ -312,7 +280,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -325,7 +293,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Duration {
+        public int Duration {
             get {
                 return this.DurationField;
             }
@@ -377,7 +345,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> EventType {
+        public int EventType {
             get {
                 return this.EventTypeField;
             }
@@ -390,7 +358,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastDateEdited {
+        public System.DateTime LastDateEdited {
             get {
                 return this.LastDateEditedField;
             }
@@ -403,7 +371,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LastUserEdited {
+        public int LastUserEdited {
             get {
                 return this.LastUserEditedField;
             }
@@ -416,7 +384,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Module {
+        public int Module {
             get {
                 return this.ModuleField;
             }
@@ -429,7 +397,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Repeats {
+        public int Repeats {
             get {
                 return this.RepeatsField;
             }
@@ -442,7 +410,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Room {
+        public int Room {
             get {
                 return this.RoomField;
             }
@@ -455,7 +423,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> StartDate {
+        public System.DateTime StartDate {
             get {
                 return this.StartDateField;
             }
@@ -481,7 +449,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Time {
+        public int Time {
             get {
                 return this.TimeField;
             }
@@ -489,6 +457,224 @@ namespace TimetablingClientApplication.TimetablingService {
                 if ((this.TimeField.Equals(value) != true)) {
                     this.TimeField = value;
                     this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TimetableDisplayListObject", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class TimetableDisplayListObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableObject[] FridayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableObject[] MondayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableObject[] SaturdayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableObject[] SundayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableObject[] ThursdayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableObject[] TuesdayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableObject[] WednesdayListField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] FridayList {
+            get {
+                return this.FridayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FridayListField, value) != true)) {
+                    this.FridayListField = value;
+                    this.RaisePropertyChanged("FridayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] MondayList {
+            get {
+                return this.MondayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MondayListField, value) != true)) {
+                    this.MondayListField = value;
+                    this.RaisePropertyChanged("MondayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] SaturdayList {
+            get {
+                return this.SaturdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SaturdayListField, value) != true)) {
+                    this.SaturdayListField = value;
+                    this.RaisePropertyChanged("SaturdayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] SundayList {
+            get {
+                return this.SundayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SundayListField, value) != true)) {
+                    this.SundayListField = value;
+                    this.RaisePropertyChanged("SundayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] ThursdayList {
+            get {
+                return this.ThursdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ThursdayListField, value) != true)) {
+                    this.ThursdayListField = value;
+                    this.RaisePropertyChanged("ThursdayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] TuesdayList {
+            get {
+                return this.TuesdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TuesdayListField, value) != true)) {
+                    this.TuesdayListField = value;
+                    this.RaisePropertyChanged("TuesdayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableObject[] WednesdayList {
+            get {
+                return this.WednesdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WednesdayListField, value) != true)) {
+                    this.WednesdayListField = value;
+                    this.RaisePropertyChanged("WednesdayList");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TimetableObject", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class TimetableObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EnumerationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PercentageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TimeslotField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Enumerations {
+            get {
+                return this.EnumerationsField;
+            }
+            set {
+                if ((this.EnumerationsField.Equals(value) != true)) {
+                    this.EnumerationsField = value;
+                    this.RaisePropertyChanged("Enumerations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Percentage {
+            get {
+                return this.PercentageField;
+            }
+            set {
+                if ((this.PercentageField.Equals(value) != true)) {
+                    this.PercentageField = value;
+                    this.RaisePropertyChanged("Percentage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Timeslot {
+            get {
+                return this.TimeslotField;
+            }
+            set {
+                if ((this.TimeslotField.Equals(value) != true)) {
+                    this.TimeslotField = value;
+                    this.RaisePropertyChanged("Timeslot");
                 }
             }
         }
@@ -630,83 +816,6 @@ namespace TimetablingClientApplication.TimetablingService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserType", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
-    [System.SerializableAttribute()]
-    public partial class UserType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreateDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserTypeDescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserTypeIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreateDate {
-            get {
-                return this.CreateDateField;
-            }
-            set {
-                if ((this.CreateDateField.Equals(value) != true)) {
-                    this.CreateDateField = value;
-                    this.RaisePropertyChanged("CreateDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserTypeDescription {
-            get {
-                return this.UserTypeDescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserTypeDescriptionField, value) != true)) {
-                    this.UserTypeDescriptionField = value;
-                    this.RaisePropertyChanged("UserTypeDescription");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserTypeId {
-            get {
-                return this.UserTypeIdField;
-            }
-            set {
-                if ((this.UserTypeIdField.Equals(value) != true)) {
-                    this.UserTypeIdField = value;
-                    this.RaisePropertyChanged("UserTypeId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RoomType", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
     [System.SerializableAttribute()]
     public partial class RoomType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -715,7 +824,7 @@ namespace TimetablingClientApplication.TimetablingService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RoomTypeIdField;
@@ -734,7 +843,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -804,7 +913,7 @@ namespace TimetablingClientApplication.TimetablingService {
         private string BuildingNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> BuildingNumberField;
+        private int BuildingNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CityField;
@@ -875,7 +984,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> BuildingNumber {
+        public int BuildingNumber {
             get {
                 return this.BuildingNumberField;
             }
@@ -942,13 +1051,13 @@ namespace TimetablingClientApplication.TimetablingService {
         private string CourseNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CreatorField;
+        private int CreatorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DurationField;
+        private int DurationField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1000,7 +1109,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -1013,7 +1122,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Creator {
+        public int Creator {
             get {
                 return this.CreatorField;
             }
@@ -1026,7 +1135,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Duration {
+        public int Duration {
             get {
                 return this.DurationField;
             }
@@ -1058,13 +1167,13 @@ namespace TimetablingClientApplication.TimetablingService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CreatorField;
+        private int CreatorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> LastEditedField;
+        private System.DateTime LastEditedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ModuleDescriptionField;
@@ -1086,7 +1195,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -1099,7 +1208,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Creator {
+        public int Creator {
             get {
                 return this.CreatorField;
             }
@@ -1112,7 +1221,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastEdited {
+        public System.DateTime LastEdited {
             get {
                 return this.LastEditedField;
             }
@@ -1183,10 +1292,10 @@ namespace TimetablingClientApplication.TimetablingService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> BuildingField;
+        private int BuildingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CapacityField;
+        private int CapacityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RoomDescriptionField;
@@ -1198,7 +1307,7 @@ namespace TimetablingClientApplication.TimetablingService {
         private string RoomNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RoomTypeField;
+        private int RoomTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1211,7 +1320,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Building {
+        public int Building {
             get {
                 return this.BuildingField;
             }
@@ -1224,7 +1333,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Capacity {
+        public int Capacity {
             get {
                 return this.CapacityField;
             }
@@ -1276,7 +1385,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> RoomType {
+        public int RoomType {
             get {
                 return this.RoomTypeField;
             }
@@ -1385,7 +1494,7 @@ namespace TimetablingClientApplication.TimetablingService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RepeatDescriptionField;
@@ -1407,7 +1516,7 @@ namespace TimetablingClientApplication.TimetablingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -1468,67 +1577,6 @@ namespace TimetablingClientApplication.TimetablingService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TimetableObject", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
-    [System.SerializableAttribute()]
-    public partial class TimetableObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EnumerationsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TimeslotField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Enumerations {
-            get {
-                return this.EnumerationsField;
-            }
-            set {
-                if ((this.EnumerationsField.Equals(value) != true)) {
-                    this.EnumerationsField = value;
-                    this.RaisePropertyChanged("Enumerations");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Timeslot {
-            get {
-                return this.TimeslotField;
-            }
-            set {
-                if ((this.TimeslotField.Equals(value) != true)) {
-                    this.TimeslotField = value;
-                    this.RaisePropertyChanged("Timeslot");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TimetablingService.ITimetablingService")]
     public interface ITimetablingService {
@@ -1575,6 +1623,12 @@ namespace TimetablingClientApplication.TimetablingService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEvents", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsResponse")]
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnWeeksEventsAsync(System.DateTime weekBeginning, int roomId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObject", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObjectResponse")]
+        TimetablingClientApplication.TimetablingService.TimetableDisplayListObject ReturnTimetableDisplayListObject();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObject", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObjectResponse")]
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableDisplayListObject> ReturnTimetableDisplayListObjectAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnEvents", ReplyAction="http://tempuri.org/ITimetablingService/ReturnEventsResponse")]
         TimetablingClientApplication.TimetablingService.Event[] ReturnEvents();
         
@@ -1586,12 +1640,6 @@ namespace TimetablingClientApplication.TimetablingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnEventTypes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnEventTypesResponse")]
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.EventType[]> ReturnEventTypesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnUserTypes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnUserTypesResponse")]
-        TimetablingClientApplication.TimetablingService.UserType[] ReturnUserTypes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnUserTypes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnUserTypesResponse")]
-        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.UserType[]> ReturnUserTypesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRoomTypes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRoomTypesResponse")]
         TimetablingClientApplication.TimetablingService.RoomType[] ReturnRoomTypes();
@@ -1665,11 +1713,11 @@ namespace TimetablingClientApplication.TimetablingService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRepeatTypesResponse")]
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.RepeatType[]> ReturnRepeatTypesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplay", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayResponse")]
-        TimetablingClientApplication.TimetablingService.TimetableObject[] ReturnTimetableDisplay();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFiltersResponse")]
+        TimetablingClientApplication.TimetablingService.Event[] ReturnWeeksEventsiWithFilters(System.DateTime dateRequested, int roomId, int moduleId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplay", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayResponse")]
-        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableObject[]> ReturnTimetableDisplayAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFiltersResponse")]
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnWeeksEventsiWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewBuilding", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse")]
         int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity);
@@ -1791,6 +1839,14 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.ReturnWeeksEventsAsync(weekBeginning, roomId);
         }
         
+        public TimetablingClientApplication.TimetablingService.TimetableDisplayListObject ReturnTimetableDisplayListObject() {
+            return base.Channel.ReturnTimetableDisplayListObject();
+        }
+        
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableDisplayListObject> ReturnTimetableDisplayListObjectAsync() {
+            return base.Channel.ReturnTimetableDisplayListObjectAsync();
+        }
+        
         public TimetablingClientApplication.TimetablingService.Event[] ReturnEvents() {
             return base.Channel.ReturnEvents();
         }
@@ -1805,14 +1861,6 @@ namespace TimetablingClientApplication.TimetablingService {
         
         public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.EventType[]> ReturnEventTypesAsync() {
             return base.Channel.ReturnEventTypesAsync();
-        }
-        
-        public TimetablingClientApplication.TimetablingService.UserType[] ReturnUserTypes() {
-            return base.Channel.ReturnUserTypes();
-        }
-        
-        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.UserType[]> ReturnUserTypesAsync() {
-            return base.Channel.ReturnUserTypesAsync();
         }
         
         public TimetablingClientApplication.TimetablingService.RoomType[] ReturnRoomTypes() {
@@ -1911,12 +1959,12 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.ReturnRepeatTypesAsync();
         }
         
-        public TimetablingClientApplication.TimetablingService.TimetableObject[] ReturnTimetableDisplay() {
-            return base.Channel.ReturnTimetableDisplay();
+        public TimetablingClientApplication.TimetablingService.Event[] ReturnWeeksEventsiWithFilters(System.DateTime dateRequested, int roomId, int moduleId) {
+            return base.Channel.ReturnWeeksEventsiWithFilters(dateRequested, roomId, moduleId);
         }
         
-        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableObject[]> ReturnTimetableDisplayAsync() {
-            return base.Channel.ReturnTimetableDisplayAsync();
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnWeeksEventsiWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId) {
+            return base.Channel.ReturnWeeksEventsiWithFiltersAsync(dateRequested, roomId, moduleId);
         }
         
         public int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity) {

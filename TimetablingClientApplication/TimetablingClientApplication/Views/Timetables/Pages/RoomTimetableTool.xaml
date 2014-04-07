@@ -1,0 +1,99 @@
+﻿<Page x:Class="TimetablingClientApplication.Views.Timetables.Pages.RoomTimetableTool"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="RoomTimetableTool" MinHeight="530" MinWidth="930" Height="530" Width="930">
+
+    <Grid MinHeight="530" MinWidth="930" Height="530" Width="930">
+        <Label Name="DateTitle" Content="Date:" BorderThickness="0" Margin="240,9,647,494" Background="{x:Null}" FontSize="11"/>
+        <Label  Content="Building:" BorderThickness="0" Margin="129,382,736,113" Background="{x:Null}" FontSize="11"/>
+        <ComboBox Name="BuildingSelect" Margin="199,381,543,124" Background="{x:Null}" FontSize="11" SelectionChanged="Building_Selection_Changed"/>
+        <Label  Content="Room:" BorderThickness="0"  Margin="424,382,451,117" Background="{x:Null}" FontSize="11"/>
+        <ComboBox Name="RoomSelect" Margin="501,382,241,123" Background="{x:Null}" FontSize="11"/>
+        <Label Content="Course:" BorderThickness="0" Margin="129,430,736,65" Background="{x:Null}" FontSize="11"/>
+        <ComboBox Name="CourseSelect"  Margin="199,429,543,76" Background="{x:Null}" FontSize="11" SelectionChanged="Course_Selection_Changed"/>
+        <Label  Content="Module:" BorderThickness="0"  Margin="424,430,451,69" Background="{x:Null}" FontSize="11"/>
+        <ComboBox Name="ModuleSelect" Margin="501,430,241,75" Background="{x:Null}" FontSize="11"/>
+
+
+        <DatePicker Name="DateSelected" HorizontalAlignment="Left" Margin="281,10,0,0" VerticalAlignment="Top" Height="26" Width="145" FontSize="11" />
+        <Label Content="Monday" Name="Mon1" BorderThickness="0" Margin="124,54,699,437" Background="{x:Null}"/>
+        <Label Content="Tuesday" Name="Tue1" BorderThickness="0"  Margin="230,54,595,437" Background="{x:Null}" />
+        <Label Content="Wednesday" Name="Wed1" BorderThickness="0" Margin="335,54,486,437" Background="{x:Null}"/>
+        <Label Content="Thursday" Name="Thu1" BorderThickness="0"  Margin="443,54,380,437" Background="{x:Null}"/>
+        <Label Content="Friday" Name="Fri1" BorderThickness="0" Margin="550,54,272,437" Background="{x:Null}"/>
+        <Label Content="Saturday" Name="Sat1" BorderThickness="0" Margin="658,54,167,437" Background="{x:Null}"/>
+        <Label Content="Sunday" Name="Sun1" BorderThickness="0" Margin="762,54,61,437" Background="{x:Null}"/>
+        <Label Content="9:00 am" Margin="57,78,765,413" FontSize="10"/>
+        <Label Content="10:00 am" Margin="52,113,770,385" FontSize="10"/>
+        <Label Content="11:00 am" Margin="52,145,770,353" FontSize="10"/>
+        <Label Content="12:00 am" Margin="52,177,770,322" FontSize="10"/>
+        <Label Content="1:00 pm" Margin="60,208,763,290" FontSize="10"/>
+        <Label Content="2:00 pm" Margin="60,240,763,258" FontSize="10"/>
+        <Label Content="3:00 pm" Margin="60,272,763,226" FontSize="10"/>
+        <Label Content="4:00 pm" Margin="60,304,763,194" FontSize="10"/>
+        <Label Content="5:00 pm" Margin="60,336,763,162" FontSize="10"/>
+        <Rectangle Fill="Gainsboro" Margin="124,89,58,176"/>
+        <Button Name="Mon2" Margin="128,93,695,404" Background="#FFEAEAEA"/>
+        <Button Name="Mon3" Margin="128,126,695,373" Background="#FFEAEAEA"/>
+        <Button Name="Mon4" Margin="128,157,695,341" Background="#FFEAEAEA"/>
+        <Button Name="Mon5" Margin="128,189,695,308" Background="#FFEAEAEA"/>
+        <Button Name="Mon6" Margin="128,222,695,276" Background="#FFEAEAEA"/>
+        <Button Name="Mon7" Margin="128,254,695,244" Background="#FFEAEAEA"/>
+        <Button Name="Mon8" Margin="128,286,695,211" Background="#FFEAEAEA"/>
+        <Button Name="Mon9" Margin="128,319,695,180" Background="#FFEAEAEA"/>
+        <Button Name="Tue2" Margin="234,93,591,404" Background="#FFEAEAEA"/>
+        <Button Name="Tue3" Margin="234,126,591,373" Background="#FFEAEAEA"/>
+        <Button Name="Tue4" Margin="234,157,591,341" Background="#FFEAEAEA"/>
+        <Button Name="Tue5" Margin="234,189,591,308" Background="#FFEAEAEA"/>
+        <Button Name="Tue6" Margin="234,222,591,276" Background="#FFEAEAEA"/>
+        <Button Name="Tue7" Margin="234,254,591,244" Background="#FFEAEAEA"/>
+        <Button Name="Tue8" Margin="234,286,591,211" Background="#FFEAEAEA"/>
+        <Button Name="Tue9" Margin="234,319,591,180" Background="#FFEAEAEA"/>
+        <Button Name="Wed2" Margin="338,93,483,404" Background="#FFEAEAEA"/>
+        <Button Name="Wed3" Margin="338,126,483,373" Background="#FFEAEAEA"/>
+        <Button Name="Wed4" Margin="338,157,483,341" Background="#FFEAEAEA"/>
+        <Button Name="Wed5" Margin="338,189,483,308" Background="#FFEAEAEA"/>
+        <Button Name="Wed6" Margin="338,222,483,276" Background="#FFEAEAEA"/>
+        <Button Name="Wed7" Margin="338,254,483,244" Background="#FFEAEAEA"/>
+        <Button Name="Wed8" Margin="338,286,483,211" Background="#FFEAEAEA"/>
+        <Button Name="Wed9" Margin="338,319,483,180" Background="#FFEAEAEA"/>
+        <Button Name="Thur2" Margin="445,93,377,404" Background="#FFEAEAEA"/>
+        <Button Name="Thur3" Margin="445,126,377,373" Background="#FFEAEAEA"/>
+        <Button Name="Thur4" Margin="445,157,377,341" Background="#FFEAEAEA"/>
+        <Button Name="Thur5" Margin="445,189,377,308" Background="#FFEAEAEA"/>
+        <Button Name="Thur6" Margin="445,222,377,276" Background="#FFEAEAEA"/>
+        <Button Name="Thur7" Margin="445,254,377,244" Background="#FFEAEAEA"/>
+        <Button Name="Thur8" Margin="445,286,377,211" Background="#FFEAEAEA"/>
+        <Button Name="Thur9" Margin="445,319,377,180" Background="#FFEAEAEA"/>
+        <Button Name="Fri2" Margin="552,93,271,404" Background="#FFEAEAEA"/>
+        <Button Name="Fri3" Margin="552,126,271,373" Background="#FFEAEAEA"/>
+        <Button Name="Fri4" Margin="552,157,271,341" Background="#FFEAEAEA"/>
+        <Button Name="Fri5" Margin="552,189,271,308" Background="#FFEAEAEA"/>
+        <Button Name="Fri6" Margin="552,222,271,276" Background="#FFEAEAEA"/>
+        <Button Name="Fri7" Margin="552,254,271,244" Background="#FFEAEAEA"/>
+        <Button Name="Fri8" Margin="552,286,271,211" Background="#FFEAEAEA"/>
+        <Button Name="Fri9" Margin="552,319,271,180" Background="#FFEAEAEA"/>
+        <Button Name="Sat2" Margin="658,93,167,404" Background="#FFEAEAEA"/>
+        <Button Name="Sat3" Margin="658,126,167,373" Background="#FFEAEAEA"/>
+        <Button Name="Sat4" Margin="658,157,167,341" Background="#FFEAEAEA"/>
+        <Button Name="Sat5" Margin="658,189,167,308" Background="#FFEAEAEA"/>
+        <Button Name="Sat6" Margin="658,222,167,276" Background="#FFEAEAEA"/>
+        <Button Name="Sat7" Margin="658,254,167,244" Background="#FFEAEAEA"/>
+        <Button Name="Sat8" Margin="658,286,167,211" Background="#FFEAEAEA"/>
+        <Button Name="Sat9" Margin="658,319,167,180" Background="#FFEAEAEA"/>
+        <Button Name="Sun2" Margin="762,93,61,404" Background="#FFEAEAEA"/>
+        <Button Name="Sun3" Margin="762,126,61,373" Background="#FFEAEAEA"/>
+        <Button Name="Sun4" Margin="762,157,61,341" Background="#FFEAEAEA"/>
+        <Button Name="Sun5" Margin="762,189,61,308" Background="#FFEAEAEA"/>
+        <Button Name="Sun6" Margin="762,222,61,276" Background="#FFEAEAEA"/>
+        <Button Name="Sun7" Margin="762,254,61,244" Background="#FFEAEAEA"/>
+        <Button Name="Sun8" Margin="762,286,61,211" Background="#FFEAEAEA"/>
+        <Button Name="Sun9" Margin="762,319,61,180" Background="#FFEAEAEA"/>
+        
+
+    </Grid>
+</Page>

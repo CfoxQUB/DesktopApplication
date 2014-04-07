@@ -49,6 +49,12 @@
   <wsdl:message name="ITimetablingService_ReturnWeeksEvents_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnWeeksEventsResponse" />
   </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnTimetableDisplayListObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTimetableDisplayListObject" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnTimetableDisplayListObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTimetableDisplayListObjectResponse" />
+  </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnEvents_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnEvents" />
   </wsdl:message>
@@ -60,12 +66,6 @@
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnEventTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnEventTypesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnUserTypes_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnUserTypes" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnUserTypes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnUserTypesResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnRoomTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnRoomTypes" />
@@ -139,11 +139,11 @@
   <wsdl:message name="ITimetablingService_ReturnRepeatTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnRepeatTypesResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnTimetableDisplay_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnTimetableDisplay" />
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsiWithFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsiWithFilters" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnTimetableDisplay_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnTimetableDisplayResponse" />
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsiWithFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsiWithFiltersResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateNewBuilding_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateNewBuilding" />
@@ -210,6 +210,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEvents" message="tns:ITimetablingService_ReturnWeeksEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsResponse" message="tns:ITimetablingService_ReturnWeeksEvents_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ReturnTimetableDisplayListObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObject" message="tns:ITimetablingService_ReturnTimetableDisplayListObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObjectResponse" message="tns:ITimetablingService_ReturnTimetableDisplayListObject_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ReturnEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEvents" message="tns:ITimetablingService_ReturnEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsResponse" message="tns:ITimetablingService_ReturnEvents_OutputMessage" />
@@ -217,10 +221,6 @@
     <wsdl:operation name="ReturnEventTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventTypes" message="tns:ITimetablingService_ReturnEventTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventTypesResponse" message="tns:ITimetablingService_ReturnEventTypes_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnUserTypes">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnUserTypes" message="tns:ITimetablingService_ReturnUserTypes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnUserTypesResponse" message="tns:ITimetablingService_ReturnUserTypes_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReturnRoomTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypes" message="tns:ITimetablingService_ReturnRoomTypes_InputMessage" />
@@ -270,9 +270,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypes" message="tns:ITimetablingService_ReturnRepeatTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypesResponse" message="tns:ITimetablingService_ReturnRepeatTypes_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReturnTimetableDisplay">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplay" message="tns:ITimetablingService_ReturnTimetableDisplay_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayResponse" message="tns:ITimetablingService_ReturnTimetableDisplay_OutputMessage" />
+    <wsdl:operation name="ReturnWeeksEventsiWithFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters" message="tns:ITimetablingService_ReturnWeeksEventsiWithFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFiltersResponse" message="tns:ITimetablingService_ReturnWeeksEventsiWithFilters_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateNewBuilding">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuilding" message="tns:ITimetablingService_CreateNewBuilding_InputMessage" />
@@ -364,6 +364,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ReturnTimetableDisplayListObject">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ReturnEvents">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEvents" style="document" />
       <wsdl:input>
@@ -375,15 +384,6 @@
     </wsdl:operation>
     <wsdl:operation name="ReturnEventTypes">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventTypes" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnUserTypes">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnUserTypes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -499,8 +499,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnTimetableDisplay">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplay" style="document" />
+    <wsdl:operation name="ReturnWeeksEventsiWithFilters">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
