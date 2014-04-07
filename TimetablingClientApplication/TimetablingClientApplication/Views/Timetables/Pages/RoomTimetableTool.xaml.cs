@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using TimetablingClientApplication.TimetablingService;
 namespace TimetablingClientApplication.Views.Timetables.Pages
 {
     /// <summary>
@@ -22,12 +22,13 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
     /// </summary>
     public partial class RoomTimetableTool : Page
     {
-        private readonly TimetablingService.TimetablingServiceClient _client = new TimetablingService.TimetablingServiceClient();
-        private readonly List<TimetablingService.Building> _buildings = new List<TimetablingService.Building>();
-        private readonly List<TimetablingService.Room> _rooms = new List<TimetablingService.Room>();
-        private readonly List<TimetablingService.Course> _courses = new List<TimetablingService.Course>();
+        private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
+        private readonly List<Building> _buildings = new List<Building>();
+        private readonly List<Room> _rooms = new List<Room>();
+        private readonly List<Course> _courses = new List<Course>();
         private readonly List<TimetablingService.Module> _modules = new List<TimetablingService.Module>();
-
+        private readonly TimetableEventsListObject _eventsList = new TimetableEventsListObject(); 
+       
         private bool _buildingSelected;
         private bool _courseSelected;
 
@@ -110,17 +111,9 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             ModuleSelect.Text = moduleList.First().ModuleName;
         }
 
-        public void Populate_Timetable(List<TimetablingService.Event> eventsList)
+        public void Populate_Timetable()
         {
-            if (eventsList.Any())
-            {
-                foreach (var e in eventsList)
-                {
-                    
-                   
-                } 
-            }
-            
+           
         }
   }
 }

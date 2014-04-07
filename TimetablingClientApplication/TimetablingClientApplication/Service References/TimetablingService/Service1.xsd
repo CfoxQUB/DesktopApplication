@@ -44,6 +44,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Encrypt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unencryptedString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EncryptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EncryptResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreateEvent">
     <xs:complexType>
       <xs:sequence>
@@ -317,7 +331,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReturnWeeksEventsiWithFilters">
+  <xs:element name="ReturnWeeksEventsWithFilters">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="dateRequested" type="xs:dateTime" />
@@ -326,10 +340,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReturnWeeksEventsiWithFiltersResponse">
+  <xs:element name="ReturnWeeksEventsWithFiltersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnWeeksEventsiWithFiltersResult" nillable="true" type="q14:ArrayOfEvent" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnWeeksEventsWithFiltersResult" nillable="true" type="q14:TimetableEventsListObject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

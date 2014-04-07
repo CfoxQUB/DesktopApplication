@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,11 +21,11 @@ namespace TimetablingClientApplication
     /// </summary>
     public partial class Register : Window
     {
-        TimetablingService.TimetablingServiceClient client = new TimetablingService.TimetablingServiceClient();
+        TimetablingService.TimetablingServiceClient _client = new TimetablingService.TimetablingServiceClient();
         SolidColorBrush alert = new SolidColorBrush(Colors.Red);
         SolidColorBrush completed = new SolidColorBrush(Colors.Green);
         public ObservableCollection<string> list = new ObservableCollection<string>();
-
+        private readonly Regex _regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         public Register()
         {
             InitializeComponent();
@@ -33,110 +34,96 @@ namespace TimetablingClientApplication
                 list.Add("Mrs");
                 list.Add("Ms");
                 list.Add("Dr");
-                this.Title.ItemsSource = list;
-                this.Title.Text = "";
+                Title.ItemsSource = list;
+                Title.Text = "";
         }
 
         public void SubmitNewUser(object sender, RoutedEventArgs e)
         {
             bool displayValidation = false;
 
-            if (Title.Text == "")
+            if (String.IsNullOrEmpty(Title.Text))
             {
-                userTitle.Foreground = alert;
-                Title.BorderBrush = alert;
+                TitleValidationAlert();
                 displayValidation = true;
             }
 
-            if (userForenameText.Text == "")
+            if (String.IsNullOrEmpty(UserForenameText.Text))
             {
-                userForename.Foreground = alert;
-                userForenameText.BorderBrush = alert;
+                ForenameValidationAlert();
                 displayValidation = true;
             }
 
-            if (userSurnameText.Text == "")
+            if (String.IsNullOrEmpty(UserSurnameText.Text))
             {
-                userSurname.Foreground = alert;
-                userSurnameText.BorderBrush = alert;
+                SurnameValidationAlert();
                 displayValidation = true;
             }
 
-            if (userEmailText.Text == "")
+            if (String.IsNullOrEmpty(UserEmailText.Text))
             {
-                userEmail.Foreground = alert;
-                userEmailText.BorderBrush = alert;
+                EmailValidationAlert();
                 displayValidation = true;
             }
             else
             {
-                if (!client.Check_Email_Not_Exist(userEmailText.Text))
+                if (!_client.Check_Email_Not_Exist(UserEmailText.Text))
                 {
-                    userEmail.Foreground = alert;
-                    userEmailText.BorderBrush = alert;
-                    
-                    emailValidation.Visibility = Visibility.Visible;
+                   EmailValidationAlert();
+                   EmailValidation.Text = String.Format("This Email address is already \n associated with an account.");
                 }
                 else
                 {
-                    emailValidation.Visibility = Visibility.Hidden;
+                    EmailValidation.Visibility = Visibility.Hidden;
                 }
                       
             }
 
-            if (password1Text.Password == "")
+            if (String.IsNullOrEmpty(Password1Text.Password))
             {
-                password1.Foreground = alert;
-                password1Text.BorderBrush = alert;
+                Password1ValidationAlert();
                 displayValidation = true;
             }
 
-            if(password2Text.Password == "")
+            if(String.IsNullOrEmpty(Password2Text.Password))
             {
-                password2.Foreground = alert;
-                password2Text.BorderBrush = alert;
+                Password2ValidationAlert();
                 displayValidation = true;
             }
 
-            if (displayValidation == true)
+            if (displayValidation)
             {
-                fieldsValidation.Visibility = Visibility.Visible;
+                FieldsValidation.Visibility = Visibility.Visible;
             }
-                           
+                       
 
-            if (password1Text.Password != password2Text.Password && password1Text.Password != "")
+            if (Password1Text.Password != Password2Text.Password && !String.IsNullOrEmpty(Password1Text.Password))
             {
-                password1.Foreground = alert;
-                password1Text.BorderBrush =  alert;
-
-                password2.Foreground = alert;
-                password2Text.BorderBrush = alert;
-
-                passwordValidation.Visibility = Visibility.Visible;
+                Password1ValidationAlert();
+                Password2ValidationAlert();
                 return;
             }
 
 
-            if (Title.Text != "" && userForenameText.Text != "" && userSurnameText.Text != "" && userEmailText.Text != "" && password1Text.Password != "" && password2Text.Password != "" && password1Text.Password == password2Text.Password)
+            if (!String.IsNullOrEmpty(Title.Text) && !String.IsNullOrEmpty(UserForenameText.Text) && !String.IsNullOrEmpty(UserSurnameText.Text) && !String.IsNullOrEmpty(UserEmailText.Text) && !String.IsNullOrEmpty(Password1Text.Password) && !String.IsNullOrEmpty(Password2Text.Password) && Password1Text.Password == Password2Text.Password)
             {
 
-                fieldsValidation.Visibility = Visibility.Hidden;
+                FieldsValidation.Visibility = Visibility.Hidden;
 
-                if (emailValidation.Visibility == Visibility.Hidden)
+                if (EmailValidation.Visibility == Visibility.Hidden)
                 {
                   var  newUser = new TimetablingService.User()
                      {
                          UserTitle = Title.Text,
-                         UserForename = userForenameText.Text,
-                         UserSurname = userSurnameText.Text,
-                         UserEmail = userEmailText.Text,
+                         UserForename = UserForenameText.Text,
+                         UserSurname = UserSurnameText.Text,
+                         UserEmail = _client.Encrypt(UserEmailText.Text),
                          UserType = 1,
-                         Password = password2Text.Password,
+                         Password = _client.Encrypt(Password2Text.Password),
                          CreateDate = DateTime.Now
                      };
 
-                  client.Register_User(newUser);
-                  return;
+                  _client.Register_User(newUser);
 
                 }
                 
@@ -144,90 +131,155 @@ namespace TimetablingClientApplication
                     
         }
 
-          public void onTitleChange(object sender, RoutedEventArgs e)
+          public void OnTitleChange(object sender, RoutedEventArgs e)
             {
                 if (Title.SelectedItem != null)
                 {
-                    userTitle.Foreground = completed;
+                    UserTitle.Foreground = completed;
                     Title.BorderBrush = completed; 
                 }
             }
 
-          public void onForenameChange(object sender, RoutedEventArgs e)
+          public void OnForenameChange(object sender, RoutedEventArgs e)
             {
-                if (userForenameText.Text != "")
+                if (!String.IsNullOrEmpty(UserForenameText.Text))
                 {
-                    userForename.Foreground = completed;
-                    userForenameText.BorderBrush = completed; 
+                    ForenameValidationComplete();
                 }
             }
-        public void onSurnameChange(object sender, RoutedEventArgs e)
+        public void OnSurnameChange(object sender, RoutedEventArgs e)
             {
-                if (userSurnameText.Text != "")
+                if (!String.IsNullOrEmpty(UserSurnameText.Text))
                 {
-                    userSurname.Foreground = completed;
-                    userSurnameText.BorderBrush = completed; 
+                    SurnameValidationComplete();
                 }
             }
 
-        public void onEmailChange(object sender, RoutedEventArgs e)
+        public void OnEmailChange(object sender, RoutedEventArgs e)
             {
-                if (userEmailText.Text != "")
+
+                if (!String.IsNullOrEmpty(UserEmailText.Text))
                 {
-                    if (!client.Check_Email_Not_Exist(userEmailText.Text))
+                    if (!_client.Check_Email_Not_Exist(_client.Encrypt(UserEmailText.Text)))
                     {
-                        userEmail.Foreground = alert;
-                        userEmailText.BorderBrush = alert;
-                        userEmailText.Foreground = alert;
-
-                        emailValidation.Visibility = Visibility.Visible;
-                        return;
+                        EmailValidationAlert();
+                        EmailValidation.Text = String.Format("This Email address is already \n associated with an account.");
+                        EmailValidation.Visibility = Visibility.Visible;
                     }
                     else
                     {
-                        userEmail.Foreground = completed;
-                        userEmailText.BorderBrush = completed;
-                        userEmailText.Foreground = new SolidColorBrush(Colors.Black); ;
-                        emailValidation.Visibility = Visibility.Hidden;
-                        return;
+                        Match match = _regex.Match(UserEmailText.Text);
+                        if (match.Success)
+                        {
+                            EmailValidationComplete();
+                        }
+                        else
+                        {
+                            EmailValidationAlert();
+                            EmailValidation.Text = String.Format("The Email address you have \n entered is not valid");
+                            EmailValidation.Visibility = Visibility.Visible;
+                        }
                     }
                 }
-                
             }
 
-        public void onPassword1Change(object sender, RoutedEventArgs e)
+        public void OnPassword1Change(object sender, RoutedEventArgs e)
         {
-            if (password1Text.Password != "")
+            if (!String.IsNullOrEmpty(Password1Text.Password))
             {
-                password1.Foreground = completed;
-                password1Text.BorderBrush = completed;
+                Password1ValidationComplete();
             }
         }
 
-        public void onPassword2Change(object sender, RoutedEventArgs e)
+        public void OnPassword2Change(object sender, RoutedEventArgs e)
         {
-            if (password2Text.Password != password1Text.Password)
+            if (Password2Text.Password != Password1Text.Password)
             {
-                password1.Foreground = alert;
-                password1Text.BorderBrush = alert;
-
-                password2.Foreground = alert;
-                password2Text.BorderBrush = alert;
-
-                passwordValidation.Visibility = Visibility.Visible;
-
+               Password1ValidationAlert();
+               Password2ValidationAlert();
             }
             else
             {
-                password1.Foreground = completed;
-                password1Text.BorderBrush = completed;
-
-                password2.Foreground = completed;
-                password2Text.BorderBrush = completed;
-                
-                passwordValidation.Visibility = Visibility.Hidden;
+                Password1ValidationComplete();
+                Password2ValidationComplete();
             }
 
+        }
+
+        public void TitleValidationAlert()
+        {
+            UserTitle.Foreground = alert;
+            Title.BorderBrush = alert;
+        }
+
+        public void TitleValidationComplete()
+        {
+            UserTitle.Foreground = completed;
+            Title.BorderBrush = completed;
+        } 
+        
+        public void ForenameValidationAlert()
+        {
+            UserForename.Foreground = alert;
+            UserForenameText.BorderBrush = alert; 
+        }  
+        
+        public void ForenameValidationComplete()
+        {
+            UserForename.Foreground = completed;
+            UserForenameText.BorderBrush = completed; 
+        } 
+        
+        public void SurnameValidationAlert()
+        {
+            UserSurname.Foreground = alert;
+            UserSurnameText.BorderBrush = alert; 
+        } 
+        
+        public void SurnameValidationComplete()
+        {
+            UserSurname.Foreground = completed;
+            UserSurnameText.BorderBrush = completed; 
+        } 
+        
+        public void EmailValidationAlert()
+        {
+            UserEmail.Foreground = alert;
+            UserEmailText.BorderBrush = alert;
+            UserEmailText.Foreground = alert;
+        }
+
+        public void EmailValidationComplete()
+        {
+            UserEmail.Foreground = completed;
+            UserEmailText.BorderBrush = completed;
+            UserEmailText.Foreground = alert;
+        } 
+        
+        public void Password1ValidationAlert()
+        {
+            Password1.Foreground = alert;
+            Password1Text.BorderBrush = alert;
+        }
+
+        public void Password1ValidationComplete()
+        {
+            Password1.Foreground = completed;
+            Password1Text.BorderBrush = completed;
+        }
+
+        public void Password2ValidationAlert()
+        {
+            Password2.Foreground = alert;
+            Password2Text.BorderBrush = alert;
+            PasswordValidation.Visibility = Visibility.Visible;
+        } 
+        
+        public void Password2ValidationComplete()
+        {
+            Password2.Foreground = completed;
+            Password2Text.BorderBrush = completed;
+            PasswordValidation.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -1577,6 +1577,208 @@ namespace TimetablingClientApplication.TimetablingService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TimetableEventsListObject", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class TimetableEventsListObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableEventObject[] FridayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableEventObject[] MondayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableEventObject[] SaturdayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableEventObject[] SundayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableEventObject[] ThursdayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableEventObject[] TuesdayListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.TimetableEventObject[] WednesdayListField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableEventObject[] FridayList {
+            get {
+                return this.FridayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FridayListField, value) != true)) {
+                    this.FridayListField = value;
+                    this.RaisePropertyChanged("FridayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableEventObject[] MondayList {
+            get {
+                return this.MondayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MondayListField, value) != true)) {
+                    this.MondayListField = value;
+                    this.RaisePropertyChanged("MondayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableEventObject[] SaturdayList {
+            get {
+                return this.SaturdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SaturdayListField, value) != true)) {
+                    this.SaturdayListField = value;
+                    this.RaisePropertyChanged("SaturdayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableEventObject[] SundayList {
+            get {
+                return this.SundayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SundayListField, value) != true)) {
+                    this.SundayListField = value;
+                    this.RaisePropertyChanged("SundayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableEventObject[] ThursdayList {
+            get {
+                return this.ThursdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ThursdayListField, value) != true)) {
+                    this.ThursdayListField = value;
+                    this.RaisePropertyChanged("ThursdayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableEventObject[] TuesdayList {
+            get {
+                return this.TuesdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TuesdayListField, value) != true)) {
+                    this.TuesdayListField = value;
+                    this.RaisePropertyChanged("TuesdayList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.TimetableEventObject[] WednesdayList {
+            get {
+                return this.WednesdayListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WednesdayListField, value) != true)) {
+                    this.WednesdayListField = value;
+                    this.RaisePropertyChanged("WednesdayList");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TimetableEventObject", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class TimetableEventObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.Event EventField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TimetablingClientApplication.TimetablingService.Time TimeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.Event Event {
+            get {
+                return this.EventField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventField, value) != true)) {
+                    this.EventField = value;
+                    this.RaisePropertyChanged("Event");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TimetablingClientApplication.TimetablingService.Time Time {
+            get {
+                return this.TimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TimeField, value) != true)) {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TimetablingService.ITimetablingService")]
     public interface ITimetablingService {
@@ -1598,6 +1800,12 @@ namespace TimetablingClientApplication.TimetablingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/Login", ReplyAction="http://tempuri.org/ITimetablingService/LoginResponse")]
         System.Threading.Tasks.Task<int> LoginAsync(string userName, string userPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/Encrypt", ReplyAction="http://tempuri.org/ITimetablingService/EncryptResponse")]
+        string Encrypt(string unencryptedString);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/Encrypt", ReplyAction="http://tempuri.org/ITimetablingService/EncryptResponse")]
+        System.Threading.Tasks.Task<string> EncryptAsync(string unencryptedString);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateEvent", ReplyAction="http://tempuri.org/ITimetablingService/CreateEventResponse")]
         int CreateEvent(string eventTitle, int userId, string eventDescription, string eventType, string repeatType, int eventDuration, System.DateTime startDate, string eventTime, string roomName, string courseName, string moduleName);
@@ -1713,11 +1921,11 @@ namespace TimetablingClientApplication.TimetablingService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypes", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRepeatTypesResponse")]
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.RepeatType[]> ReturnRepeatTypesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFiltersResponse")]
-        TimetablingClientApplication.TimetablingService.Event[] ReturnWeeksEventsiWithFilters(System.DateTime dateRequested, int roomId, int moduleId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFiltersResponse")]
+        TimetablingClientApplication.TimetablingService.TimetableEventsListObject ReturnWeeksEventsWithFilters(System.DateTime dateRequested, int roomId, int moduleId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFiltersResponse")]
-        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnWeeksEventsiWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFiltersResponse")]
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableEventsListObject> ReturnWeeksEventsWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewBuilding", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse")]
         int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity);
@@ -1805,6 +2013,14 @@ namespace TimetablingClientApplication.TimetablingService {
         
         public System.Threading.Tasks.Task<int> LoginAsync(string userName, string userPassword) {
             return base.Channel.LoginAsync(userName, userPassword);
+        }
+        
+        public string Encrypt(string unencryptedString) {
+            return base.Channel.Encrypt(unencryptedString);
+        }
+        
+        public System.Threading.Tasks.Task<string> EncryptAsync(string unencryptedString) {
+            return base.Channel.EncryptAsync(unencryptedString);
         }
         
         public int CreateEvent(string eventTitle, int userId, string eventDescription, string eventType, string repeatType, int eventDuration, System.DateTime startDate, string eventTime, string roomName, string courseName, string moduleName) {
@@ -1959,12 +2175,12 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.ReturnRepeatTypesAsync();
         }
         
-        public TimetablingClientApplication.TimetablingService.Event[] ReturnWeeksEventsiWithFilters(System.DateTime dateRequested, int roomId, int moduleId) {
-            return base.Channel.ReturnWeeksEventsiWithFilters(dateRequested, roomId, moduleId);
+        public TimetablingClientApplication.TimetablingService.TimetableEventsListObject ReturnWeeksEventsWithFilters(System.DateTime dateRequested, int roomId, int moduleId) {
+            return base.Channel.ReturnWeeksEventsWithFilters(dateRequested, roomId, moduleId);
         }
         
-        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> ReturnWeeksEventsiWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId) {
-            return base.Channel.ReturnWeeksEventsiWithFiltersAsync(dateRequested, roomId, moduleId);
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableEventsListObject> ReturnWeeksEventsWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId) {
+            return base.Channel.ReturnWeeksEventsWithFiltersAsync(dateRequested, roomId, moduleId);
         }
         
         public int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity) {

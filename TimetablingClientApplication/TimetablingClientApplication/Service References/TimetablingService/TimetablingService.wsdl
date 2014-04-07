@@ -25,6 +25,12 @@
   <wsdl:message name="ITimetablingService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="ITimetablingService_Encrypt_InputMessage">
+    <wsdl:part name="parameters" element="tns:Encrypt" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Encrypt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EncryptResponse" />
+  </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateEvent" />
   </wsdl:message>
@@ -139,11 +145,11 @@
   <wsdl:message name="ITimetablingService_ReturnRepeatTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnRepeatTypesResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnWeeksEventsiWithFilters_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsiWithFilters" />
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsWithFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsWithFilters" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnWeeksEventsiWithFilters_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsiWithFiltersResponse" />
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsWithFiltersResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateNewBuilding_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateNewBuilding" />
@@ -193,6 +199,10 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Login" message="tns:ITimetablingService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/LoginResponse" message="tns:ITimetablingService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Encrypt">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Encrypt" message="tns:ITimetablingService_Encrypt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/EncryptResponse" message="tns:ITimetablingService_Encrypt_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateEvent" message="tns:ITimetablingService_CreateEvent_InputMessage" />
@@ -270,9 +280,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypes" message="tns:ITimetablingService_ReturnRepeatTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypesResponse" message="tns:ITimetablingService_ReturnRepeatTypes_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReturnWeeksEventsiWithFilters">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters" message="tns:ITimetablingService_ReturnWeeksEventsiWithFilters_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFiltersResponse" message="tns:ITimetablingService_ReturnWeeksEventsiWithFilters_OutputMessage" />
+    <wsdl:operation name="ReturnWeeksEventsWithFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFiltersResponse" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateNewBuilding">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuilding" message="tns:ITimetablingService_CreateNewBuilding_InputMessage" />
@@ -321,6 +331,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Encrypt">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Encrypt" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -499,8 +518,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnWeeksEventsiWithFilters">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsiWithFilters" style="document" />
+    <wsdl:operation name="ReturnWeeksEventsWithFilters">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
