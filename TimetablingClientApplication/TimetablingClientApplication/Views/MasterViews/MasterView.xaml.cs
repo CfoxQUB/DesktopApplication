@@ -22,11 +22,12 @@ namespace TimetablingClientApplication.Views.MasterViews
     /// </summary>
     public partial class MasterView : Window
     {
-        private int _userId = 1;
-        public MasterView()
+        private readonly int _userId;
+        public MasterView(int loginId)
         {
+            _userId = loginId;
             InitializeComponent();
-            //_userId = loginId;
+            
         }
 
         #region Navigation

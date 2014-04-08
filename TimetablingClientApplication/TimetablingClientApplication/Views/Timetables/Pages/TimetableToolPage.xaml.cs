@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TimetablingClientApplication.TimetablingService;
 
-namespace TimetablingClientApplication.Views.Timetables
+namespace TimetablingClientApplication.Views.Timetables.Pages
 {
     /// <summary>
     /// Interaction logic for TimetableToolPage.xaml
@@ -27,7 +27,7 @@ namespace TimetablingClientApplication.Views.Timetables
         
         public TimetableToolPage()
         {
-            _timetableDisplay = _client.ReturnTimetableDisplayListObject();
+            _timetableDisplay = _client.ReturnTimetableToolListObject();
             
             InitializeComponent();
 

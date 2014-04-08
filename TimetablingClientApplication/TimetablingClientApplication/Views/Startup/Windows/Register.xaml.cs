@@ -118,9 +118,7 @@ namespace TimetablingClientApplication
                          UserForename = UserForenameText.Text,
                          UserSurname = UserSurnameText.Text,
                          UserEmail = _client.Encrypt(UserEmailText.Text),
-                         UserType = 1,
-                         Password = _client.Encrypt(Password2Text.Password),
-                         CreateDate = DateTime.Now
+                         Password = _client.Encrypt(Password2Text.Password)
                      };
 
                   _client.Register_User(newUser);
@@ -160,7 +158,8 @@ namespace TimetablingClientApplication
 
                 if (!String.IsNullOrEmpty(UserEmailText.Text))
                 {
-                    if (!_client.Check_Email_Not_Exist(_client.Encrypt(UserEmailText.Text)))
+                    var temp = _client.Encrypt(UserEmailText.Text);
+                    if (!_client.Check_Email_Not_Exist(temp))
                     {
                         EmailValidationAlert();
                         EmailValidation.Text = String.Format("This Email address is already \n associated with an account.");
@@ -253,7 +252,7 @@ namespace TimetablingClientApplication
         {
             UserEmail.Foreground = completed;
             UserEmailText.BorderBrush = completed;
-            UserEmailText.Foreground = alert;
+            UserEmailText.Foreground = completed;
         } 
         
         public void Password1ValidationAlert()

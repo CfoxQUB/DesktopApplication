@@ -76,6 +76,9 @@
     <Compile Include="Views\Events\Windows\CreateEvents.xaml.cs">
       <DependentUpon>CreateEvents.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Events\Windows\DeleteConfirm.xaml.cs">
+      <DependentUpon>DeleteConfirm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Events\Windows\EditEvents.xaml.cs">
       <DependentUpon>EditEvents.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Events\Windows\CreateEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\Windows\DeleteConfirm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:49185/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" />
-  <xs:element name="Check_Email_Not_Exist">
+  <xs:element name="Encrypt">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="unencryptedString" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Check_Email_Not_ExistResponse">
+  <xs:element name="EncryptResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Check_Email_Not_ExistResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="EncryptResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -29,6 +29,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Check_Email_Not_Exist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Check_Email_Not_ExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Check_Email_Not_ExistResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
@@ -41,20 +55,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="LoginResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Encrypt">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="unencryptedString" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EncryptResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="EncryptResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,15 +136,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReturnTimetableDisplayListObject">
+  <xs:element name="ReturnWeeksEventsWithFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateRequested" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
+        <xs:element minOccurs="0" name="moduleId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnWeeksEventsWithFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnWeeksEventsWithFiltersResult" nillable="true" type="q3:TimetableEventsListObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnTimetableToolListObject">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReturnTimetableDisplayListObjectResponse">
+  <xs:element name="ReturnTimetableToolListObjectResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnTimetableDisplayListObjectResult" nillable="true" type="q3:TimetableDisplayListObject" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnTimetableToolListObjectResult" nillable="true" type="q4:TimetableDisplayListObject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -156,7 +172,7 @@
   <xs:element name="ReturnEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventsResult" nillable="true" type="q4:ArrayOfEvent" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventsResult" nillable="true" type="q5:ArrayOfEvent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -168,7 +184,7 @@
   <xs:element name="ReturnEventTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventTypesResult" nillable="true" type="q5:ArrayOfEventType" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventTypesResult" nillable="true" type="q6:ArrayOfEventType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -180,7 +196,7 @@
   <xs:element name="ReturnRoomTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnRoomTypesResult" nillable="true" type="q6:ArrayOfRoomType" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnRoomTypesResult" nillable="true" type="q7:ArrayOfRoomType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -192,7 +208,7 @@
   <xs:element name="ReturnBuildingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnBuildingsResult" nillable="true" type="q7:ArrayOfBuilding" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnBuildingsResult" nillable="true" type="q8:ArrayOfBuilding" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -204,7 +220,7 @@
   <xs:element name="ReturnCoursesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnCoursesResult" nillable="true" type="q8:ArrayOfCourse" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnCoursesResult" nillable="true" type="q9:ArrayOfCourse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -218,7 +234,7 @@
   <xs:element name="ReturnCourseModulesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnCourseModulesResult" nillable="true" type="q9:ArrayOfModule" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnCourseModulesResult" nillable="true" type="q10:ArrayOfModule" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -275,7 +291,7 @@
   <xs:element name="ReturnBuildingRoomsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnBuildingRoomsResult" nillable="true" type="q10:ArrayOfRoom" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnBuildingRoomsResult" nillable="true" type="q11:ArrayOfRoom" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -303,7 +319,7 @@
   <xs:element name="ReturnRoomEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnRoomEventsResult" nillable="true" type="q11:ArrayOfEvent" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnRoomEventsResult" nillable="true" type="q12:ArrayOfEvent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -315,7 +331,7 @@
   <xs:element name="ReturnTimesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnTimesResult" nillable="true" type="q12:ArrayOfTime" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnTimesResult" nillable="true" type="q13:ArrayOfTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -327,23 +343,7 @@
   <xs:element name="ReturnRepeatTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnRepeatTypesResult" nillable="true" type="q13:ArrayOfRepeatType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReturnWeeksEventsWithFilters">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="dateRequested" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="roomId" type="xs:int" />
-        <xs:element minOccurs="0" name="moduleId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReturnWeeksEventsWithFiltersResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnWeeksEventsWithFiltersResult" nillable="true" type="q14:TimetableEventsListObject" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnRepeatTypesResult" nillable="true" type="q14:ArrayOfRepeatType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -380,6 +380,79 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CreateNewRoomResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCourse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="courseName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="courseDescription" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creatorId" type="xs:int" />
+        <xs:element minOccurs="0" name="duration" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCourseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateCourseResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateModule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moduleDescription" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creatorId" type="xs:int" />
+        <xs:element minOccurs="0" name="staffId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateModuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateModuleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="staffTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="staffForename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="staffSurname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="staffEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="staffPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="courseId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateStaffResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStudent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="studenttitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="studentForeame" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="studentSurname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="studentEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="studentPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="courseId" type="xs:int" />
+        <xs:element minOccurs="0" name="yearStarted" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStudentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateStudentResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

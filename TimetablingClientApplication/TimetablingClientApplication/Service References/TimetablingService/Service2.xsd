@@ -41,6 +41,39 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Event" nillable="true" type="tns:Event" />
+  <xs:complexType name="TimetableEventsListObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FridayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+      <xs:element minOccurs="0" name="MondayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+      <xs:element minOccurs="0" name="SaturdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+      <xs:element minOccurs="0" name="SundayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+      <xs:element minOccurs="0" name="ThursdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+      <xs:element minOccurs="0" name="TuesdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+      <xs:element minOccurs="0" name="WednesdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimetableEventsListObject" nillable="true" type="tns:TimetableEventsListObject" />
+  <xs:complexType name="ArrayOfTimetableEventObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimetableEventObject" nillable="true" type="tns:TimetableEventObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTimetableEventObject" nillable="true" type="tns:ArrayOfTimetableEventObject" />
+  <xs:complexType name="TimetableEventObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Event" nillable="true" type="tns:Event" />
+      <xs:element minOccurs="0" name="Time" nillable="true" type="tns:Time" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimetableEventObject" nillable="true" type="tns:TimetableEventObject" />
+  <xs:complexType name="Time">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TimeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeId" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeLiteral" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Time" nillable="true" type="tns:Time" />
   <xs:complexType name="TimetableDisplayListObject">
     <xs:sequence>
       <xs:element minOccurs="0" name="FridayList" nillable="true" type="tns:ArrayOfTimetableObject" />
@@ -147,6 +180,7 @@
       <xs:element minOccurs="0" name="ModuleDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModuleId" type="xs:int" />
       <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Staff" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Module" nillable="true" type="tns:Module" />
@@ -173,14 +207,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTime" nillable="true" type="tns:ArrayOfTime" />
-  <xs:complexType name="Time">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="TimeDescription" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TimeId" type="xs:int" />
-      <xs:element minOccurs="0" name="TimeLiteral" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Time" nillable="true" type="tns:Time" />
   <xs:complexType name="ArrayOfRepeatType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RepeatType" nillable="true" type="tns:RepeatType" />
@@ -196,29 +222,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RepeatType" nillable="true" type="tns:RepeatType" />
-  <xs:complexType name="TimetableEventsListObject">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FridayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-      <xs:element minOccurs="0" name="MondayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-      <xs:element minOccurs="0" name="SaturdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-      <xs:element minOccurs="0" name="SundayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-      <xs:element minOccurs="0" name="ThursdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-      <xs:element minOccurs="0" name="TuesdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-      <xs:element minOccurs="0" name="WednesdayList" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TimetableEventsListObject" nillable="true" type="tns:TimetableEventsListObject" />
-  <xs:complexType name="ArrayOfTimetableEventObject">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TimetableEventObject" nillable="true" type="tns:TimetableEventObject" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTimetableEventObject" nillable="true" type="tns:ArrayOfTimetableEventObject" />
-  <xs:complexType name="TimetableEventObject">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Event" nillable="true" type="tns:Event" />
-      <xs:element minOccurs="0" name="Time" nillable="true" type="tns:Time" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TimetableEventObject" nillable="true" type="tns:TimetableEventObject" />
 </xs:schema>

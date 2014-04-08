@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimetablingClientApplication.Views.MasterViews;
 
 namespace TimetablingClientApplication.Views.Startup.Windows
 {
@@ -58,6 +59,15 @@ namespace TimetablingClientApplication.Views.Startup.Windows
 
             if (String.IsNullOrEmpty(PasswordTextBox.Password) && !String.IsNullOrEmpty(UserNameTextBox.Text))
             {
+                var temp = _client.Encrypt(UserNameTextBox.Text);
+
+                if (_client.Check_Email_Not_Exist(temp))
+                {
+                    UserNameAlert();
+                    ValidationError.Content = "This Email Does not exist as a User";
+                    return;
+                }
+
                 RemoveUserNameAlert();
                 PasswordAlert();
                 ValidationError.Content = "The Password is a required Field";
@@ -70,7 +80,14 @@ namespace TimetablingClientApplication.Views.Startup.Windows
 
             if (loginStatus != 0)
             {
-                ValidationError.Content = "Login Success";              
+                ValidationError.Content = "Login Success";     
+         
+                MasterView applicationLogon = new MasterView(loginStatus);
+
+                applicationLogon.Visibility = Visibility.Visible;
+                applicationLogon.Focus();
+
+                Close();
             }
             else 
             {             

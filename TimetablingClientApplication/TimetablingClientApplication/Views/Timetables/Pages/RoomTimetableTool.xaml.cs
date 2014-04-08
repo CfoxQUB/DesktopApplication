@@ -111,9 +111,18 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             ModuleSelect.Text = moduleList.First().ModuleName;
         }
 
-        public void Populate_Timetable()
+        
+        public void Populate_Monday_Display(List<TimetableObject> timetableObjectList, string dayName)
         {
-           
+            Mon9.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 10);
+            Mon8.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 11);
+            Mon7.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 12);
+            Mon6.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 13);
+            Mon5.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 14);
+            Mon4.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 15);
+            Mon3.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 16);
+            Mon2.Tag = timetableObjectList.SingleOrDefault(x => x.Timeslot == 17);
         }
-  }
+
+   }
 }

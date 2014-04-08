@@ -7,11 +7,11 @@
       <xsd:import schemaLocation="http://localhost:49185/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ITimetablingService_Check_Email_Not_Exist_InputMessage">
-    <wsdl:part name="parameters" element="tns:Check_Email_Not_Exist" />
+  <wsdl:message name="ITimetablingService_Encrypt_InputMessage">
+    <wsdl:part name="parameters" element="tns:Encrypt" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_Check_Email_Not_Exist_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Check_Email_Not_ExistResponse" />
+  <wsdl:message name="ITimetablingService_Encrypt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EncryptResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_Register_User_InputMessage">
     <wsdl:part name="parameters" element="tns:Register_User" />
@@ -19,17 +19,17 @@
   <wsdl:message name="ITimetablingService_Register_User_OutputMessage">
     <wsdl:part name="parameters" element="tns:Register_UserResponse" />
   </wsdl:message>
+  <wsdl:message name="ITimetablingService_Check_Email_Not_Exist_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check_Email_Not_Exist" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Check_Email_Not_Exist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Check_Email_Not_ExistResponse" />
+  </wsdl:message>
   <wsdl:message name="ITimetablingService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_Encrypt_InputMessage">
-    <wsdl:part name="parameters" element="tns:Encrypt" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_Encrypt_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EncryptResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateEvent" />
@@ -55,11 +55,17 @@
   <wsdl:message name="ITimetablingService_ReturnWeeksEvents_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnWeeksEventsResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnTimetableDisplayListObject_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnTimetableDisplayListObject" />
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsWithFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsWithFilters" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnTimetableDisplayListObject_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnTimetableDisplayListObjectResponse" />
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsWithFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnTimetableToolListObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTimetableToolListObject" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnTimetableToolListObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnTimetableToolListObjectResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnEvents_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnEvents" />
@@ -145,12 +151,6 @@
   <wsdl:message name="ITimetablingService_ReturnRepeatTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnRepeatTypesResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnWeeksEventsWithFilters_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsWithFilters" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsWithFiltersResponse" />
-  </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateNewBuilding_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateNewBuilding" />
   </wsdl:message>
@@ -162,6 +162,30 @@
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateNewRoom_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateNewRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateCourse_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCourse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateCourse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateModule" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStaff" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateStudent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStudent" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateStudent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStudentResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateNewRoomType_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateNewRoomType" />
@@ -188,21 +212,21 @@
     <wsdl:part name="parameters" element="tns:SearchFunctionResponse" />
   </wsdl:message>
   <wsdl:portType name="ITimetablingService">
-    <wsdl:operation name="Check_Email_Not_Exist">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Check_Email_Not_Exist" message="tns:ITimetablingService_Check_Email_Not_Exist_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Check_Email_Not_ExistResponse" message="tns:ITimetablingService_Check_Email_Not_Exist_OutputMessage" />
+    <wsdl:operation name="Encrypt">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Encrypt" message="tns:ITimetablingService_Encrypt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/EncryptResponse" message="tns:ITimetablingService_Encrypt_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Register_User">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Register_User" message="tns:ITimetablingService_Register_User_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Register_UserResponse" message="tns:ITimetablingService_Register_User_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Check_Email_Not_Exist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Check_Email_Not_Exist" message="tns:ITimetablingService_Check_Email_Not_Exist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Check_Email_Not_ExistResponse" message="tns:ITimetablingService_Check_Email_Not_Exist_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Login" message="tns:ITimetablingService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/LoginResponse" message="tns:ITimetablingService_Login_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Encrypt">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Encrypt" message="tns:ITimetablingService_Encrypt_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/EncryptResponse" message="tns:ITimetablingService_Encrypt_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateEvent" message="tns:ITimetablingService_CreateEvent_InputMessage" />
@@ -220,9 +244,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEvents" message="tns:ITimetablingService_ReturnWeeksEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsResponse" message="tns:ITimetablingService_ReturnWeeksEvents_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReturnTimetableDisplayListObject">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObject" message="tns:ITimetablingService_ReturnTimetableDisplayListObject_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObjectResponse" message="tns:ITimetablingService_ReturnTimetableDisplayListObject_OutputMessage" />
+    <wsdl:operation name="ReturnWeeksEventsWithFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFiltersResponse" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnTimetableToolListObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableToolListObject" message="tns:ITimetablingService_ReturnTimetableToolListObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableToolListObjectResponse" message="tns:ITimetablingService_ReturnTimetableToolListObject_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReturnEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEvents" message="tns:ITimetablingService_ReturnEvents_InputMessage" />
@@ -280,10 +308,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypes" message="tns:ITimetablingService_ReturnRepeatTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRepeatTypesResponse" message="tns:ITimetablingService_ReturnRepeatTypes_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReturnWeeksEventsWithFilters">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFiltersResponse" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="CreateNewBuilding">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuilding" message="tns:ITimetablingService_CreateNewBuilding_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse" message="tns:ITimetablingService_CreateNewBuilding_OutputMessage" />
@@ -291,6 +315,22 @@
     <wsdl:operation name="CreateNewRoom">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoom" message="tns:ITimetablingService_CreateNewRoom_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomResponse" message="tns:ITimetablingService_CreateNewRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCourse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateCourse" message="tns:ITimetablingService_CreateCourse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateCourseResponse" message="tns:ITimetablingService_CreateCourse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateModule" message="tns:ITimetablingService_CreateModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateModuleResponse" message="tns:ITimetablingService_CreateModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateStaff" message="tns:ITimetablingService_CreateStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateStaffResponse" message="tns:ITimetablingService_CreateStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStudent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateStudent" message="tns:ITimetablingService_CreateStudent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateStudentResponse" message="tns:ITimetablingService_CreateStudent_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateNewRoomType">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomType" message="tns:ITimetablingService_CreateNewRoomType_InputMessage" />
@@ -311,8 +351,8 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITimetablingService" type="tns:ITimetablingService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="Check_Email_Not_Exist">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Check_Email_Not_Exist" style="document" />
+    <wsdl:operation name="Encrypt">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Encrypt" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -329,8 +369,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Login" style="document" />
+    <wsdl:operation name="Check_Email_Not_Exist">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Check_Email_Not_Exist" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -338,8 +378,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Encrypt">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Encrypt" style="document" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -383,8 +423,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnTimetableDisplayListObject">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnTimetableDisplayListObject" style="document" />
+    <wsdl:operation name="ReturnWeeksEventsWithFilters">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnTimetableToolListObject">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnTimetableToolListObject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -518,15 +567,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnWeeksEventsWithFilters">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="CreateNewBuilding">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewBuilding" style="document" />
       <wsdl:input>
@@ -538,6 +578,42 @@
     </wsdl:operation>
     <wsdl:operation name="CreateNewRoom">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCourse">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateModule">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStaff">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStudent">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateStudent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
