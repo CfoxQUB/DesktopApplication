@@ -35,5 +35,13 @@
         <ComboBox Name="ModuleSelect" HorizontalAlignment="Left" Margin="202,308,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" FontSize="11"/>
         <Label Content="Course:" HorizontalAlignment="Left" Margin="131,264,0,0" VerticalAlignment="Top" FontSize="11"/>
         <Label Content="Module:" HorizontalAlignment="Left" Margin="127,304,0,0" VerticalAlignment="Top" FontSize="11"/>
+        <TextBlock Name="ValidationMessage" Visibility="Hidden" HorizontalAlignment="Left" Margin="436,200,0,0" TextWrapping="Wrap" Text="Please complete the highlighted fields." FontSize="17"  VerticalAlignment="Top" Height="24" Width="296" Foreground="Red"/>
+        <Popup Name="Success" Width="300" Height="150" Placement="Center" Visibility="Visible">
+            <StackPanel Background="#FFF1D248">
+                <TextBlock TextAlignment="Center" Height="100"><Run Text="Event Creation Successful!"/><LineBreak/><Run/><LineBreak/><Run Text="Click Invites to add Attendees."/><LineBreak/><Run Text="Or"/><LineBreak/><Run Text="Click Close to close window"/></TextBlock>
+                <Button Name="Invites" Content="Invites" Click="InvitesButtonClicked"/>
+                <Button Name="CancelButton" Content="Close" Click="ResetCreateEventPopup"/>
+            </StackPanel>
+        </Popup>
     </Grid>
 </Page>

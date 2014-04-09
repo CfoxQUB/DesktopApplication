@@ -21,11 +21,14 @@ namespace TimetablingClientApplication
     public partial class CreateEvents : Window
     {
         public static TimetablingService.TimetablingServiceClient Client = new TimetablingService.TimetablingServiceClient();
-        int loggedInUserId;
+        private readonly int _loggedInUserId;
+        private int _createdEventId = 0;
+
+        private readonly SolidColorBrush _alert = new SolidColorBrush(Colors.Red);
         public CreateEvents(int userId)
         {
             InitializeComponent();
-            loggedInUserId = userId;
+            _loggedInUserId = userId;
             var eventTypes = Client.ReturnEventTypes();
 
             var timesList = Client.ReturnTimes();
@@ -86,30 +89,19 @@ namespace TimetablingClientApplication
           
         }
        
-
-        #region Navigation
-
-        private void MenuItem_NewEvent_Click(object sender, RoutedEventArgs e)
-        {
-            CreateEvents createEvents = new CreateEvents(loggedInUserId);
-            createEvents.Show();
-            this.Close();
-        }
-
-        private void MenuItem_EditEvent_Click(object sender, RoutedEventArgs e)
-        {
-            EditEvents editEvents = new EditEvents(loggedInUserId);
-            editEvents.Show();
-            this.Close();
-        }
-     
-        #endregion
-
         #region Event Actions
 
         public void Create_Event(object sender, RoutedEventArgs e)
         {
-           Client.CreateEvent(EventTitle.Text, loggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
+            if (CheckTitleAndDescription())
+            {
+                _createdEventId = Client.CreateEvent(EventTitle.Text, _loggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(), Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
+
+                if (_createdEventId != 0)
+                {
+                    Success.IsOpen = true;
+                }
+            }
         }
 
         public void Building_Selection_Changed(object sender, RoutedEventArgs e)
@@ -124,7 +116,6 @@ namespace TimetablingClientApplication
                 RoomSelect.Items.Add(x.RoomName);
             }
             RoomSelect.Text = roomList.First().RoomName;
-            return;
         }
 
         public void Course_Selection_Changed(object sender, RoutedEventArgs e)
@@ -144,6 +135,35 @@ namespace TimetablingClientApplication
 
         #endregion
 
-        
+        public bool CheckTitleAndDescription()
+        {
+            ValidationMessage.Visibility = Visibility.Hidden;
+
+            if (String.IsNullOrEmpty(EventTitle.Text) || String.IsNullOrEmpty(EventDescription.Text))
+            {
+                Title.Foreground = _alert;
+                EventTitle.BorderBrush = _alert;
+                Description.Foreground = _alert;
+                EventDescription.BorderBrush = _alert;
+                ValidationMessage.Visibility = Visibility.Visible;
+                return false;
+            } 
+            
+            return true;
+        }
+
+        public void InvitesButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ////TODO: Open Invites Page with new invites
+        }
+
+        public void CloseSuccessEventPopup(object sender, RoutedEventArgs e)
+        {
+            Success.IsOpen = true;
+
+            Close();
+        }
+           
+           
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimetablingClientApplication.Views.MasterViews;
 
 namespace TimetablingClientApplication.Views.Events.Pages
 {
@@ -20,15 +21,26 @@ namespace TimetablingClientApplication.Views.Events.Pages
     /// </summary>
     public partial class CreateEventsPage : Page
     {
-        public static TimetablingService.TimetablingServiceClient Client =
-            new TimetablingService.TimetablingServiceClient();
+        public static TimetablingService.TimetablingServiceClient Client = new TimetablingService.TimetablingServiceClient();
 
-        private int loggedInUserId;
+        private readonly int _loggedInUserId;
+        private int _createdEventId;
+        private readonly SolidColorBrush _alert = new SolidColorBrush(Colors.Red);
+        private readonly SolidColorBrush _normal = new SolidColorBrush(Colors.Black);
+
+        
+        
+        private readonly String _building;
+        private readonly String _course;
+        private readonly String _time;
+        private readonly String _type;
+        private readonly String _duration;
+        private readonly String _repeat;
 
         public CreateEventsPage(int userId)
         {
             InitializeComponent();
-            loggedInUserId = userId;
+            _loggedInUserId = userId;
             var eventTypes = Client.ReturnEventTypes();
 
             var timesList = Client.ReturnTimes();
@@ -74,17 +86,25 @@ namespace TimetablingClientApplication.Views.Events.Pages
             }
 
             EventTypeSelect.Text = eventTypes.First().TypeName;
+            _type = EventTypeSelect.Text;
+
             TimeList.Text = timesList.First().TimeLiteral;
+            _time = TimeList.Text;
             RepeatSelect.Text = repeatsList.First().RepeatTypeName;
+            _repeat = RepeatSelect.Text;
             BuildingSelect.Text = buildingsList.First().BuildingName;
+            _building = BuildingSelect.Text;
             RoomSelect.Text = roomsList.First().RoomName;
             CourseSelect.Text = coursesList.First().CourseName;
+            _course = CourseSelect.Text;
             ModuleSelect.Text = modulesList.First().ModuleName;
-
+            
             DurationList.Items.Add(15);
             DurationList.Items.Add(30);
             DurationList.Items.Add(60);
             DurationList.Text = "15";
+            _duration = "15";
+
             StartDate.SelectedDate = DateTime.Now.Date.AddDays(7);
 
         }
@@ -94,7 +114,15 @@ namespace TimetablingClientApplication.Views.Events.Pages
 
         public void Create_Event(object sender, RoutedEventArgs e)
         {
-            Client.CreateEvent(EventTitle.Text, loggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(), Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
+            if (CheckTitleAndDescription())
+            {
+                _createdEventId = Client.CreateEvent(EventTitle.Text, _loggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(), Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
+
+                if (_createdEventId != 0)
+                {
+                    Success.IsOpen = true;
+                }
+            }
         }
 
         public void Building_Selection_Changed(object sender, RoutedEventArgs e)
@@ -109,7 +137,6 @@ namespace TimetablingClientApplication.Views.Events.Pages
                 RoomSelect.Items.Add(x.RoomName);
             }
             RoomSelect.Text = roomList.First().RoomName;
-            return;
         }
 
         public void Course_Selection_Changed(object sender, RoutedEventArgs e)
@@ -128,6 +155,56 @@ namespace TimetablingClientApplication.Views.Events.Pages
         }
 
         #endregion
+
+        public bool CheckTitleAndDescription()
+        {
+            ValidationMessage.Visibility = Visibility.Hidden;
+
+            if (String.IsNullOrEmpty(EventTitle.Text) || String.IsNullOrEmpty(EventDescription.Text))
+            {
+                Title.Foreground = _alert;
+                EventTitle.BorderBrush = _alert;
+                Description.Foreground = _alert;
+                EventDescription.BorderBrush = _alert;
+                ValidationMessage.Visibility = Visibility.Visible;
+                return false;
+            }
+
+            return true;
+        }
+
+        public void InvitesButtonClicked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        public void ResetCreateEventPopup(object sender, RoutedEventArgs e)
+        {
+            Title.Foreground = _normal;
+            EventTitle.BorderBrush = _normal;
+            Description.Foreground = _normal;
+            EventDescription.BorderBrush = _normal;
+            ValidationMessage.Visibility = Visibility.Hidden;
+
+            ReRenderPage();
+        }
+
+       
+        public void ReRenderPage()
+        {
+
+            EventDescription.Text = "";
+            EventTitle.Text = "";
+
+            BuildingSelect.Text = _building;
+            TimeList.Text = _time;
+            RepeatSelect.Text = _repeat;
+            CourseSelect.Text = _course;
+            
+            DurationList.Text = "15";
+
+            Success.IsOpen = false;
+        }
     }
 
 }

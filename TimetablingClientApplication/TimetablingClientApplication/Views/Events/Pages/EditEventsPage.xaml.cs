@@ -41,6 +41,8 @@ namespace TimetablingClientApplication.Views.Events.Pages
             _loggedInUserId = userId;
 
             InitializeComponent();
+            
+
             var events = new List<Event>();
             var temp = _client.ReturnEvents();
 
@@ -52,10 +54,12 @@ namespace TimetablingClientApplication.Views.Events.Pages
             if (events.Any())
             {
                 EventsinList(events);
+                
             }
             else
             {
-                
+                NoEventsInList();
+                NoEvents.IsOpen = true;
             }
 
         }
@@ -178,34 +182,42 @@ namespace TimetablingClientApplication.Views.Events.Pages
 
         private void ListedEvents_DeleteEvent(object sender, MouseButtonEventArgs e)
         {
-            var deletedEvent = (Event)ListedEvents.SelectedItem;
-            if (deletedEvent != null)
-            {
-                ////TODO: Conirm delete Window
-                _client.DeleteEvent(deletedEvent.EventId);
-
-                var refreshResults = _client.ReturnEvents();
-                ListedEvents.ItemsSource = refreshResults;
-
-                ListedEvents.SelectedItem = refreshResults.First();
-            }
+            DeleteEvent.IsOpen = true;
         }
 
         public void Save_Event_Changes(object sender, RoutedEventArgs e)
         {
-
-            if (_client.EditEvent(_editedEventId, _loggedInUserId, EventTitle.Text, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(), Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString()))
+            if (CheckForNonValues())
             {
-                var refreshResults = _client.ReturnEvents();
-                ListedEvents.ItemsSource = refreshResults;
-                ListedEvents.SelectedItem = refreshResults.SingleOrDefault(x=>x.EventId == _editedEventId);
+                if (_client.EditEvent(_editedEventId, _loggedInUserId, EventTitle.Text, EventDescription.Text,
+                    EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),
+                    Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate),
+                    TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(),
+                    CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString()))
+                {
+                    var refreshResults = _client.ReturnEvents();
+                    ListedEvents.ItemsSource = refreshResults;
+                    ListedEvents.SelectedItem = refreshResults.SingleOrDefault(x => x.EventId == _editedEventId);
+                }
             }
-               
         }
 
         public void NoEventsInList()
         {
-            ////TODO: Disable All features on page
+            SearchField.IsEnabled = false;
+            EventTitle.IsEnabled = false;
+            EventDescription.IsEnabled = false;
+            StartDate.IsEnabled = false;
+            TimeList.IsEnabled = false;
+            DurationList.IsEnabled = false;
+            EventTypeSelect.IsEnabled = false;
+            CourseSelect.IsEnabled = false;
+            ModuleSelect.IsEnabled = false;
+            BuildingSelect.IsEnabled = false;
+            RoomSelect.IsEnabled = false;
+            ListedEvents.IsEnabled = false;
+            SearchFilter.IsEnabled = false;
+            SubmitChangesButton.IsEnabled = false;
         }
 
         public void EventsinList(List<Event> events)
@@ -253,6 +265,10 @@ namespace TimetablingClientApplication.Views.Events.Pages
                     TimeList.Items.Add(x.TimeLiteral);
                 }
             }
+            else
+            {
+                TimeList.Items.Add("N/A");
+            }
            
             if (_repeatsList.Any())
             {
@@ -260,6 +276,10 @@ namespace TimetablingClientApplication.Views.Events.Pages
                 {
                     RepeatSelect.Items.Add(x.RepeatTypeName);
                 }
+            }
+            else
+            {
+                RepeatSelect.Items.Add("N/A");
             }
             
             if (_eventTypes.Any())
@@ -269,6 +289,10 @@ namespace TimetablingClientApplication.Views.Events.Pages
                     EventTypeSelect.Items.Add(x.TypeName);
                 }
             }
+            else
+            {
+                EventTypeSelect.Items.Add("N/A");
+            }
             
             if (_courseList.Any())
             {
@@ -277,6 +301,10 @@ namespace TimetablingClientApplication.Views.Events.Pages
                     CourseSelect.Items.Add(x.CourseName);
                 }
             }
+            else
+            {
+                CourseSelect.Items.Add("N/A");
+            }
             
             if (_buildingsList.Any())
             {
@@ -284,6 +312,10 @@ namespace TimetablingClientApplication.Views.Events.Pages
                 {
                     BuildingSelect.Items.Add(x.BuildingName);
                 }
+            }
+            else
+            {
+                BuildingSelect.Items.Add("N/A");
             }
 
             DurationList.Items.Add(15);
@@ -375,6 +407,51 @@ namespace TimetablingClientApplication.Views.Events.Pages
             }
             #endregion
 
+        }
+
+        public bool CheckForNonValues()
+        {
+            if (EventTypeSelect.SelectedItem.ToString() != "N/A" && RepeatSelect.SelectedItem.ToString() != "N/A" && TimeList.SelectedValue.ToString() != "N/A" && RoomSelect.SelectedValue.ToString() != "N/A" && CourseSelect.SelectedItem.ToString() != "N/A" && ModuleSelect.SelectedItem.ToString()  != "N/A")
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void CloseNoEventsPopup(object sender, RoutedEventArgs e)
+        {
+            NoEvents.IsOpen = false;
+        } 
+        
+        public void DeleteEventButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var deletedEvent = (Event)ListedEvents.SelectedItem;
+            if (deletedEvent != null)
+            {
+                if (_client.DeleteEvent(deletedEvent.EventId))
+                {
+                    var refreshResults = new List<Event>();
+                    var temp = _client.ReturnEvents();
+
+                    if (temp != null)
+                    {
+                        refreshResults.AddRange(temp);
+                        ListedEvents.ItemsSource = refreshResults;
+                        ListedEvents.SelectedItem = refreshResults.First();
+                        return;
+                    }
+                    ListedEvents.ItemsSource = refreshResults;
+                    NoEventsInList();
+                }
+                DeleteEvent.IsOpen = false;
+            }
+            DeleteEvent.IsOpen = false;
+        }
+        
+        public void CloseDeleteEventPopup(object sender, RoutedEventArgs e)
+        {
+            DeleteEvent.IsOpen = false;
         }
     }
 }
