@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TimetablingClientApplication.Views.MasterViews
+namespace TimetablingClientApplication.Views.Events.Pages
 {
     /// <summary>
     /// Interaction logic for EventPage.xaml

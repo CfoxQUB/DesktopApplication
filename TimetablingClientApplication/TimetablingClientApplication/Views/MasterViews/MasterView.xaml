@@ -79,6 +79,7 @@
                 <TreeViewItem IsExpanded="True" Header="Database" FontSize="11" Height="116" Width="152">
                     <TreeViewItem Header="Events" Margin="-11,0,0,0"/>
                     <TreeViewItem Header="Buildings" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Rooms" Margin="-11,0,0,0" MouseDoubleClick="Open_Database_Room_Page"/>
                     <TreeViewItem Header="Courses" Margin="-11,0,0,0"/>
                     <TreeViewItem Header="Students" Margin="-11,0,0,0"/>
                     <TreeViewItem Header="Staff" Margin="-11,0,0,0"/>

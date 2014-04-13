@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TimetablingClientApplication
+namespace TimetablingClientApplication.Views.Startup.Windows
 {
     /// <summary>
     /// Interaction logic for Register.xaml

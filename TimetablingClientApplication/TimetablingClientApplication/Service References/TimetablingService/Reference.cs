@@ -1106,6 +1106,9 @@ namespace TimetablingClientApplication.TimetablingService {
         private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RoomTypeIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1130,6 +1133,19 @@ namespace TimetablingClientApplication.TimetablingService {
                 if ((this.CreateDateField.Equals(value) != true)) {
                     this.CreateDateField = value;
                     this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Creator {
+            get {
+                return this.CreatorField;
+            }
+            set {
+                if ((this.CreatorField.Equals(value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
                 }
             }
         }
@@ -1196,6 +1212,12 @@ namespace TimetablingClientApplication.TimetablingService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CreatorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PostalCodeField;
@@ -1284,6 +1306,32 @@ namespace TimetablingClientApplication.TimetablingService {
                 if ((object.ReferenceEquals(this.CityField, value) != true)) {
                     this.CityField = value;
                     this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Creator {
+            get {
+                return this.CreatorField;
+            }
+            set {
+                if ((this.CreatorField.Equals(value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
                 }
             }
         }
@@ -1452,9 +1500,6 @@ namespace TimetablingClientApplication.TimetablingService {
         private int CreatorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime LastEditedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ModuleDescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1498,19 +1543,6 @@ namespace TimetablingClientApplication.TimetablingService {
                 if ((this.CreatorField.Equals(value) != true)) {
                     this.CreatorField = value;
                     this.RaisePropertyChanged("Creator");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime LastEdited {
-            get {
-                return this.LastEditedField;
-            }
-            set {
-                if ((this.LastEditedField.Equals(value) != true)) {
-                    this.LastEditedField = value;
-                    this.RaisePropertyChanged("LastEdited");
                 }
             }
         }
@@ -1593,6 +1625,12 @@ namespace TimetablingClientApplication.TimetablingService {
         private int CapacityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RoomDescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1636,6 +1674,32 @@ namespace TimetablingClientApplication.TimetablingService {
                 if ((this.CapacityField.Equals(value) != true)) {
                     this.CapacityField = value;
                     this.RaisePropertyChanged("Capacity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Creator {
+            get {
+                return this.CreatorField;
+            }
+            set {
+                if ((this.CreatorField.Equals(value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
                 }
             }
         }
@@ -1715,6 +1779,9 @@ namespace TimetablingClientApplication.TimetablingService {
         private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RepeatDescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1742,6 +1809,19 @@ namespace TimetablingClientApplication.TimetablingService {
                 if ((this.CreateDateField.Equals(value) != true)) {
                     this.CreateDateField = value;
                     this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Creator {
+            get {
+                return this.CreatorField;
+            }
+            set {
+                if ((this.CreatorField.Equals(value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
                 }
             }
         }
@@ -1841,6 +1921,42 @@ namespace TimetablingClientApplication.TimetablingService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteEvent", ReplyAction="http://tempuri.org/ITimetablingService/DeleteEventResponse")]
         System.Threading.Tasks.Task<bool> DeleteEventAsync(int eventId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/InviteStudent", ReplyAction="http://tempuri.org/ITimetablingService/InviteStudentResponse")]
+        bool InviteStudent(int eventId, int studentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/InviteStudent", ReplyAction="http://tempuri.org/ITimetablingService/InviteStudentResponse")]
+        System.Threading.Tasks.Task<bool> InviteStudentAsync(int eventId, int studentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/InviteStaff", ReplyAction="http://tempuri.org/ITimetablingService/InviteStaffResponse")]
+        bool InviteStaff(int eventId, int staffId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/InviteStaff", ReplyAction="http://tempuri.org/ITimetablingService/InviteStaffResponse")]
+        System.Threading.Tasks.Task<bool> InviteStaffAsync(int eventId, int staffId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/InviteModule", ReplyAction="http://tempuri.org/ITimetablingService/InviteModuleResponse")]
+        bool InviteModule(int eventId, int moduleId, int courseId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/InviteModule", ReplyAction="http://tempuri.org/ITimetablingService/InviteModuleResponse")]
+        System.Threading.Tasks.Task<bool> InviteModuleAsync(int eventId, int moduleId, int courseId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteInviteStudent", ReplyAction="http://tempuri.org/ITimetablingService/DeleteInviteStudentResponse")]
+        bool DeleteInviteStudent(int inviteId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteInviteStudent", ReplyAction="http://tempuri.org/ITimetablingService/DeleteInviteStudentResponse")]
+        System.Threading.Tasks.Task<bool> DeleteInviteStudentAsync(int inviteId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteInviteStaff", ReplyAction="http://tempuri.org/ITimetablingService/DeleteInviteStaffResponse")]
+        bool DeleteInviteStaff(int inviteId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteInviteStaff", ReplyAction="http://tempuri.org/ITimetablingService/DeleteInviteStaffResponse")]
+        System.Threading.Tasks.Task<bool> DeleteInviteStaffAsync(int inviteId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteInviteModule", ReplyAction="http://tempuri.org/ITimetablingService/DeleteInviteModuleResponse")]
+        bool DeleteInviteModule(int inviteId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteInviteModule", ReplyAction="http://tempuri.org/ITimetablingService/DeleteInviteModuleResponse")]
+        System.Threading.Tasks.Task<bool> DeleteInviteModuleAsync(int inviteId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEvents", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsResponse")]
         TimetablingClientApplication.TimetablingService.Event[] ReturnWeeksEvents(System.DateTime weekBeginning, int roomId);
         
@@ -1901,6 +2017,12 @@ namespace TimetablingClientApplication.TimetablingService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingName", ReplyAction="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingNameResponse")]
         System.Threading.Tasks.Task<int> ReturnBuildingIdFromBuildingNameAsync(string buildingName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeName", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeNameResponse")]
+        int ReturnRoomTypeIdFromTypeName(string typeName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeName", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeNameResponse")]
+        System.Threading.Tasks.Task<int> ReturnRoomTypeIdFromTypeNameAsync(string typeName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseName", ReplyAction="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseNameResponse")]
         int ReturnCourseIdFromCourseName(string courseName);
         
@@ -1944,16 +2066,28 @@ namespace TimetablingClientApplication.TimetablingService {
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.RepeatType[]> ReturnRepeatTypesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewBuilding", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse")]
-        int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity);
+        int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewBuilding", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse")]
-        System.Threading.Tasks.Task<int> CreateNewBuildingAsync(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity);
+        System.Threading.Tasks.Task<int> CreateNewBuildingAsync(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity, int creatorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CheckRoomExists", ReplyAction="http://tempuri.org/ITimetablingService/CheckRoomExistsResponse")]
+        bool CheckRoomExists(string roomName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CheckRoomExists", ReplyAction="http://tempuri.org/ITimetablingService/CheckRoomExistsResponse")]
+        System.Threading.Tasks.Task<bool> CheckRoomExistsAsync(string roomName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewRoom", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewRoomResponse")]
-        int CreateNewRoom(int buildingId, string roomName, string roomDescription, int roomTypeId);
+        int CreateNewRoom(int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewRoom", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewRoomResponse")]
-        System.Threading.Tasks.Task<int> CreateNewRoomAsync(int buildingId, string roomName, string roomDescription, int roomTypeId);
+        System.Threading.Tasks.Task<int> CreateNewRoomAsync(int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRoomDetail", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRoomDetailResponse")]
+        TimetablingClientApplication.TimetablingService.Room ReturnRoomDetail(int roomId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnRoomDetail", ReplyAction="http://tempuri.org/ITimetablingService/ReturnRoomDetailResponse")]
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Room> ReturnRoomDetailAsync(int roomId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateCourse", ReplyAction="http://tempuri.org/ITimetablingService/CreateCourseResponse")]
         int CreateCourse(string courseName, string courseDescription, int creatorId, int duration);
@@ -1968,22 +2102,22 @@ namespace TimetablingClientApplication.TimetablingService {
         System.Threading.Tasks.Task<int> CreateModuleAsync(string moduleName, string moduleDescription, int creatorId, int staffId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateStaff", ReplyAction="http://tempuri.org/ITimetablingService/CreateStaffResponse")]
-        int CreateStaff(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId);
+        int CreateStaff(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateStaff", ReplyAction="http://tempuri.org/ITimetablingService/CreateStaffResponse")]
-        System.Threading.Tasks.Task<int> CreateStaffAsync(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId);
+        System.Threading.Tasks.Task<int> CreateStaffAsync(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateStudent", ReplyAction="http://tempuri.org/ITimetablingService/CreateStudentResponse")]
-        int CreateStudent(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted);
+        int CreateStudent(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateStudent", ReplyAction="http://tempuri.org/ITimetablingService/CreateStudentResponse")]
-        System.Threading.Tasks.Task<int> CreateStudentAsync(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted);
+        System.Threading.Tasks.Task<int> CreateStudentAsync(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewRoomType", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewRoomTypeResponse")]
-        int CreateNewRoomType(string roomTypeDescription);
+        int CreateNewRoomType(string roomTypeDescription, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewRoomType", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewRoomTypeResponse")]
-        System.Threading.Tasks.Task<int> CreateNewRoomTypeAsync(string roomTypeDescription);
+        System.Threading.Tasks.Task<int> CreateNewRoomTypeAsync(string roomTypeDescription, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateNewRepeat", ReplyAction="http://tempuri.org/ITimetablingService/CreateNewRepeatResponse")]
         int CreateNewRepeat(string repeatTypeName, string repeatTypeDescription);
@@ -1997,11 +2131,29 @@ namespace TimetablingClientApplication.TimetablingService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/CreateSetting", ReplyAction="http://tempuri.org/ITimetablingService/CreateSettingResponse")]
         System.Threading.Tasks.Task<int> CreateSettingAsync(string settingName, string settingDescription);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/EditRoom", ReplyAction="http://tempuri.org/ITimetablingService/EditRoomResponse")]
+        bool EditRoom(int roomId, int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/EditRoom", ReplyAction="http://tempuri.org/ITimetablingService/EditRoomResponse")]
+        System.Threading.Tasks.Task<bool> EditRoomAsync(int roomId, int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteRoom", ReplyAction="http://tempuri.org/ITimetablingService/DeleteRoomResponse")]
+        bool DeleteRoom(int roomId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteRoom", ReplyAction="http://tempuri.org/ITimetablingService/DeleteRoomResponse")]
+        System.Threading.Tasks.Task<bool> DeleteRoomAsync(int roomId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/SearchFunction", ReplyAction="http://tempuri.org/ITimetablingService/SearchFunctionResponse")]
         TimetablingClientApplication.TimetablingService.Event[] SearchFunction(string appliedFilter, string searchItem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/SearchFunction", ReplyAction="http://tempuri.org/ITimetablingService/SearchFunctionResponse")]
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> SearchFunctionAsync(string appliedFilter, string searchItem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/SearchRoomFunction", ReplyAction="http://tempuri.org/ITimetablingService/SearchRoomFunctionResponse")]
+        TimetablingClientApplication.TimetablingService.Room[] SearchRoomFunction(int buildingId, string searchItem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/SearchRoomFunction", ReplyAction="http://tempuri.org/ITimetablingService/SearchRoomFunctionResponse")]
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Room[]> SearchRoomFunctionAsync(int buildingId, string searchItem);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2087,6 +2239,54 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.DeleteEventAsync(eventId);
         }
         
+        public bool InviteStudent(int eventId, int studentId) {
+            return base.Channel.InviteStudent(eventId, studentId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InviteStudentAsync(int eventId, int studentId) {
+            return base.Channel.InviteStudentAsync(eventId, studentId);
+        }
+        
+        public bool InviteStaff(int eventId, int staffId) {
+            return base.Channel.InviteStaff(eventId, staffId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InviteStaffAsync(int eventId, int staffId) {
+            return base.Channel.InviteStaffAsync(eventId, staffId);
+        }
+        
+        public bool InviteModule(int eventId, int moduleId, int courseId) {
+            return base.Channel.InviteModule(eventId, moduleId, courseId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InviteModuleAsync(int eventId, int moduleId, int courseId) {
+            return base.Channel.InviteModuleAsync(eventId, moduleId, courseId);
+        }
+        
+        public bool DeleteInviteStudent(int inviteId) {
+            return base.Channel.DeleteInviteStudent(inviteId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteInviteStudentAsync(int inviteId) {
+            return base.Channel.DeleteInviteStudentAsync(inviteId);
+        }
+        
+        public bool DeleteInviteStaff(int inviteId) {
+            return base.Channel.DeleteInviteStaff(inviteId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteInviteStaffAsync(int inviteId) {
+            return base.Channel.DeleteInviteStaffAsync(inviteId);
+        }
+        
+        public bool DeleteInviteModule(int inviteId) {
+            return base.Channel.DeleteInviteModule(inviteId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteInviteModuleAsync(int inviteId) {
+            return base.Channel.DeleteInviteModuleAsync(inviteId);
+        }
+        
         public TimetablingClientApplication.TimetablingService.Event[] ReturnWeeksEvents(System.DateTime weekBeginning, int roomId) {
             return base.Channel.ReturnWeeksEvents(weekBeginning, roomId);
         }
@@ -2167,6 +2367,14 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.ReturnBuildingIdFromBuildingNameAsync(buildingName);
         }
         
+        public int ReturnRoomTypeIdFromTypeName(string typeName) {
+            return base.Channel.ReturnRoomTypeIdFromTypeName(typeName);
+        }
+        
+        public System.Threading.Tasks.Task<int> ReturnRoomTypeIdFromTypeNameAsync(string typeName) {
+            return base.Channel.ReturnRoomTypeIdFromTypeNameAsync(typeName);
+        }
+        
         public int ReturnCourseIdFromCourseName(string courseName) {
             return base.Channel.ReturnCourseIdFromCourseName(courseName);
         }
@@ -2223,20 +2431,36 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.ReturnRepeatTypesAsync();
         }
         
-        public int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity) {
-            return base.Channel.CreateNewBuilding(buildingName, buildingNumber, addressLine1, addressLine2, postCode, buildingCity);
+        public int CreateNewBuilding(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity, int creatorId) {
+            return base.Channel.CreateNewBuilding(buildingName, buildingNumber, addressLine1, addressLine2, postCode, buildingCity, creatorId);
         }
         
-        public System.Threading.Tasks.Task<int> CreateNewBuildingAsync(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity) {
-            return base.Channel.CreateNewBuildingAsync(buildingName, buildingNumber, addressLine1, addressLine2, postCode, buildingCity);
+        public System.Threading.Tasks.Task<int> CreateNewBuildingAsync(string buildingName, int buildingNumber, string addressLine1, string addressLine2, string postCode, string buildingCity, int creatorId) {
+            return base.Channel.CreateNewBuildingAsync(buildingName, buildingNumber, addressLine1, addressLine2, postCode, buildingCity, creatorId);
         }
         
-        public int CreateNewRoom(int buildingId, string roomName, string roomDescription, int roomTypeId) {
-            return base.Channel.CreateNewRoom(buildingId, roomName, roomDescription, roomTypeId);
+        public bool CheckRoomExists(string roomName) {
+            return base.Channel.CheckRoomExists(roomName);
         }
         
-        public System.Threading.Tasks.Task<int> CreateNewRoomAsync(int buildingId, string roomName, string roomDescription, int roomTypeId) {
-            return base.Channel.CreateNewRoomAsync(buildingId, roomName, roomDescription, roomTypeId);
+        public System.Threading.Tasks.Task<bool> CheckRoomExistsAsync(string roomName) {
+            return base.Channel.CheckRoomExistsAsync(roomName);
+        }
+        
+        public int CreateNewRoom(int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId) {
+            return base.Channel.CreateNewRoom(buildingId, roomName, roomDescription, roomCapacity, roomTypeId, creatorId);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateNewRoomAsync(int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId) {
+            return base.Channel.CreateNewRoomAsync(buildingId, roomName, roomDescription, roomCapacity, roomTypeId, creatorId);
+        }
+        
+        public TimetablingClientApplication.TimetablingService.Room ReturnRoomDetail(int roomId) {
+            return base.Channel.ReturnRoomDetail(roomId);
+        }
+        
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Room> ReturnRoomDetailAsync(int roomId) {
+            return base.Channel.ReturnRoomDetailAsync(roomId);
         }
         
         public int CreateCourse(string courseName, string courseDescription, int creatorId, int duration) {
@@ -2255,28 +2479,28 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.CreateModuleAsync(moduleName, moduleDescription, creatorId, staffId);
         }
         
-        public int CreateStaff(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId) {
-            return base.Channel.CreateStaff(staffTitle, staffForename, staffSurname, staffEmail, staffPassword, courseId);
+        public int CreateStaff(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId, int creatorId) {
+            return base.Channel.CreateStaff(staffTitle, staffForename, staffSurname, staffEmail, staffPassword, courseId, creatorId);
         }
         
-        public System.Threading.Tasks.Task<int> CreateStaffAsync(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId) {
-            return base.Channel.CreateStaffAsync(staffTitle, staffForename, staffSurname, staffEmail, staffPassword, courseId);
+        public System.Threading.Tasks.Task<int> CreateStaffAsync(string staffTitle, string staffForename, string staffSurname, string staffEmail, string staffPassword, int courseId, int creatorId) {
+            return base.Channel.CreateStaffAsync(staffTitle, staffForename, staffSurname, staffEmail, staffPassword, courseId, creatorId);
         }
         
-        public int CreateStudent(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted) {
-            return base.Channel.CreateStudent(studenttitle, studentForeame, studentSurname, studentEmail, studentPassword, courseId, yearStarted);
+        public int CreateStudent(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted, int creatorId) {
+            return base.Channel.CreateStudent(studenttitle, studentForeame, studentSurname, studentEmail, studentPassword, courseId, yearStarted, creatorId);
         }
         
-        public System.Threading.Tasks.Task<int> CreateStudentAsync(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted) {
-            return base.Channel.CreateStudentAsync(studenttitle, studentForeame, studentSurname, studentEmail, studentPassword, courseId, yearStarted);
+        public System.Threading.Tasks.Task<int> CreateStudentAsync(string studenttitle, string studentForeame, string studentSurname, string studentEmail, string studentPassword, int courseId, int yearStarted, int creatorId) {
+            return base.Channel.CreateStudentAsync(studenttitle, studentForeame, studentSurname, studentEmail, studentPassword, courseId, yearStarted, creatorId);
         }
         
-        public int CreateNewRoomType(string roomTypeDescription) {
-            return base.Channel.CreateNewRoomType(roomTypeDescription);
+        public int CreateNewRoomType(string roomTypeDescription, int creatorId) {
+            return base.Channel.CreateNewRoomType(roomTypeDescription, creatorId);
         }
         
-        public System.Threading.Tasks.Task<int> CreateNewRoomTypeAsync(string roomTypeDescription) {
-            return base.Channel.CreateNewRoomTypeAsync(roomTypeDescription);
+        public System.Threading.Tasks.Task<int> CreateNewRoomTypeAsync(string roomTypeDescription, int creatorId) {
+            return base.Channel.CreateNewRoomTypeAsync(roomTypeDescription, creatorId);
         }
         
         public int CreateNewRepeat(string repeatTypeName, string repeatTypeDescription) {
@@ -2295,12 +2519,36 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.CreateSettingAsync(settingName, settingDescription);
         }
         
+        public bool EditRoom(int roomId, int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId) {
+            return base.Channel.EditRoom(roomId, buildingId, roomName, roomDescription, roomCapacity, roomTypeId, creatorId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditRoomAsync(int roomId, int buildingId, string roomName, string roomDescription, int roomCapacity, int roomTypeId, int creatorId) {
+            return base.Channel.EditRoomAsync(roomId, buildingId, roomName, roomDescription, roomCapacity, roomTypeId, creatorId);
+        }
+        
+        public bool DeleteRoom(int roomId) {
+            return base.Channel.DeleteRoom(roomId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteRoomAsync(int roomId) {
+            return base.Channel.DeleteRoomAsync(roomId);
+        }
+        
         public TimetablingClientApplication.TimetablingService.Event[] SearchFunction(string appliedFilter, string searchItem) {
             return base.Channel.SearchFunction(appliedFilter, searchItem);
         }
         
         public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Event[]> SearchFunctionAsync(string appliedFilter, string searchItem) {
             return base.Channel.SearchFunctionAsync(appliedFilter, searchItem);
+        }
+        
+        public TimetablingClientApplication.TimetablingService.Room[] SearchRoomFunction(int buildingId, string searchItem) {
+            return base.Channel.SearchRoomFunction(buildingId, searchItem);
+        }
+        
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.Room[]> SearchRoomFunctionAsync(int buildingId, string searchItem) {
+            return base.Channel.SearchRoomFunctionAsync(buildingId, searchItem);
         }
     }
 }

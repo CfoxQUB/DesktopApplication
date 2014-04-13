@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TimetablingClientApplication.Views.Database.Pages;
 using TimetablingClientApplication.Views.Events.Pages;
 using TimetablingClientApplication.Views.Timetables;
 using TimetablingClientApplication.Views.Timetables.Pages;
@@ -54,6 +55,7 @@ namespace TimetablingClientApplication.Views.MasterViews
         {
             Frame.Navigate(new RoomTimetableTool());
         }
+
         #endregion
 
         #region TreeNavigation
@@ -87,6 +89,21 @@ namespace TimetablingClientApplication.Views.MasterViews
         {
             Frame.Navigate(new RoomTimetableTool());
         }
+
+        private void Open_Database_Room_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new RoomManagement(_userId));
+        }
+        
+        //private void Open_Timetable_Building_Page(object sender, MouseButtonEventArgs e)
+        //{
+        //    Frame.Navigate(new RoomTimetableTool());
+        //}
+        
+        //private void Open_Timetable_Building_Page(object sender, MouseButtonEventArgs e)
+        //{
+        //    Frame.Navigate(new RoomTimetableTool());
+        //}
 
 
 

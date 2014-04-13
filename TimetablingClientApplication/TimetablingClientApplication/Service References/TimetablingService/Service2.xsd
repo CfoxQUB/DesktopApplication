@@ -126,6 +126,7 @@
   <xs:complexType name="RoomType">
     <xs:sequence>
       <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
       <xs:element minOccurs="0" name="RoomTypeId" type="xs:int" />
       <xs:element minOccurs="0" name="RoomeTypeDescription" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -145,6 +146,8 @@
       <xs:element minOccurs="0" name="BuildingName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BuildingNumber" type="xs:int" />
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
       <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -176,7 +179,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Creator" type="xs:int" />
-      <xs:element minOccurs="0" name="LastEdited" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ModuleDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModuleId" type="xs:int" />
       <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
@@ -194,6 +196,8 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Building" type="xs:int" />
       <xs:element minOccurs="0" name="Capacity" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
       <xs:element minOccurs="0" name="RoomDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RoomId" type="xs:int" />
       <xs:element minOccurs="0" name="RoomName" nillable="true" type="xs:string" />
@@ -216,6 +220,7 @@
   <xs:complexType name="RepeatType">
     <xs:sequence>
       <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
       <xs:element minOccurs="0" name="RepeatDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RepeatTypeId" type="xs:int" />
       <xs:element minOccurs="0" name="RepeatTypeName" nillable="true" type="xs:string" />

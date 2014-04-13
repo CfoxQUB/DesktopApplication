@@ -61,8 +61,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Views\Database\Pages\BuildingManagement.xaml.cs">
+      <DependentUpon>BuildingManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Database\Pages\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Pages\RoomManagement.xaml.cs">
+      <DependentUpon>RoomManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Pages\StaffManagement.xaml.cs">
+      <DependentUpon>StaffManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Windows\EditRoom.xaml.cs">
+      <DependentUpon>EditRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Windows\CreateNewRoom.xaml.cs">
+      <DependentUpon>CreateNewRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Windows\CreateNewStaff.xaml.cs">
+      <DependentUpon>CreateNewStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Windows\EditRoomWindow.xaml.cs">
+      <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Events\Pages\CreateEventsPage.xaml.cs">
       <DependentUpon>CreateEventsPage.xaml</DependentUpon>
@@ -85,6 +106,9 @@
     <Compile Include="Views\Events\Pages\EventPage.xaml.cs">
       <DependentUpon>EventPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Events\Windows\InvitesWindow.xaml.cs">
+      <DependentUpon>InvitesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MasterViews\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
     </Compile>
@@ -97,7 +121,35 @@
     <Compile Include="Views\Timetables\Pages\TimetableToolPage.xaml.cs">
       <DependentUpon>TimetableToolPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Database\Pages\BuildingManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Database\Pages\Database.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\Pages\RoomManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\Pages\StaffManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\Windows\EditRoom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Database\Windows\CreateNewRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\Windows\CreateNewStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\Windows\EditRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Events\Pages\EventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\Windows\InvitesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,7 +290,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Database\Windows\" />
     <Folder Include="Views\Startup\Pages\" />
     <Folder Include="Views\Timetables\Windows\" />
   </ItemGroup>

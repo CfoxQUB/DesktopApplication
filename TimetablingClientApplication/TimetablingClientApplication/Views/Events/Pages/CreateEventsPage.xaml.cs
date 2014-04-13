@@ -28,6 +28,8 @@ namespace TimetablingClientApplication.Views.Events.Pages
         private readonly SolidColorBrush _alert = new SolidColorBrush(Colors.Red);
         private readonly SolidColorBrush _normal = new SolidColorBrush(Colors.Black);
 
+        private readonly bool _addRoomEnabled = false;
+        private readonly bool _addModuleEnabled = false;
         
         
         private readonly String _building;
@@ -116,7 +118,30 @@ namespace TimetablingClientApplication.Views.Events.Pages
         {
             if (CheckTitleAndDescription())
             {
-                _createdEventId = Client.CreateEvent(EventTitle.Text, _loggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(), Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
+                var room = "0";
+
+                var course = "0";
+                var module = "0";
+
+                if (_addRoomEnabled)
+                {
+                    room = RoomSelect.Text;
+                    
+                }
+                
+                if (_addModuleEnabled)
+                {
+                    course = CourseSelect.Text;
+                    module =  ModuleSelect.Text;
+                }
+
+                
+                   _createdEventId = Client.CreateEvent(EventTitle.Text, _loggedInUserId, EventDescription.Text,
+                        EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),
+                        Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate),
+                        TimeList.SelectedValue.ToString(), room,
+                        course, module);
+                
 
                 if (_createdEventId != 0)
                 {
@@ -204,6 +229,34 @@ namespace TimetablingClientApplication.Views.Events.Pages
             DurationList.Text = "15";
 
             Success.IsOpen = false;
+        }
+
+        private void AddModule_OnChecked(object sender, RoutedEventArgs e)
+        {
+            AddModule.IsChecked = true;
+            CourseSelect.IsEnabled = true;
+            ModuleSelect.IsEnabled = true;
+        } 
+
+        private void AddModule_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AddModule.IsChecked = false;
+            CourseSelect.IsEnabled = false;
+            ModuleSelect.IsEnabled = false;
+        } 
+
+        private void AddRoom_OnChecked(object sender, RoutedEventArgs e)
+        {
+            AddRoom.IsChecked = true;
+            RoomSelect.IsEnabled = true;
+            BuildingSelect.IsEnabled = true;
+        } 
+
+        private void AddRoom_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AddRoom.IsChecked = false;
+            RoomSelect.IsEnabled = false;
+            BuildingSelect.IsEnabled = false;
         }
     }
 

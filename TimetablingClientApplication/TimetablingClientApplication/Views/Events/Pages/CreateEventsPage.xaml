@@ -17,24 +17,24 @@
         <Label Name="Time" Content="Time:" HorizontalAlignment="Left" Margin="474,107,0,0" VerticalAlignment="Top" FontSize="11"/>
         <Label Name="Date"  Content="Date:" HorizontalAlignment="Left" Margin="474,70,0,0" VerticalAlignment="Top" FontSize="11"/>
         <Label Name="EventType"  Content="Event Type: " HorizontalAlignment="Left" Margin="122,181,0,0" VerticalAlignment="Top" FontSize="11"/>
-        <Button Content="Create Event" Click="Create_Event" Margin="436,414,114,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,2.227" Height="38"/>
+        <Button Content="Create Event" Click="Create_Event" Margin="436,469,114,0" VerticalAlignment="Top" RenderTransformOrigin="0.507,2.227" Height="38"/>
         <ComboBox Name="EventTypeSelect" HorizontalAlignment="Left" Margin="202,185,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}" FontSize="11"/>
         <DatePicker Name="StartDate" HorizontalAlignment="Left" Margin="526,71,0,0" VerticalAlignment="Top" Width="144" FontSize="11"/>
         <ComboBox Name="TimeList" HorizontalAlignment="Left" Height="23" Margin="526,107,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.488,0.469" Background="{x:Null}" ForceCursor="True" FontSize="11"/>
-        <Label Name="Repeats"  Content="Repeat Type: " HorizontalAlignment="Left" Margin="122,354,0,0" VerticalAlignment="Top" FontSize="11"/>
+        <Label Name="Repeats"  Content="Repeat Type: " HorizontalAlignment="Left" Margin="122,405,0,0" VerticalAlignment="Top" FontSize="11"/>
         <Label Name="Duration"  Content="Duration: " HorizontalAlignment="Left" Margin="459,148,0,0" VerticalAlignment="Top" Width="77" FontSize="11"/>
         <ComboBox Name="DurationList" HorizontalAlignment="Left" Height="23" Margin="526,150,0,0" VerticalAlignment="Top" Width="97" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="RepeatSelect" HorizontalAlignment="Left" Margin="216,358,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}" FontSize="11"/>
-        <Label Name="Buildings"  Content="Building: " HorizontalAlignment="Left" Margin="474,268,0,0" VerticalAlignment="Top" FontSize="11"/>
-        <ComboBox Name="BuildingSelect" HorizontalAlignment="Left" Margin="557,268,0,0" VerticalAlignment="Top" Width="177" SelectionChanged="Building_Selection_Changed" Background="{x:Null}" FontSize="11"/>
-        <Label Name="Rooms"  Content="Room:" HorizontalAlignment="Left" Margin="487,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.273,0.423" Width="59" FontSize="11"/>
-        <ComboBox Name="RoomSelect" HorizontalAlignment="Left" Margin="557,308,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}" FontSize="11"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="122,40,0,0" TextWrapping="Wrap" Text="Basic Information" VerticalAlignment="Top" Width="548" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" />
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="131,229,0,0" TextWrapping="Wrap" Text="Additional Information" VerticalAlignment="Top" Width="603" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" />
-        <ComboBox Name="CourseSelect" HorizontalAlignment="Left" Margin="202,268,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" SelectionChanged="Course_Selection_Changed" FontSize="11"/>
-        <ComboBox Name="ModuleSelect" HorizontalAlignment="Left" Margin="202,308,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" FontSize="11"/>
-        <Label Content="Course:" HorizontalAlignment="Left" Margin="131,264,0,0" VerticalAlignment="Top" FontSize="11"/>
-        <Label Content="Module:" HorizontalAlignment="Left" Margin="127,304,0,0" VerticalAlignment="Top" FontSize="11"/>
+        <ComboBox Name="RepeatSelect" HorizontalAlignment="Left" Margin="216,409,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}" FontSize="11"/>
+        <Label Name="Buildings"  Content="Building: " HorizontalAlignment="Left" Margin="478,315,0,0" VerticalAlignment="Top" FontSize="11"/>
+        <ComboBox Name="BuildingSelect" HorizontalAlignment="Left" Margin="561,315,0,0" VerticalAlignment="Top" Width="177" SelectionChanged="Building_Selection_Changed" Background="{x:Null}" FontSize="11"/>
+        <Label Name="Rooms"  Content="Room:" HorizontalAlignment="Left" Margin="491,351,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.273,0.423" Width="59" FontSize="11"/>
+        <ComboBox Name="RoomSelect" HorizontalAlignment="Left" Margin="561,355,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}" FontSize="11"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="122,40,0,0" TextWrapping="Wrap" Text="Basic Information" VerticalAlignment="Top" Width="548" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" />
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="131,229,0,0" TextWrapping="Wrap" Text="Additional Information" VerticalAlignment="Top" Width="603" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" />
+        <ComboBox Name="CourseSelect" HorizontalAlignment="Left" Margin="206,315,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" SelectionChanged="Course_Selection_Changed" FontSize="11"/>
+        <ComboBox Name="ModuleSelect" HorizontalAlignment="Left" Margin="206,355,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" FontSize="11"/>
+        <Label Content="Course:" HorizontalAlignment="Left" Margin="135,311,0,0" VerticalAlignment="Top" FontSize="11"/>
+        <Label Content="Module:" HorizontalAlignment="Left" Margin="131,351,0,0" VerticalAlignment="Top" FontSize="11"/>
         <TextBlock Name="ValidationMessage" Visibility="Hidden" HorizontalAlignment="Left" Margin="436,200,0,0" TextWrapping="Wrap" Text="Please complete the highlighted fields." FontSize="17"  VerticalAlignment="Top" Height="24" Width="296" Foreground="Red"/>
         <Popup Name="Success" Width="300" Height="150" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248">
@@ -43,5 +43,7 @@
                 <Button Name="CancelButton" Content="Close" Click="ResetCreateEventPopup"/>
             </StackPanel>
         </Popup>
+        <CheckBox Name="AddModule" Content="Add Module" IsChecked="True" Checked="AddModule_OnChecked" Unchecked="AddModule_Unchecked" HorizontalAlignment="Left" Margin="144,270,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="AddRoom" Content="Add Room" IsChecked="True" Checked="AddRoom_OnChecked" Unchecked="AddRoom_Unchecked" HorizontalAlignment="Left" Margin="478,270,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
