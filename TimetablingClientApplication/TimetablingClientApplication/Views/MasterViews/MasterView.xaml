@@ -78,9 +78,9 @@
                 </TreeViewItem>
                 <TreeViewItem IsExpanded="True" Header="Database" FontSize="11" Height="116" Width="152">
                     <TreeViewItem Header="Events" Margin="-11,0,0,0"/>
-                    <TreeViewItem Header="Buildings" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Buildings" MouseDoubleClick="Open_Database_Building_Page" Margin="-11,0,0,0"/>
                     <TreeViewItem Header="Rooms" Margin="-11,0,0,0" MouseDoubleClick="Open_Database_Room_Page"/>
-                    <TreeViewItem Header="Courses" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Courses" Margin="-11,0,0,0" MouseDoubleClick="Open_Timetable_Course_Page"/>
                     <TreeViewItem Header="Students" Margin="-11,0,0,0"/>
                     <TreeViewItem Header="Staff" Margin="-11,0,0,0"/>
                     <TreeViewItem Header="Settings" Margin="-11,0,0,0"/>

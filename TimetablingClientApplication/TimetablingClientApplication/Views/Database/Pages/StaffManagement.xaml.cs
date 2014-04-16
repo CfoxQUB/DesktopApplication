@@ -1,27 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TimetablingClientApplication.TimetablingService;
 
 namespace TimetablingClientApplication.Views.Database.Pages
 {
     /// <summary>
     /// Interaction logic for StaffTableManagement.xaml
     /// </summary>
-    public partial class StaffTableManagement : Page
+    public partial class StaffTableManagement
     {
-        public StaffTableManagement()
+        private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
+
+        private readonly ObservableCollection<Staff> _staffCollectionList = new ObservableCollection<Staff>();
+
+        private const string DefaultSearchString = "Search for Courses . . . ";
+
+        private readonly NavigationService _navigationService;
+        
+        private readonly int _userId;
+
+        public StaffTableManagement(int userId, NavigationService navigationService)
         {
+            _userId = userId;
+            _navigationService = navigationService;
+
             InitializeComponent();
         }
     }

@@ -64,6 +64,9 @@
     <Compile Include="Views\Database\Pages\BuildingManagement.xaml.cs">
       <DependentUpon>BuildingManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Database\Pages\CourseManagement.xaml.cs">
+      <DependentUpon>CourseManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Database\Pages\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,18 @@
     <Compile Include="Views\Database\Pages\StaffManagement.xaml.cs">
       <DependentUpon>StaffManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Database\Windows\EditCourse.xaml.cs">
+      <DependentUpon>EditCourse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Windows\CreateNewCourse.xaml.cs">
+      <DependentUpon>CreateNewCourse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Windows\EditBuilding.xaml.cs">
+      <DependentUpon>EditBuilding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\Windows\CreateNewBuilding.xaml.cs">
+      <DependentUpon>CreateNewBuilding.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Database\Windows\EditRoom.xaml.cs">
       <DependentUpon>EditRoom.xaml</DependentUpon>
     </Compile>
@@ -81,9 +96,6 @@
     </Compile>
     <Compile Include="Views\Database\Windows\CreateNewStaff.xaml.cs">
       <DependentUpon>CreateNewStaff.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Database\Windows\EditRoomWindow.xaml.cs">
-      <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Events\Pages\CreateEventsPage.xaml.cs">
       <DependentUpon>CreateEventsPage.xaml</DependentUpon>
@@ -125,6 +137,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Database\Pages\CourseManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Database\Pages\Database.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +153,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Database\Windows\EditCourse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Database\Windows\CreateNewCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\Windows\EditBuilding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Database\Windows\CreateNewBuilding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Database\Windows\EditRoom.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -146,10 +178,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Database\Windows\CreateNewStaff.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Database\Windows\EditRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,6 +296,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.RoomType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.Staff.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.Student.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.Time.datasource">

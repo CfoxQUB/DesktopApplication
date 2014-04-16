@@ -8,7 +8,7 @@
 	Title="BuildingManagement" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
-        <ListView Name="RoomList" HorizontalAlignment="Left" Height="439" Margin="45,37,0,0" VerticalAlignment="Top" Width="250">
+        <ListView Name="BuildingList" SelectionMode="Single" SelectionChanged="NewBuildingSelected" HorizontalAlignment="Left" Height="418" Margin="45,58,0,0" VerticalAlignment="Top" Width="250">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="50" DisplayMemberBinding="{Binding BuildingId}" Header="Id" />
@@ -28,16 +28,21 @@
         <TextBlock Name="AddressLine1" Margin="644,103,54,401"></TextBlock>
         <TextBlock Name="AddressLine2" Margin="644,129,54,375"></TextBlock>
         <TextBlock Name="City" Margin="644,157,54,347"></TextBlock>
-
-        <TextBlock Text="Room Type" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="365,154,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="RoomTypeText" Margin="372,176,326,328"></TextBlock>
-        <TextBlock Text="Events " HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="644,192,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="EventsText" Margin="644,216,98,288"></TextBlock>
-        <Button Content="New Building" Margin="424,376,384,123"/>
-        <Button Content="Edit Building" Margin="573,376,235,123"/>
-        <Button Content="Delete Building" Margin="720,376,88,123"/>
-
-        <Popup Name="EditBuilding" Visibility="Hidden"></Popup>
-        <Popup Name="DeleteBuilding" Visibility="Hidden"></Popup>
+        <TextBlock Name="Postcode" Margin="644,183,54,321"></TextBlock>
+        <TextBlock Text="Events " HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="365,164,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="EventsText" Margin="372,188,370,316"></TextBlock>
+        <Button Name="NewBuildingButton"  Content="New Building" Click="AddNewBuilding" Margin="424,376,384,123"/>
+        <Button Name="EditBuildingButton" Content="Edit Building" Click="EditBuilding" Margin="573,376,235,123"/>
+        <Button Name="DeleteBuildingButton" Content="Delete Building" Click="DeleteBuildingPopup" Margin="720,376,88,123"/>
+       
+        
+        <TextBox x:Name="SearchRooms" HorizontalAlignment="Left" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Buildings . . . " VerticalAlignment="Top" Width="250"/>
+        <Popup Name="DeleteBuilding" Width="300" Height="150" Placement="Center" Visibility="Visible">
+            <StackPanel Background="#FFF1D248">
+                <TextBlock TextAlignment="Center" Height="100"><Run Text="Are you sure you want to "/><Run/><LineBreak/><Run Text="delete this Building?"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Delete cannot be undone!"/></TextBlock>
+                <Button Name="ConfirmDelete" Content="Confirm" Click="ConfirmDeleteButtonClicked"/>
+                <Button Name="CancelButton" Content="Close" Click="CloseDeletePopup"/>
+            </StackPanel>
+        </Popup>
     </Grid>
 </Page>

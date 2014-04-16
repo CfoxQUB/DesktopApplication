@@ -5,9 +5,44 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="StaffTableManagement">
+	Title="StaffTableManagement" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
-    <Grid>
+    <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <TextBlock Text="Title:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,62,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBlock Name="Title" Margin="421,86,305,418" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock Text="Forename:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,114,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="Forename" Margin="421,138,305,366"></TextBlock>
+        <TextBlock Text="Surname:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="645,62,0,0" VerticalAlignment="Top"></TextBlock>
+        <TextBlock Name="Surname" Margin="675,83,23,366"></TextBlock>
+        <TextBlock Text="Email:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,164,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="EmailBlock" Margin="421,188,305,316"></TextBlock>
+        <TextBlock Text="Course:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,214,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="CapacityText" Margin="421,238,305,266"></TextBlock>
         
+        <Button Name="NewStaffButton" Content="New Staff" Click="AddNewStaff" Margin="424,376,384,123"/>
+        <Button Name="EditStaffButton" Content="Edit Staff" Click="EditStaff" Margin="573,376,235,123"/>
+        <Button Name="DeleteStaffButton" Content="Delete Staff" Click="DeleteStaffPopup" Margin="720,376,88,123"/>
+        <Popup Name="DeleteStaff" Width="300" Height="150" Placement="Center" Visibility="Visible">
+            <StackPanel Background="#FFF1D248">
+                <TextBlock TextAlignment="Center" Height="100"><Run Text="Are you sure you want to "/><Run/><LineBreak/><Run Text="delete this Staff Member?"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Delete cannot be undone!"/></TextBlock>
+                <Button Name="ConfirmDelete" Content="Confirm" Click="ConfirmDeleteButtonClicked"/>
+                <Button Name="CancelButton" Content="Close" Click="CloseDeletePopup"/>
+            </StackPanel>
+        </Popup>
+       
+        <TextBox Name="SearchStaff" HorizontalAlignment="Left" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Staff . . . " VerticalAlignment="Top" Width="250"/>
+
+        <ListView Name="StaffList" SelectionMode="Single" HorizontalAlignment="Left" Height="389" Margin="45,58,0,0" SelectionChanged="NewStaffSelected" VerticalAlignment="Top" Width="250">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding StaffId}" Header="Id" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffForename}" Header="Forename" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffSurname}" Header="Surname" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffEmail}" Header="Email" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Password}" Header="Password" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
+
 </Page>

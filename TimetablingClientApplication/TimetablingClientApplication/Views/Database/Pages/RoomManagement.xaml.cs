@@ -55,17 +55,20 @@ namespace TimetablingClientApplication.Views.Database.Pages
                         _roomCollectionList.Add(r);
                     } 
                 }
-                else
-                {
-                   ////TODO: Disable room select and POPUP Alert
-                }
                 
+                RoomNameText.Text = "No Selection has been made.";
+                RoomDescriptionText.Text = "None";
+                RoomTypeText.Text = "None";
+                BuildingText.Text = "None";
+                EventsText.Text = "None";
+                CapacityText.Text = "None";
 
                 RoomList.ItemsSource = _roomCollectionList;
                 SelectBuilding.SelectedItem = buildingsList.First().BuildingName;
                 pageRendered = true;
                 return;
             }
+            OpenBuildingsAlert();
             DisablePage();
         }
 
@@ -156,12 +159,6 @@ namespace TimetablingClientApplication.Views.Database.Pages
                     RoomList.ItemsSource = results;
                 }
                 
-                if(RoomList.Items.Count == 0)
-                {
-                    var noResults = _client.ReturnBuildingRooms(buildingId);
-            
-                    RoomList.ItemsSource = noResults;
-                }
             }
         }
 
@@ -176,8 +173,10 @@ namespace TimetablingClientApplication.Views.Database.Pages
         }
 
         private void ConfirmDeleteButtonClicked(object sender, RoutedEventArgs e)
-        {    var selectedRoom = (Room)RoomList.SelectedItem;
-             var buildingId = _client.ReturnBuildingIdFromBuildingName(SelectBuilding.SelectedItem.ToString());
+        {    
+            var selectedRoom = (Room)RoomList.SelectedItem;
+            var buildingId = _client.ReturnBuildingIdFromBuildingName(SelectBuilding.SelectedItem.ToString());
+            
             if (selectedRoom != null)
             {
                 _client.DeleteRoom(selectedRoom.RoomId);
@@ -188,6 +187,12 @@ namespace TimetablingClientApplication.Views.Database.Pages
             }
 
             DeleteRoom.IsOpen = false;
+            RoomNameText.Text = "No Selection has been made.";
+            RoomDescriptionText.Text = "None";
+            RoomTypeText.Text = "None";
+            BuildingText.Text = "None";
+            EventsText.Text = "None";
+            CapacityText.Text = "None";
         }
 
 
@@ -223,5 +228,17 @@ namespace TimetablingClientApplication.Views.Database.Pages
             }
             
         }
+
+        public void OpenBuildingsAlert()
+        {
+            NoBuildings.IsOpen = true;
+        }
+        
+        public void CloseBuildingsAlert(object sender, RoutedEventArgs e)
+        {
+            NoBuildings.IsOpen = false;
+        }
+
+
     }
 }

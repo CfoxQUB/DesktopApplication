@@ -28,7 +28,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
         public TimetableToolPage()
         {
             _timetableDisplay = _client.ReturnTimetableToolListObject();
-            
+
             InitializeComponent();
 
             Populate_Monday_Display(new List<TimetableObject>(_timetableDisplay.MondayList), "Mon");

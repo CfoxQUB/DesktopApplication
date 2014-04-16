@@ -36,13 +36,13 @@ namespace TimetablingClientApplication.Views.MasterViews
         #region MenuBarOptions
         private void MenuItem_NewEvent_Click(object sender, RoutedEventArgs e)
         {
-            CreateEvents createEvents = new CreateEvents(_userId);
+            var createEvents = new CreateEvents(_userId);
             createEvents.Show();
         }
 
         private void MenuItem_EditEvent_Click(object sender, RoutedEventArgs e)
         {
-            EditEvents editEvents = new EditEvents(_userId);
+            var editEvents = new EditEvents(_userId);
             editEvents.Show();
         }
 
@@ -93,12 +93,18 @@ namespace TimetablingClientApplication.Views.MasterViews
         private void Open_Database_Room_Page(object sender, MouseButtonEventArgs e)
         {
             Frame.Navigate(new RoomManagement(_userId));
-        }
+        } 
         
-        //private void Open_Timetable_Building_Page(object sender, MouseButtonEventArgs e)
-        //{
-        //    Frame.Navigate(new RoomTimetableTool());
-        //}
+        private void Open_Database_Building_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new BuildingManagement(_userId));
+        }
+
+        private void Open_Timetable_Course_Page(object sender, MouseButtonEventArgs e)
+        {
+
+            Frame.Navigate(new CourseManagement(_userId, Frame.NavigationService));
+        }
         
         //private void Open_Timetable_Building_Page(object sender, MouseButtonEventArgs e)
         //{

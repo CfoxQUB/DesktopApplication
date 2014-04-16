@@ -227,4 +227,47 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RepeatType" nillable="true" type="tns:RepeatType" />
+  <xs:complexType name="ArrayOfStaff">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Staff" nillable="true" type="tns:Staff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaff" nillable="true" type="tns:ArrayOfStaff" />
+  <xs:complexType name="Staff">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Course" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
+      <xs:element minOccurs="0" name="LastActivity" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffForename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffId" type="xs:int" />
+      <xs:element minOccurs="0" name="StaffSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Staff" nillable="true" type="tns:Staff" />
+  <xs:complexType name="ArrayOfStudent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStudent" nillable="true" type="tns:ArrayOfStudent" />
+  <xs:complexType name="Student">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Course" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
+      <xs:element minOccurs="0" name="LastActivity" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentForename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentId" type="xs:int" />
+      <xs:element minOccurs="0" name="StudentSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Student" nillable="true" type="tns:Student" />
 </xs:schema>

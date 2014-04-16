@@ -21,9 +21,12 @@ namespace TimetablingClientApplication.Views.Database.Windows
     /// </summary>
     public partial class CreateNewRoom : Window
     {
-        private int _userId;
+        private readonly int _userId;
 
-        private TimetablingServiceClient _client = new TimetablingServiceClient();
+        private readonly SolidColorBrush _alert = new SolidColorBrush(Colors.Red);
+        private readonly SolidColorBrush _normal = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFE3E9EF"));
+
+        private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
 
         public CreateNewRoom(int userId)
         {
@@ -42,7 +45,8 @@ namespace TimetablingClientApplication.Views.Database.Windows
             }
             else
             {
-                BuildingSelect.IsEnabled = false;
+                OpenBuildingPopup();
+                return;
             }
 
             if (roomtypes != null)
@@ -54,13 +58,19 @@ namespace TimetablingClientApplication.Views.Database.Windows
             }
             else
             {
-                RoomTypeSelect.IsEnabled = false;
+                OpenRoomTypesPopup();
             }
             
         }
 
         public bool ValidationOnFields()
         {
+            RoomName.BorderBrush = _normal;
+            RoomDescription.BorderBrush = _normal;
+            BuildingSelect.BorderBrush = _normal;
+            RoomTypeSelect.BorderBrush = _normal;
+            RoomCapacity.BorderBrush = _normal;
+
             var roomName = RoomName.Text;
             var roomDescription = RoomDescription.Text;
             var buildingId =_client.ReturnBuildingIdFromBuildingName(BuildingSelect.Text);
@@ -68,17 +78,28 @@ namespace TimetablingClientApplication.Views.Database.Windows
 
             if (_client.CheckRoomExists(roomName))
             {
+                ValidationMessage.Foreground = _alert;
+                ValidationMessage.Visibility = Visibility.Visible;
+                ValidationMessage.Content = "Room creation failed. A room with the same name exists.";
                 return false;
+            }
+            ValidationMessage.Visibility = Visibility.Hidden;
+            if (!String.IsNullOrEmpty(roomName) && !String.IsNullOrEmpty(roomDescription) && !String.IsNullOrEmpty(RoomCapacity.Text) && buildingId != 0 && typeId != 0)
+            {
+              ValidationMessage.Visibility = Visibility.Hidden;
+              OpenSuccessPopup();
+              return true; 
             }
 
-            if (!String.IsNullOrEmpty(roomName) && !String.IsNullOrEmpty(roomDescription))
-            {
-                if (buildingId != 0 && typeId != 0)
-                {
-                    return true;
-                }
-                return false;
-            }
+            RoomName.BorderBrush = _alert;
+            RoomDescription.BorderBrush = _alert;
+            BuildingSelect.BorderBrush = _alert;
+            RoomTypeSelect.BorderBrush = _alert;
+            RoomCapacity.BorderBrush = _alert;
+
+            ValidationMessage.Foreground = _alert;
+            ValidationMessage.Visibility = Visibility.Visible;
+            ValidationMessage.Content = "Please ensure all fields are completed.";
             return false;
         }
 
@@ -95,24 +116,65 @@ namespace TimetablingClientApplication.Views.Database.Windows
 
             if (!regex.IsMatch(temp))
             {
-                ValidationMessage.Content = "'Capacity' must be a numeric value.";
+                ValidationMessage.Foreground = _alert;
                 ValidationMessage.Visibility = Visibility.Visible;
+                ValidationMessage.Content = "'Capacity' must be a numeric value.";
+                return;
             }
-        } 
-        
+            ValidationMessage.Visibility = Visibility.Hidden;
+        }
+
         public void SubmitNewRoom(object sender, RoutedEventArgs e)
         {
             var roomName = RoomName.Text;
             var roomDescription = RoomDescription.Text;
             var buildingId = _client.ReturnBuildingIdFromBuildingName(BuildingSelect.Text);
             var typeId = _client.ReturnRoomTypeIdFromTypeName(RoomTypeSelect.Text);
-            var roomCapacity = Convert.ToInt32(RoomCapacity.Text);
+            var roomCapacity = 0;
 
+            if (!String.IsNullOrEmpty(RoomCapacity.Text))
+            {
+                roomCapacity = Convert.ToInt32(RoomCapacity.Text);
+            }
+             
             if (ValidationOnFields())
             {
                 _client.CreateNewRoom(buildingId, roomName, roomDescription, roomCapacity, typeId, _userId);
             }
             
+        }
+
+        public void OpenSuccessPopup()
+        {
+            Success.IsOpen = true;
+        }
+        
+        public void CloseSuccessPopup(object sender, RoutedEventArgs e)
+        {
+            Success.IsOpen = false;
+            Close();
+        }
+        
+        public void OpenBuildingPopup()
+        {
+            NoBuildings.IsOpen = true;
+        } 
+        
+        public void CloseBuildingPopup(object sender, RoutedEventArgs e)
+        {
+            NoBuildings.IsOpen = false;
+            Close();
+        } 
+        
+        public void OpenRoomTypesPopup()
+        {
+            NoRoomTypes.IsOpen = true;
+        }
+        
+        public void CloseRoomTypesPopup(object sender, RoutedEventArgs e)
+        {
+            NoRoomTypes.IsOpen = false;
+            Close();
         }
     }
 }

@@ -13,13 +13,13 @@
         <TextBlock Text="Description:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,114,0,0" VerticalAlignment="Top"/>
         <TextBlock Name="RoomDescriptionText" Margin="421,138,305,366"></TextBlock>
         <TextBlock Text="Building Info:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="645,62,0,0" VerticalAlignment="Top"></TextBlock>
-        <TextBlock Name="BuildingText" Margin="645,83,53,366"></TextBlock>
+        <TextBlock Name="BuildingText" Margin="675,83,23,366"></TextBlock>
         <TextBlock Text="Room Type:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,164,0,0" VerticalAlignment="Top"/>
         <TextBlock Name="RoomTypeText" Margin="421,188,305,316"></TextBlock>
         <TextBlock Text="Capacity:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,214,0,0" VerticalAlignment="Top"/>
         <TextBlock Name="CapacityText" Margin="421,238,305,266"></TextBlock>
         <TextBlock Text="Events:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="645,169,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="EventsText" Margin="666,188,76,316"></TextBlock>
+        <TextBlock Name="EventsText" Margin="675,188,67,316"></TextBlock>
         <Button Name="NewRoomButton" Content="New Room" Click="AddNewRoom" Margin="424,376,384,123"/>
         <Button Name="EditRoomButton" Content="Edit Room" Click="EditRoom" Margin="573,376,235,123"/>
         <Button Name="DeleteRoomButton" Content="Delete Room" Click="DeleteRoomPopup" Margin="720,376,88,123"/>
@@ -29,6 +29,12 @@
                 <TextBlock TextAlignment="Center" Height="100"><Run Text="Are you sure you want to "/><Run/><LineBreak/><Run Text="delete this room?"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Delete cannot be undone!"/></TextBlock>
                 <Button Name="ConfirmDelete" Content="Confirm" Click="ConfirmDeleteButtonClicked"/>
                 <Button Name="CancelButton" Content="Close" Click="CloseDeletePopup"/>
+            </StackPanel>
+        </Popup>
+        <Popup Name="NoBuildings" Width="300" Height="125" Placement="Center" Visibility="Visible">
+            <StackPanel Background="#FFF1D248">
+                <TextBlock TextAlignment="Center" Height="100"><Run Text="No Buildings exist "/><Run/><LineBreak/><Run Text="in the database."/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Create a 'Building' to add 'Rooms'."/></TextBlock>
+                <Button Name="Close" Content="Close" Click="CloseBuildingsAlert"/>
             </StackPanel>
         </Popup>
         <ComboBox Name="SelectBuilding" HorizontalAlignment="Left" Margin="124,461,0,0" VerticalAlignment="Top" SelectionChanged="BuildingSelectionChange" Width="171" Background="{x:Null}"/>
