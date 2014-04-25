@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="093c1138-29a7-473e-a69c-c225c2945a27" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b33786f6-c278-4624-88dd-effa306703c5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:49185/Service.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="d25a6d8a-aa02-413f-ac14-b58036d85ac6" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="69c77a1b-0aa9-49dd-ab4e-b77ae272d125" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="9d9bf709-9e77-4d58-978c-ae3471c5b306" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?xsd=xsd2" />
-    <MetadataFile FileName="TimetablingService.wsdl" MetadataType="Wsdl" ID="05533ae0-bbf2-4bc6-baca-bff01e4f88c2" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?wsdl" />
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="3a8fd473-0c9c-4573-a647-7f5da82609f8" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="33e6d15d-a0d1-40e3-a122-a10f8731074c" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="00a0e26e-6d2c-4258-8c80-4201f20619a3" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="TimetablingService.wsdl" MetadataType="Wsdl" ID="de1be1c2-97e6-4133-9947-7014dceb042c" SourceId="1" SourceUrl="http://localhost:49185/Service.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

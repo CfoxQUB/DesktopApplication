@@ -7,11 +7,11 @@
 	Title="EventPage" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
-        <Label Content="Building:" Margin="597,366,260,138" RenderTransformOrigin="-38.4,-10.7" FontSize="11"/>
-        <ComboBox Name="BuildingList" HorizontalAlignment="Left" Margin="670,370,0,0" VerticalAlignment="Top" Width="143" Background="{x:Null}" Height="22" SelectionChanged="Building_Selection_Changed" FontSize="11"/>
-        <Label Content="Room:" Margin="604,409,260,91" RenderTransformOrigin="-38.4,-10.7" FontSize="11"/>
-        <ComboBox Name="RoomList" HorizontalAlignment="Left" Margin="670,409,0,0" VerticalAlignment="Top" Width="143" Background="{x:Null}" Height="22" SelectionChanged="Room_Selection_Changed" FontSize="11"/>
-        <ListView Name="ListedEvents" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="277" Width="572" Margin="348,34,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
+        <Label Content="Building:" Margin="351,52,506,452" RenderTransformOrigin="-38.4,-10.7" FontSize="11"/>
+        <ComboBox Name="BuildingList" HorizontalAlignment="Left" Margin="424,56,0,0" VerticalAlignment="Top" Width="215" Background="{x:Null}" Height="22" SelectionChanged="Building_Selection_Changed" FontSize="11"/>
+        <Label Content="Room:" Margin="665,52,199,448" RenderTransformOrigin="-38.4,-10.7" FontSize="11"/>
+        <ComboBox Name="RoomList" HorizontalAlignment="Left" Margin="731,52,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" Height="22" SelectionChanged="Room_Selection_Changed" FontSize="11"/>
+        <ListView Name="ListedEvents" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="277" Width="572" Margin="348,84,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
             <ListView.View>
                 <GridView TextBlock.TextAlignment="Center">
                     <GridViewColumn Width="50" DisplayMemberBinding="{Binding EventId}" Header="Id" />
@@ -25,9 +25,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox Background="{x:Null}" HorizontalAlignment="Left" Height="23" Margin="594,331,0,0" TextWrapping="Wrap" Text="Filter" VerticalAlignment="Top" Width="319" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" FontSize="11" />
-        <Label Content="Total Events:" Margin="10,56,810,442" FontSize="11"></Label>
-     <Label Content="Resource Usage:"  Margin="10,88,810,410" FontSize="11"></Label>
-    
+        <Label Content="Total Events:" Margin="74,115,746,383" FontSize="11"></Label>
+
     </Grid>
 </Page>

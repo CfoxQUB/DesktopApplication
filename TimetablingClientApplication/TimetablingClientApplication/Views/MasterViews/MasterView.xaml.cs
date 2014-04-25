@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TimetablingClientApplication.Views.Database.Pages;
 using TimetablingClientApplication.Views.Events.Pages;
-using TimetablingClientApplication.Views.Timetables;
+using TimetablingClientApplication.Views.Events.Windows;
 using TimetablingClientApplication.Views.Timetables.Pages;
 
 namespace TimetablingClientApplication.Views.MasterViews
@@ -21,7 +10,7 @@ namespace TimetablingClientApplication.Views.MasterViews
     /// <summary>
     /// Interaction logic for MasterView.xaml
     /// </summary>
-    public partial class MasterView : Window
+    public partial class MasterView 
     {
         private readonly int _userId;
         public MasterView(int loginId)
@@ -62,7 +51,7 @@ namespace TimetablingClientApplication.Views.MasterViews
 
         private void Open_Event_Page(object sender, MouseButtonEventArgs e)
         {
-            Frame.Navigate(new CreateEventsPage(_userId));
+            Frame.Navigate(new CreateEventsPage(_userId, Frame.NavigationService));
         }
 
         private void Open_Edit_Events_Page(object sender, MouseButtonEventArgs e)
@@ -73,11 +62,6 @@ namespace TimetablingClientApplication.Views.MasterViews
         private void Open_Events_Summary_Page(object sender, MouseButtonEventArgs e)
         {
             Frame.Navigate(new EventPage());
-        }
-
-        private void Open_Events_Attendees_Page(object sender, MouseButtonEventArgs e)
-        {
-            Frame.Navigate(new EventsAttendees());
         }
 
         private void Open_Timetable_Summary_Page(object sender, MouseButtonEventArgs e)
@@ -104,13 +88,38 @@ namespace TimetablingClientApplication.Views.MasterViews
         {
 
             Frame.Navigate(new CourseManagement(_userId, Frame.NavigationService));
+        } 
+        
+        private void Open_Timetable_Staff_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new StaffManagement(_userId, Frame.NavigationService));
         }
         
-        //private void Open_Timetable_Building_Page(object sender, MouseButtonEventArgs e)
-        //{
-        //    Frame.Navigate(new RoomTimetableTool());
-        //}
+        private void Open_Timetable_Student_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new StudentManagement(_userId, Frame.NavigationService));
+        }
 
+        private void Open_Module_Students_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new ModuleManagementPage());
+        } 
+        
+        private void Open_Course_Module_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new CourseModuleManagement());
+        }
+        
+        private void Open_Event_Staff_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new EventStaffPage());
+        }
+        
+        
+        private void Open_Invites_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new Invites(Frame.NavigationService));
+        }
 
 
         #endregion

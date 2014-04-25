@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using TimetablingClientApplication.TimetablingService;
 using TimetablingClientApplication.Views.Database.Windows;
@@ -21,20 +9,28 @@ namespace TimetablingClientApplication.Views.Database.Pages
     /// <summary>
     /// Interaction logic for RoomManagement.xaml
     /// </summary>
-    public partial class RoomManagement : Page
+    public partial class RoomManagement 
     {
-        private TimetablingServiceClient _client = new TimetablingServiceClient();
+        //Timetabling client used to expose webservice functionality
+        private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
 
+        //Observable collection used to display rooms of selected building
         private readonly ObservableCollection<Room> _roomCollectionList = new ObservableCollection<Room>();
 
-        private readonly string _defaultSearchString = "Search for Rooms . . . ";
+        //deafaul search string used to reset the placeholder text of the search fieldS
+        private const string DefaultSearchString = "Search for Rooms . . . ";
 
-        private bool pageRendered = false;
+        //Check to see if page has rendered to populate rooms of building
+        private readonly bool _pageRendered;
 
-        private int _userId;
+        //User Id passed in from the master page
+        private readonly int _userId;
 
+        //Page initialized
         public RoomManagement(int userId)
         {
+            _pageRendered = false;
+
             _userId = userId;
             InitializeComponent();
             var buildingsList = _client.ReturnBuildings();
@@ -65,7 +61,7 @@ namespace TimetablingClientApplication.Views.Database.Pages
 
                 RoomList.ItemsSource = _roomCollectionList;
                 SelectBuilding.SelectedItem = buildingsList.First().BuildingName;
-                pageRendered = true;
+                _pageRendered = true;
                 return;
             }
             OpenBuildingsAlert();
@@ -74,7 +70,7 @@ namespace TimetablingClientApplication.Views.Database.Pages
 
         public void BuildingSelectionChange(object sender, RoutedEventArgs e)
         {
-            if (pageRendered)
+            if (_pageRendered)
             {
                 var buildingId = _client.ReturnBuildingIdFromBuildingName(SelectBuilding.SelectedItem.ToString());
 
@@ -116,14 +112,14 @@ namespace TimetablingClientApplication.Views.Database.Pages
 
                 if (eventNumber != null)
                 {
-                    EventsText.Text = eventNumber.Count().ToString();
+                    EventsText.Text = eventNumber.Count().ToString("D");
                 }
                 else
                 {
                     EventsText.Text = "0";
                 }
 
-                CapacityText.Text = selectedEvent.Capacity.ToString();
+                CapacityText.Text = selectedEvent.Capacity.ToString("D");
 
                 var building = _client.ReturnRoomBuilding(selectedEvent.RoomId);
                 var buildingInfo = _client.ReturnBuildings().SingleOrDefault(x => x.BuildingId == building);
@@ -144,15 +140,15 @@ namespace TimetablingClientApplication.Views.Database.Pages
 
         private void SearchField_LoseFocus(object sender, RoutedEventArgs e)
         {
-            SearchRooms.Text = _defaultSearchString;
+            SearchRooms.Text = DefaultSearchString;
         }
 
         private void ReturnSearchResults(object sender, RoutedEventArgs e)
         {
-            if (pageRendered)
+            if (_pageRendered)
             {
                 var buildingId = _client.ReturnBuildingIdFromBuildingName(SelectBuilding.SelectedItem.ToString());
-                if (SearchRooms.Text != _defaultSearchString)
+                if (SearchRooms.Text != DefaultSearchString)
                 {                  
                     var results = _client.SearchRoomFunction(buildingId, SearchRooms.Text);
                     
@@ -166,7 +162,7 @@ namespace TimetablingClientApplication.Views.Database.Pages
         {
             DeleteRoom.IsOpen = true;
         }
-
+        
         private void CloseDeletePopup(object sender, RoutedEventArgs e)
         {
             DeleteRoom.IsOpen = false;

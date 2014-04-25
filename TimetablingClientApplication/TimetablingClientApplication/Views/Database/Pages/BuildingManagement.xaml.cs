@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TimetablingClientApplication.TimetablingService;
 using TimetablingClientApplication.Views.Database.Windows;
 
@@ -21,25 +10,31 @@ namespace TimetablingClientApplication.Views.Database.Pages
     /// <summary>
     /// Interaction logic for BuildingManagement.xaml
     /// </summary>
-    public partial class BuildingManagement : Page
+    public partial class BuildingManagement 
     {
+        //Timetabling Client used to expose Webservice functionality
+        private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
 
-        private TimetablingServiceClient _client = new TimetablingServiceClient();
-
+        //Observable list used to display database content in page
         private readonly ObservableCollection<Building> _buildingCollectionList = new ObservableCollection<Building>();
 
-        private readonly string _defaultSearchString = "Search for Buildings . . . ";
+        //Contstant strig value used to compare and reset search field placeholder 
+        private const String DefaultSearchString = "Search for Buildings . . . ";
 
-        private bool pageRendered = false;
+        //boolean check to determine if page has been rendered for room list population
+        private readonly bool _pageRendered;
 
-        private int _userId;
+        //User Id passed from master page
+        private readonly int _userId;
 
         public BuildingManagement(int userId)
         {
             _userId = userId;
+            _pageRendered = false;
             InitializeComponent();
-            var buildingsList = _client.ReturnBuildings();
 
+            //Population of the building list of returned data from database
+            var buildingsList = _client.ReturnBuildings();
             if (buildingsList != null)
             {
                 foreach (var b in buildingsList)
@@ -48,54 +43,66 @@ namespace TimetablingClientApplication.Views.Database.Pages
                 }
             }
 
+            //Setting default values on page as no building is yet selected
             BuildingList.ItemsSource = _buildingCollectionList;
             BuildingNameText.Text = "No selection made.";
             BuildingNumber.Text = "No selection made";
             EventsText.Text = "None";
         }
 
+        
+        // When building selected in the builings list
+        // the page content will reflect this buildings
+        // information. 
         public void NewBuildingSelected(object sender, RoutedEventArgs e)
         {
             var selectedBuilding = (Building) BuildingList.SelectedItem;
-            if (selectedBuilding != null)
+            if (selectedBuilding == null)
             {
-                BuildingNameText.Text = selectedBuilding.BuildingName;
+                return;
+            }
+
+            BuildingNameText.Text = selectedBuilding.BuildingName;
                 
+                //Returns the buildings events
                 var eventNumber = _client.ReturnBuildingEvents(selectedBuilding.BuildingId);
 
                 if (eventNumber != null)
                 {
-                    EventsText.Text = eventNumber.Count().ToString();
+                    EventsText.Text = eventNumber.Count().ToString("D");
                 }
                 else
                 {
                     EventsText.Text = "0";
                 }
-
-                BuildingNumber.Text = selectedBuilding.BuildingNumber.ToString();
+                //Populates page with selected buildings information
+                BuildingNumber.Text = selectedBuilding.BuildingNumber.ToString("D");
                 AddressLine1.Text = selectedBuilding.AddressLine1;
                 AddressLine2.Text = selectedBuilding.AddressLine2;
                 City.Text = selectedBuilding.City;
                 Postcode.Text = selectedBuilding.PostalCode;
 
-            }
         }
 
+        //Removes placeholder and replaces with blank text.
         private void SearchField_GotFocus(object sender, RoutedEventArgs e)
         {
             SearchRooms.Text = "";
         }
 
+        //Restores placeholder with the default search string value
         private void SearchField_LoseFocus(object sender, RoutedEventArgs e)
         {
-            SearchRooms.Text = _defaultSearchString;
+            SearchRooms.Text = DefaultSearchString;
         }
 
+        //Populates the buildings list with the results which relate to the 
+        //search value passed in.
         private void ReturnSearchResults(object sender, RoutedEventArgs e)
         {
-            if (pageRendered)
+            if (_pageRendered)
             {
-                if (SearchRooms.Text != _defaultSearchString)
+                if (SearchRooms.Text != DefaultSearchString)
                 {
                     var results = _client.SearchBuildingFunction(SearchRooms.Text);
 
@@ -105,28 +112,36 @@ namespace TimetablingClientApplication.Views.Database.Pages
             }
         }
 
+        //Opens the delete popup for confimation of the deleting of the builing
+        //selected.
         private void DeleteBuildingPopup(object sender, RoutedEventArgs e)
         {
             DeleteBuilding.IsOpen = true;
         }
 
+        //Closes delete Popup
         private void CloseDeletePopup(object sender, RoutedEventArgs e)
         {
             DeleteBuilding.IsOpen = false;
         }
 
+        //Confirm deletion of the building
+        //calls the method in the webservice by passing in builing Id
         private void ConfirmDeleteButtonClicked(object sender, RoutedEventArgs e)
         {
             var selectedBuilding = (Building) BuildingList.SelectedItem;
-            var buildingId = _client.ReturnBuildingIdFromBuildingName(BuildingList.SelectedItem.ToString());
+
             if (selectedBuilding != null)
             {
+                //Deletion of builing through web service
                 _client.DeleteBuilding(selectedBuilding.BuildingId);
 
+                //Refreshing of the buildings list in page
                 var noResults = _client.ReturnBuildings();
 
                 BuildingList.ItemsSource = noResults;
 
+                //Resets the page content to reflect building deleted
                 BuildingNameText.Text = "No selection made.";
                 BuildingNumber.Text = "No selection made";
                 AddressLine1.Text = "";
@@ -135,33 +150,18 @@ namespace TimetablingClientApplication.Views.Database.Pages
                 City.Text = "";
                 EventsText.Text = "None";
             }
-
+            //Close popup
             DeleteBuilding.IsOpen = false;
         }
 
-
-        public void DisablePage()
-        {
-            SearchRooms.IsEnabled = false;
-            BuildingList.IsEnabled = false;
-            EditBuildingButton.IsEnabled = false;
-            DeleteBuildingButton.IsEnabled = false;
-        }
-
-        public void EnablePage()
-        {
-            SearchRooms.IsEnabled = true;
-            BuildingList.IsEnabled = true;
-            EditBuildingButton.IsEnabled = true;
-            DeleteBuildingButton.IsEnabled = true;
-        }
-
+        //Opens new window for the creation of a new building
         public void AddNewBuilding(object sender, RoutedEventArgs e)
         {
             var building = new CreateNewBuilding(_userId);
             building.Show();
         }
 
+        //Opens new window for the editing of selected building
         public void EditBuilding(object sender, RoutedEventArgs e)
         {
             var buildingId = (Building) BuildingList.SelectedItem;

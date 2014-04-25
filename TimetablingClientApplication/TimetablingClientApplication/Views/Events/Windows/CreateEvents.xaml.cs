@@ -1,54 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using TimetablingClientApplication.TimetablingService;
 
-namespace TimetablingClientApplication
+namespace TimetablingClientApplication.Views.Events.Windows
 {
     /// <summary>
     /// Interaction logic for CreateEvents.xaml
     /// </summary>
-    public partial class CreateEvents : Window
+    public partial class CreateEvents 
     {
-        public static TimetablingService.TimetablingServiceClient Client = new TimetablingService.TimetablingServiceClient();
-        private readonly int _loggedInUserId;
-        private int _createdEventId = 0;
+     private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
 
+        private readonly int _userId;
+        private int _createdEventId;
+        private int _buildingId;
         private readonly SolidColorBrush _alert = new SolidColorBrush(Colors.Red);
+
+        private bool _addRoomEnabled;
+        private bool _addModuleEnabled;
+
+        private bool _courseRendered;
+        private bool _buildingRendered;
+
         public CreateEvents(int userId)
         {
             InitializeComponent();
-            _loggedInUserId = userId;
-            var eventTypes = Client.ReturnEventTypes();
+            _userId = userId;
 
-            var timesList = Client.ReturnTimes();
+            var eventTypes = _client.ReturnEventTypes();
 
-            var repeatsList = Client.ReturnRepeatTypes();
+            var timesList = _client.ReturnTimes();
 
-            var buildingsList = Client.ReturnBuildings();
+            var repeatsList = _client.ReturnRepeatTypes();
 
-            var coursesList = Client.ReturnCourses();
+            var buildingsList = _client.ReturnBuildings();
 
-            var modulesList = Client.ReturnCourseModules(coursesList.First().CourseId);
+            var coursesList = _client.ReturnCourses();
 
-            var roomsList = Client.ReturnBuildingRooms(buildingsList.First().BuildingId);
-           
-            foreach( var x in eventTypes)
+            var modulesList = _client.ReturnCourseModules(coursesList.First().CourseId);
+
+            var roomsList = _client.ReturnBuildingRooms(buildingsList.First().BuildingId);
+
+            foreach (var x in eventTypes)
             {
                 EventTypeSelect.Items.Add(x.TypeName);
             }
 
-            foreach( var x in timesList)
+            foreach (var x in timesList)
             {
                 TimeList.Items.Add(x.TimeLiteral);
             }
@@ -77,26 +77,75 @@ namespace TimetablingClientApplication
             TimeList.Text = timesList.First().TimeLiteral;
             RepeatSelect.Text = repeatsList.First().RepeatTypeName;
             BuildingSelect.Text = buildingsList.First().BuildingName;
+            _buildingId = buildingsList.First().BuildingId;
             RoomSelect.Text = roomsList.First().RoomName;
             CourseSelect.Text = coursesList.First().CourseName;
             ModuleSelect.Text = modulesList.First().ModuleName;
-
+            
             DurationList.Items.Add(15);
             DurationList.Items.Add(30);
             DurationList.Items.Add(60);
             DurationList.Text = "15";
+
             StartDate.SelectedDate = DateTime.Now.Date.AddDays(7);
-          
+
+            _addRoomEnabled = true;
+            _addModuleEnabled = true;
+
+            _courseRendered = true;
         }
-       
+
+
         #region Event Actions
 
         public void Create_Event(object sender, RoutedEventArgs e)
         {
             if (CheckTitleAndDescription())
             {
-                _createdEventId = Client.CreateEvent(EventTitle.Text, _loggedInUserId, EventDescription.Text, EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(), Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate), TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(), CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString());
+                var room = "0";
 
+                var course = "0";
+                var module = "0";
+
+                if (_addRoomEnabled)
+                {
+                    room = RoomSelect.Text;
+                    
+                }
+                
+                if (_addModuleEnabled)
+                {
+                    course = CourseSelect.Text;
+                    module =  ModuleSelect.Text;
+                }
+
+                var students = Convert.ToInt32(ModuleStudents.Content.ToString()); 
+                var capacity = Convert.ToInt32(RoomCapacity.Content.ToString());
+
+                if (_addModuleEnabled && _addRoomEnabled )
+                {
+                    if (students <= capacity)
+                    {
+                        _createdEventId = _client.CreateEvent(EventTitle.Text, _userId, EventDescription.Text,
+                            EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),
+                            Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate),
+                            TimeList.SelectedValue.ToString(), room,
+                            course, module);
+                    }
+                    else
+                    {
+                        CapacityAttendee.IsOpen = true;
+                    }
+                }
+                else
+                {
+                    _createdEventId = _client.CreateEvent(EventTitle.Text, _userId, EventDescription.Text,
+                            EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),
+                            Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate),
+                            TimeList.SelectedValue.ToString(), room,
+                            course, module);
+                }
+                
                 if (_createdEventId != 0)
                 {
                     Success.IsOpen = true;
@@ -106,9 +155,11 @@ namespace TimetablingClientApplication
 
         public void Building_Selection_Changed(object sender, RoutedEventArgs e)
         {
+            _buildingRendered = false;
             var tempName = BuildingSelect.SelectedItem;
-            var buildingId = Client.ReturnBuildingIdFromBuildingName(tempName.ToString());
-            var roomList = Client.ReturnBuildingRooms(buildingId);
+            var buildingId = _client.ReturnBuildingIdFromBuildingName(tempName.ToString());
+            _buildingId = buildingId;
+            var roomList = _client.ReturnBuildingRooms(buildingId);
             RoomSelect.Items.Clear();
 
             foreach (var x in roomList)
@@ -116,21 +167,65 @@ namespace TimetablingClientApplication
                 RoomSelect.Items.Add(x.RoomName);
             }
             RoomSelect.Text = roomList.First().RoomName;
+            RoomCapacity.Content = roomList.First().Capacity.ToString("D");
+            _buildingRendered = true;
+        }
+        
+        public void Room_Selection_Changed(object sender, RoutedEventArgs e)
+        {
+            if (_buildingRendered)
+            {
+                var tempName = RoomSelect.SelectedItem;
+                var roomId = _client.ReturnRoomId(_buildingId, tempName.ToString());
+
+                var roomDetails = _client.ReturnRoomDetail(roomId);
+
+                if (roomDetails != null)
+                {
+                    RoomCapacity.Content = roomDetails.Capacity;
+                }
+            }
         }
 
         public void Course_Selection_Changed(object sender, RoutedEventArgs e)
         {
+            _courseRendered = false;
+
             var tempName = CourseSelect.SelectedItem;
-            var courseId = Client.ReturnCourseIdFromCourseName(tempName.ToString());
-            var moduleList = Client.ReturnCourseModules(courseId);
+            var courseId = _client.ReturnCourseIdFromCourseName(tempName.ToString());
+            var moduleList = _client.ReturnCourseModules(courseId);
             ModuleSelect.Items.Clear();
 
-            foreach (var x in moduleList)
+            if (moduleList != null)
             {
-                ModuleSelect.Items.Add(x.ModuleName);
-            }
-            ModuleSelect.Text = moduleList.First().ModuleName;
 
+                foreach (var x in moduleList)
+                {
+                    ModuleSelect.Items.Add(x.ModuleName);
+                }
+                ModuleSelect.Text = moduleList.First().ModuleName;
+
+                var moduleStudents = _client.ReturnModuleStudentsNumbers(moduleList.First().ModuleId);
+                ModuleStudents.Content = moduleStudents.ToString("D");
+            }
+            else
+            {
+                ModuleSelect.Items.Add("No modules");
+                ModuleSelect.Text = "No modules";
+            }
+
+            _courseRendered = true;
+        }
+
+        public void Module_Selection_Changed(object sender, RoutedEventArgs e)
+        {
+            if (_courseRendered)
+            {
+                var moduleName = ModuleSelect.SelectedValue.ToString();
+                var moduleId = _client.ReturnModuleIdFromModuleName(moduleName);
+                var moduleStudents = _client.ReturnModuleStudentsNumbers(moduleId);
+                ModuleStudents.Content = moduleStudents.ToString("D");
+            }
         }
 
         #endregion
@@ -147,23 +242,61 @@ namespace TimetablingClientApplication
                 EventDescription.BorderBrush = _alert;
                 ValidationMessage.Visibility = Visibility.Visible;
                 return false;
-            } 
-            
+            }
+
             return true;
         }
 
-        public void InvitesButtonClicked(object sender, RoutedEventArgs e)
+        public void CapacityAttendeeClicked(object sender, RoutedEventArgs e)
         {
-            ////TODO: Open Invites Page with new invites
-        }
-
-        public void CloseSuccessEventPopup(object sender, RoutedEventArgs e)
+            CapacityAttendee.IsOpen = false;
+        } 
+        
+        public void CloseEventSuccessPopup(object sender, RoutedEventArgs e)
         {
-            Success.IsOpen = true;
-
+            Success.IsOpen = false;
             Close();
         }
-           
-           
+
+        private void AddModule_OnChecked(object sender, RoutedEventArgs e)
+        {
+            AddModule.IsChecked = true;
+            CourseSelect.IsEnabled = true;
+            ModuleSelect.IsEnabled = true;
+            _addModuleEnabled = true;
+            StudentsLabel.Visibility = Visibility.Visible;
+            ModuleStudents.Visibility = Visibility.Visible;
+        } 
+
+        private void AddModule_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AddModule.IsChecked = false;
+            CourseSelect.IsEnabled = false;
+            ModuleSelect.IsEnabled = false;
+            _addModuleEnabled = false;
+            StudentsLabel.Visibility = Visibility.Hidden;
+            ModuleStudents.Visibility = Visibility.Hidden;
+        } 
+
+        private void AddRoom_OnChecked(object sender, RoutedEventArgs e)
+        {
+            AddRoom.IsChecked = true;
+            RoomSelect.IsEnabled = true;
+            BuildingSelect.IsEnabled = true;
+            _addRoomEnabled = true;
+            CapacityLabel.Visibility = Visibility.Visible;
+            RoomCapacity.Visibility = Visibility.Visible;
+        } 
+
+        private void AddRoom_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AddRoom.IsChecked = false;
+            RoomSelect.IsEnabled = false;
+            BuildingSelect.IsEnabled = false;
+            _addRoomEnabled = false;
+            CapacityLabel.Visibility = Visibility.Hidden;
+            RoomCapacity.Visibility = Visibility.Hidden;
+        }
     }
+
 }

@@ -1,0 +1,37 @@
+﻿<Page x:Class="TimetablingClientApplication.Views.Events.Pages.Invites"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Invites" MinHeight="530" MinWidth="930" Height="530" Width="930">
+
+    <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <ListView Name="ListedEvents" HorizontalAlignment="Left" SelectionChanged="NewEventSelected"  VerticalAlignment="Top" Height="376" Width="443" Margin="50,66,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
+            <ListView.View>
+                <GridView TextBlock.TextAlignment="Center">
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding EventId}" Header="Id" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding EventTitle}" Header="Event Name" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding EventDescription}" Header="Description" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding CreateDate}" Header="Date" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Time}" Header="Time" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Duration}" Header="Duration" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Repeats}" Header="Repeats" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding AdditionalNotes}" Header="Additional Notes" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Name="SearchField" HorizontalAlignment="Left" Height="23" Margin="50,38,0,0" TextWrapping="Wrap" Text="Search Events Available . . ." VerticalAlignment="Top" Width="443" GotFocus="SearchFieldOnFocus" LostFocus="SearchFieldLoseFocus" TextChanged="SearchFieldTextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="523,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Available is the Students and Staff "/><Run Language="en-gb" Text="i"/><Run Text="nvite"/><Run Language="en-gb" Text="s indicated below, management of each is done separately please  select an event and select which invites you would like to manage."/></TextBlock>
+        
+        <Label Content="Selected Event:" HorizontalAlignment="Left" Margin="571,206,0,0" VerticalAlignment="Top"/>
+        <Label Name="EventName" Content="" HorizontalAlignment="Left" Margin="677,206,0,0" VerticalAlignment="Top" Width="215"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="589,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="54" Width="124"><Run Language="en-gb" Text="Manage the Student Invites for the selected Event"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="589,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="54" Width="124"><Run Language="en-gb" Text="Manage the Staff Invites for the selected Event"/></TextBlock>
+        
+        <Button Content="Student Invites" Click="StudentInvitesButtonClicked" FontSize="13" HorizontalAlignment="Left" Margin="746,317,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
+        <Button Content="Staff Invites" Click="StaffInvitesButtonClicked" FontSize="13" HorizontalAlignment="Left" Margin="746,397,0,0" VerticalAlignment="Top" Width="104" Height="27"/>
+    </Grid>
+</Page>

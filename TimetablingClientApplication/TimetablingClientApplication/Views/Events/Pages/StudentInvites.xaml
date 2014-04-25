@@ -1,0 +1,44 @@
+﻿<Page x:Class="TimetablingClientApplication.Views.Events.Pages.StudentInvites"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="StudentInvites" MinHeight="530" MinWidth="930" Height="530" Width="930">
+
+    <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <TextBox Name="SearchAvailableStudents" HorizontalAlignment="Left" Height="23" Margin="50,38,0,0" TextWrapping="Wrap" Text="Search Students Available . . ." VerticalAlignment="Top" Width="290" GotFocus="SearchFieldOnFocus" LostFocus="SearchFieldLoseFocus" TextChanged="SearchFieldTextChanged"/>
+        <ListView Name="ListedStudents" HorizontalAlignment="Left" MouseDoubleClick="AddStudentInvite" VerticalAlignment="Top" Height="327" Width="290" Margin="50,66,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
+            <ListView.View>
+                <GridView TextBlock.TextAlignment="Center">
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding StudentId}" Header="Id" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StudentTitle}" Header="Title" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StudentForename}" Header="Forename" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StudentSurname}" Header="Surname" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="ListedSelectedStudent" HorizontalAlignment="Left" MouseDoubleClick="RemoveStudentInvite" VerticalAlignment="Top" Height="327" Width="290" Margin="431,66,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
+            <ListView.View>
+                <GridView TextBlock.TextAlignment="Center">
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding StudentId}" Header="Id" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StudentTitle}" Header="Title" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StudentForename}" Header="Forename" />
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StudentSurname}" Header="Surname" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Save Staff Invites" Click="SaveStudentInvites" FontSize="15" HorizontalAlignment="Left" Margin="654,435,0,0" VerticalAlignment="Top" Width="158" Height="38"/>
+
+        <Label Content="Room Capacity:" HorizontalAlignment="Left" Margin="757,114,0,0" VerticalAlignment="Top"/>
+        <Label Name="RoomCapacity" HorizontalAlignment="Left" Margin="757,140,0,0" VerticalAlignment="Top" Height="34" Width="106"/>
+
+        <Label Content="Available Space:" HorizontalAlignment="Left" Margin="757,179,0,0" VerticalAlignment="Top"/>
+        <Label Name="AvailableSpace" HorizontalAlignment="Left" Margin="757,205,0,0" VerticalAlignment="Top" Height="25" Width="131"/>
+
+        <Label Content="Students Invited:" HorizontalAlignment="Left" Margin="757,230,0,0" VerticalAlignment="Top"/>
+        <Label Name="InvitesNumber" HorizontalAlignment="Left" Margin="757,256,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+
+    </Grid>
+</Page>

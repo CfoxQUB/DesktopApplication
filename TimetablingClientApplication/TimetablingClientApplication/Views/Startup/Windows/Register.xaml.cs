@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace TimetablingClientApplication.Views.Startup.Windows
 {
@@ -25,6 +15,7 @@ namespace TimetablingClientApplication.Views.Startup.Windows
         SolidColorBrush alert = new SolidColorBrush(Colors.Red);
         SolidColorBrush completed = new SolidColorBrush(Colors.Green);
         public ObservableCollection<string> list = new ObservableCollection<string>();
+        //http://www.codegateway.com/2012/03/c-regex-for-email-address.html
         private readonly Regex _regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         public Register()
         {
@@ -32,6 +23,7 @@ namespace TimetablingClientApplication.Views.Startup.Windows
            
                 list.Add("Mr");
                 list.Add("Mrs");
+                list.Add("Miss");
                 list.Add("Ms");
                 list.Add("Dr");
                 Title.ItemsSource = list;
@@ -117,7 +109,7 @@ namespace TimetablingClientApplication.Views.Startup.Windows
                          UserTitle = Title.Text,
                          UserForename = UserForenameText.Text,
                          UserSurname = UserSurnameText.Text,
-                         UserEmail = _client.Encrypt(UserEmailText.Text),
+                         UserEmail = UserEmailText.Text,
                          Password = _client.Encrypt(Password2Text.Password)
                      };
 
@@ -158,7 +150,7 @@ namespace TimetablingClientApplication.Views.Startup.Windows
 
                 if (!String.IsNullOrEmpty(UserEmailText.Text))
                 {
-                    var temp = _client.Encrypt(UserEmailText.Text);
+                    var temp = UserEmailText.Text;
                     if (!_client.Check_Email_Not_Exist(temp))
                     {
                         EmailValidationAlert();

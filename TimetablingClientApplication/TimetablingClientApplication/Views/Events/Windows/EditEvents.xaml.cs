@@ -2,67 +2,103 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using TimetablingClientApplication;
 using TimetablingClientApplication.TimetablingService;
 
-namespace TimetablingClientApplication
+namespace TimetablingClientApplication.Views.Events.Windows
 {
     /// <summary>
     /// Interaction logic for EditEvents.xaml
     /// </summary>
-    public partial class EditEvents : Window
+    public partial class EditEvents
     {
-    
-        private TimetablingServiceClient _client = new TimetablingServiceClient();
-        private readonly string _defaultSearchString = "Enter Search Details here . . . .";
+        private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
+        private const String DefaultSearchString = "Enter Search Details here . . . .";
         private int _editedEventId;
         private readonly int _loggedInUserId;
-        private readonly List<Time> _timesList = new List<Time>();
-        private readonly List<RepeatType> _repeatsList = new List<RepeatType>();
-        private readonly List<EventType> _eventTypes = new List<EventType>();
+        private int _selectedEventId = 0;
+
         private readonly List<Building> _buildingsList = new List<Building>();
+        private readonly List<Room> _roomsList = new List<Room>();
         private readonly List<Course> _courseList = new List<Course>();
+        private readonly List<Module> _moduleList = new List<Module>();
 
         private bool _buildingSelected;
         private bool _courseSelected;
-        
-        public ObservableCollection<Event> EventsList = new ObservableCollection<Event>();
+
+        private bool _roomEnabled;
+        private bool _moduleEnabled;
+
+        private readonly ObservableCollection<Event> _eventsList = new ObservableCollection<Event>();
+
         public EditEvents(int userId)
         {
             _loggedInUserId = userId;
 
             InitializeComponent();
-            
 
             var events = new List<Event>();
-            var temp = _client.ReturnEvents();
-
-            if (temp != null)
-            {
-                events.AddRange(temp);
-            }
+            events.AddRange(_client.ReturnEvents());
 
             if (events.Any())
             {
-                EventsinList(events);
-                
-            }
-            else
-            {
-                NoEventsInList();
-                NoEvents.IsOpen = true;
+                foreach (var e in events)
+                {
+                    _eventsList.Add(e);
+                }
             }
 
+            ListedEvents.ItemsSource = _eventsList;
+
+            _courseList.AddRange(_client.ReturnCourses());
+            _moduleList.AddRange(_client.ReturnCourseModules(_courseList.First().CourseId));
+
+            _buildingsList.AddRange(_client.ReturnBuildings());
+            _roomsList.AddRange(_client.ReturnBuildingRooms(_buildingsList.First().BuildingId));
+
+            RenderCourses(_courseList, 0);
+            RenderModules(_moduleList, 0);
+            RenderBuildings(_buildingsList, 0);
+            RenderRooms(_roomsList, 0);
+            RenderDurations(15);
+
+            RenderTimes(0);
+            RenderEventTypes(0);
+
+            SearchFilter.Items.Add("Event Title");
+            SearchFilter.Items.Add("Event Description");
+            SearchFilter.SelectedItem = "Event Title";
+
+            SearchField.Text = DefaultSearchString;
+
+            EventTitle.IsEnabled = false;
+            EventDescription.IsEnabled = false;
+            StartDate.IsEnabled = false;
+            TimeList.IsEnabled = false;
+            DurationList.IsEnabled = false;
+            EventTypeSelect.IsEnabled = false;
+            CourseSelect.IsEnabled = false;
+            ModuleSelect.IsEnabled = false;
+            BuildingSelect.IsEnabled = false;
+            RoomSelect.IsEnabled = false;
+            AddRoom.IsEnabled = false;
+            AddModule.IsEnabled = false;
+            RoomSelect.IsEnabled = false;
+            StatusList.IsEnabled = false;
+            SubmitChangesButton.IsEnabled = false;
+
+            StatusList.Items.Add("Confirmed");
+            StatusList.Items.Add("Denied");
+            StatusList.Items.Add("Pending");
+            StatusList.Items.Add("New");
+            StatusList.Text = "New";
+
+            _buildingSelected = false;
+            _courseSelected = false;
+
+            _roomEnabled = true;
+            _moduleEnabled = true;
         }
 
         private void SearchField_GotFocus(object sender, RoutedEventArgs e)
@@ -72,27 +108,26 @@ namespace TimetablingClientApplication
 
         private void SearchField_LoseFocus(object sender, RoutedEventArgs e)
         {
-            SearchField.Text = _defaultSearchString;
+            SearchField.Text = DefaultSearchString;
         }
 
         private void ReturnSearchResults(object sender, RoutedEventArgs e)
         {
-            if (SearchField.Text != _defaultSearchString)
+            if (SearchField.Text != DefaultSearchString)
             {
                 var results = _client.SearchFunction(SearchFilter.SelectedItem.ToString(), SearchField.Text);
 
                 ListedEvents.ItemsSource = results;
                 return;
             }
-            
+
             if (ListedEvents.ItemsSource == null)
             {
                 var noResults = _client.ReturnEvents();
                 ListedEvents.ItemsSource = noResults;
             }
-            
-        }
 
+        }
 
         public void NewEventSelected(object sender, RoutedEventArgs e)
         {
@@ -100,41 +135,86 @@ namespace TimetablingClientApplication
             {
                 return;
             }
-            
             _buildingSelected = false;
             _courseSelected = false;
-            
-            var selectedEvent = (Event)ListedEvents.SelectedItem;
-            _editedEventId = selectedEvent.EventId;
-            var modulesList = _client.ReturnCourseModules(selectedEvent.Course);
 
-            var eventBuilding = _client.ReturnRoomBuilding(selectedEvent.Room);
-            var roomsList = _client.ReturnBuildingRooms(eventBuilding);
+            EventTitle.IsEnabled = true;
+            EventDescription.IsEnabled = true;
+            StartDate.IsEnabled = true;
+            TimeList.IsEnabled = true;
+            DurationList.IsEnabled = true;
+            EventTypeSelect.IsEnabled = true;
+            CourseSelect.IsEnabled = true;
+            ModuleSelect.IsEnabled = true;
+            BuildingSelect.IsEnabled = true;
+            RoomSelect.IsEnabled = true;
+            AddRoom.IsEnabled = true;
+            AddModule.IsEnabled = true;
+            RoomSelect.IsEnabled = true;
+            StatusList.IsEnabled = true;
+            SubmitChangesButton.IsEnabled = true;
+            SaveStatus.IsEnabled = true;
 
-            RoomSelect.Items.Clear();
-            foreach (var x in roomsList)
-            {
-                RoomSelect.Items.Add(x.RoomName);
-            }
+            _courseList.Clear();
+            _moduleList.Clear();
+            _buildingsList.Clear();
+            _roomsList.Clear();
 
-            ModuleSelect.Items.Clear();
-            foreach (var x in modulesList)
-            {
-                ModuleSelect.Items.Add(x.ModuleName);
-            }
-
+            var selectedEvent = (Event) ListedEvents.SelectedItem;
+            _selectedEventId = selectedEvent.EventId;
             EventTitle.Text = selectedEvent.EventTitle;
             EventDescription.Text = selectedEvent.EventDescription;
             StartDate.SelectedDate = selectedEvent.StartDate;
+            StatusList.SelectedItem = selectedEvent.Status;
+            
+            _editedEventId = selectedEvent.EventId;
 
-            DurationList.SelectedItem = selectedEvent.Duration;
-            TimeList.SelectedItem = _timesList.SingleOrDefault(x => x.TimeId == selectedEvent.Time).TimeLiteral;
-            RepeatSelect.SelectedItem = _repeatsList.SingleOrDefault(x => x.RepeatTypeId == selectedEvent.Repeats).RepeatTypeName;
-            EventTypeSelect.SelectedItem = _eventTypes.SingleOrDefault(x => x.TypeId == selectedEvent.EventType).TypeName;
-            BuildingSelect.SelectedItem = _buildingsList.SingleOrDefault(x => x.BuildingId == eventBuilding).BuildingName;
-            CourseSelect.SelectedItem = _courseList.SingleOrDefault(x => x.CourseId == selectedEvent.Course).CourseName;
-            ModuleSelect.SelectedItem = modulesList.SingleOrDefault(x => x.ModuleId == selectedEvent.Module).ModuleName;
-            RoomSelect.SelectedItem = roomsList.SingleOrDefault(x => x.RoomId == selectedEvent.Room).RoomName;
+            _courseList.AddRange(_client.ReturnCourses());
+
+            if (selectedEvent.Course != 0)
+            {
+                var modules = _client.ReturnCourseModules(selectedEvent.Course);
+                if (modules != null)
+                {
+                    _moduleList.AddRange(modules);
+                }
+            }
+            else
+            {
+                _moduleList.AddRange(_client.ReturnCourseModules(_courseList.First().CourseId));
+            }
+
+            _buildingsList.AddRange(_client.ReturnBuildings());
+
+            var roomBuilding = 0;
+            var roomId = 0;
+
+            if (selectedEvent.Room != 0)
+            {
+                roomBuilding = _client.ReturnRoomDetail(selectedEvent.Room).Building;
+                roomId = selectedEvent.Room;
+                var rooms = _client.ReturnBuildingRooms(roomBuilding);
+
+                if (rooms != null)
+                {
+                    _roomsList.AddRange(rooms);
+                }
+
+            }
+            else
+            {
+                _roomsList.AddRange(_client.ReturnBuildingRooms(_buildingsList.First().BuildingId));
+            }
+
+
+            RenderCourses(_courseList, selectedEvent.Course);
+            RenderModules(_moduleList, selectedEvent.Module);
+            RenderBuildings(_buildingsList, roomBuilding);
+            RenderRooms(_roomsList, roomId);
+            RenderTimes(selectedEvent.Time);
+            RenderEventTypes(selectedEvent.EventType);
+            RenderDurations(selectedEvent.Duration);
+
 
             _buildingSelected = true;
             _courseSelected = true;
@@ -152,12 +232,22 @@ namespace TimetablingClientApplication
             var buildingId = _client.ReturnBuildingIdFromBuildingName(tempName.ToString());
             var roomList = _client.ReturnBuildingRooms(buildingId);
             RoomSelect.Items.Clear();
-
-            foreach (var x in roomList)
+            RoomSelect.IsEnabled = true;
+            if (roomList != null)
             {
-                RoomSelect.Items.Add(x.RoomName);
+                foreach (var x in roomList)
+                {
+                    RoomSelect.Items.Add(x.RoomName);
+                }
+                RoomSelect.Text = roomList.First().RoomName;
+                RoomCapacity.Content = roomList.First().Capacity.ToString("D");
             }
-            RoomSelect.Text = roomList.First().RoomName;
+            else
+            {
+                RoomSelect.Items.Add("None");
+                RoomSelect.Text = "None";
+                RoomCapacity.Content = "None";
+            }
 
         }
 
@@ -174,11 +264,23 @@ namespace TimetablingClientApplication
             var moduleList = _client.ReturnCourseModules(courseId);
             ModuleSelect.Items.Clear();
 
-            foreach (var x in moduleList)
+            ModuleSelect.IsEnabled = true;
+            if (moduleList != null)
             {
-                ModuleSelect.Items.Add(x.ModuleName);
+                foreach (var x in moduleList)
+                {
+                    ModuleSelect.Items.Add(x.ModuleName);
+                }
+                ModuleSelect.Text = moduleList.First().ModuleName;
+                var students = _client.ReturnModuleStudentsNumbers(moduleList.First().ModuleId);
+                ModuleStudents.Content = students.ToString("D");
             }
-            ModuleSelect.Text = moduleList.First().ModuleName;
+            else
+            {
+                ModuleSelect.Items.Add("None");
+                ModuleSelect.Text = "None";
+                ModuleStudents.Content = "None";
+            }
         }
 
         private void ListedEvents_DeleteEvent(object sender, MouseButtonEventArgs e)
@@ -188,22 +290,75 @@ namespace TimetablingClientApplication
 
         public void Save_Event_Changes(object sender, RoutedEventArgs e)
         {
-            if (CheckForNonValues())
+            var course = "0";
+            var module = "0";
+            var room = "0";
+
+            if (_roomEnabled)
             {
-                if (_client.EditEvent(_editedEventId, _loggedInUserId, EventTitle.Text, EventDescription.Text,
-                    EventTypeSelect.SelectedItem.ToString(), RepeatSelect.SelectedItem.ToString(),
-                    Convert.ToInt32(DurationList.SelectedValue), Convert.ToDateTime(StartDate.SelectedDate),
-                    TimeList.SelectedValue.ToString(), RoomSelect.SelectedValue.ToString(),
-                    CourseSelect.SelectedItem.ToString(), ModuleSelect.SelectedItem.ToString()))
+                room = RoomSelect.SelectedValue.ToString();
+                if (room == "None")
                 {
-                    var refreshResults = _client.ReturnEvents();
-                    ListedEvents.ItemsSource = refreshResults;
-                    ListedEvents.SelectedItem = refreshResults.SingleOrDefault(x => x.EventId == _editedEventId);
+                    room = "0";
+                }
+            }
+
+            if (_moduleEnabled)
+            {
+                course = CourseSelect.SelectedItem.ToString();
+                module = ModuleSelect.SelectedItem.ToString();
+
+                if (module == "None")
+                {
+                    module = "0";
+                }
+            }
+
+            if (_client.EditEvent(_editedEventId, _loggedInUserId, EventTitle.Text, EventDescription.Text,
+                EventTypeSelect.SelectedItem.ToString(), Convert.ToInt32(DurationList.SelectedValue),
+                Convert.ToDateTime(StartDate.SelectedDate),
+                TimeList.SelectedValue.ToString(), room,
+                course, module))
+            {
+                var refreshResults = _client.ReturnEvents();
+                ListedEvents.ItemsSource = refreshResults;
+                ListedEvents.SelectedItem = refreshResults.SingleOrDefault(x => x.EventId == _editedEventId);
+            }
+
+        }
+
+        public void Save_Event_Status(object sender, RoutedEventArgs e)
+        {
+            if (_selectedEventId != 0)
+            {
+                var status = StatusList.Text;
+                if (_roomEnabled && _moduleEnabled)
+                {
+                   _client.ChangeEventStatus(status, _selectedEventId);
+
+                    var events = new List<Event>();
+                   events.AddRange(_client.ReturnEvents());
+                   _eventsList.Clear();
+                   if (events.Any())
+                   {
+                       foreach (var i in events)
+                       {
+                           _eventsList.Add(i);
+                       }
+                   }
+                   
+                   ListedEvents.ItemsSource = _eventsList;
+                   ListedEvents.SelectedItem = _eventsList.SingleOrDefault(x => x.EventId == _selectedEventId);
+                    
+                }
+                else
+                {
+                    EventStatus.IsOpen = true;
                 }
             }
         }
 
-        public void NoEventsInList()
+        public void DisableFeatures()
         {
             SearchField.IsEnabled = false;
             EventTitle.IsEnabled = false;
@@ -219,205 +374,207 @@ namespace TimetablingClientApplication
             ListedEvents.IsEnabled = false;
             SearchFilter.IsEnabled = false;
             SubmitChangesButton.IsEnabled = false;
+            SaveStatus.IsEnabled = false;
         }
 
-        public void EventsinList(List<Event> events)
+        public void RenderCourses(List<Course> courseList, int courseId)
         {
-            #region Populate Page
-
-            foreach (Event e in events)
+            if (courseList.Count > 0)
             {
-                EventsList.Add(e);
-            }
-            
-            ListedEvents.ItemsSource = EventsList;
+                CourseSelect.IsEnabled = true;
+                CourseSelect.Items.Clear();
 
-            var firstEvent = events.First();
-            _editedEventId = firstEvent.EventId;
-
-            var eventBuilding = _client.ReturnRoomBuilding(firstEvent.Room);
-            var roomsList = _client.ReturnBuildingRooms(eventBuilding);
-            var modulesList = _client.ReturnCourseModules(firstEvent.Course);
-
-            foreach (var x in roomsList)
-            {
-                RoomSelect.Items.Add(x.RoomName);
-            }
-
-            foreach (var x in modulesList)
-            {
-                ModuleSelect.Items.Add(x.ModuleName);
-            }
-
-            EventTitle.Text = firstEvent.EventTitle;
-            EventDescription.Text = firstEvent.EventDescription;
-            StartDate.SelectedDate = firstEvent.StartDate;
-
-            _timesList.AddRange(_client.ReturnTimes());
-            _repeatsList.AddRange(_client.ReturnRepeatTypes());
-            _eventTypes.AddRange(_client.ReturnEventTypes());
-            _buildingsList.AddRange(_client.ReturnBuildings());
-            _courseList.AddRange(_client.ReturnCourses());
-
-            if (_timesList.Any())
-            {
-                foreach (var x in _timesList)
+                foreach (var c in courseList)
                 {
-                    TimeList.Items.Add(x.TimeLiteral);
+                    CourseSelect.Items.Add(c.CourseName);
+                }
+                var courseDetails = courseList.SingleOrDefault(x => x.CourseId == courseId);
+
+                if (courseDetails != null)
+                {
+                    CourseSelect.SelectedItem = courseDetails.CourseName;
+                    AddModule.IsChecked = true;
+                }
+                else
+                {
+                    CourseSelect.SelectedItem = courseList.First().CourseName;
+                    AddModule.IsChecked = false;
+                    CourseSelect.IsEnabled = false;
+                    _moduleEnabled = false;
                 }
             }
             else
             {
-                TimeList.Items.Add("N/A");
+                CourseSelect.IsEnabled = false;
             }
-           
-            if (_repeatsList.Any())
+        }
+
+        public void RenderModules(List<Module> courseModules, int moduleId)
+        {
+            if (courseModules.Count > 0)
             {
-                foreach (var x in _repeatsList)
+                ModuleSelect.IsEnabled = true;
+                ModuleSelect.Items.Clear();
+
+                foreach (var c in courseModules)
                 {
-                    RepeatSelect.Items.Add(x.RepeatTypeName);
+                    ModuleSelect.Items.Add(c.ModuleName);
+                }
+
+                var moduleDetails = courseModules.SingleOrDefault(x => x.ModuleId == moduleId);
+
+                if (moduleDetails != null)
+                {
+                    ModuleSelect.SelectedItem = moduleDetails.ModuleName;
+                    AddModule.IsChecked = true;
+
+                }
+                else
+                {
+                    ModuleSelect.SelectedItem = courseModules.First().ModuleName;
+                    AddModule.IsChecked = false;
+                    ModuleSelect.IsEnabled = false;
+                    _moduleEnabled = false;
                 }
             }
             else
             {
-                RepeatSelect.Items.Add("N/A");
+                ModuleSelect.IsEnabled = false;
             }
-            
-            if (_eventTypes.Any())
+        }
+
+        public void RenderBuildings(List<Building> buildingsList, int buildingId)
+        {
+            if (buildingsList.Count > 0)
             {
-                foreach (var x in _eventTypes)
+                BuildingSelect.IsEnabled = true;
+                BuildingSelect.Items.Clear();
+                foreach (var b in buildingsList)
                 {
-                    EventTypeSelect.Items.Add(x.TypeName);
+                    BuildingSelect.Items.Add(b.BuildingName);
+                }
+
+                var buildingDetails = buildingsList.SingleOrDefault(x => x.BuildingId == buildingId);
+
+                if (buildingDetails != null)
+                {
+                    BuildingSelect.SelectedItem = buildingDetails.BuildingName;
+                    AddRoom.IsChecked = true;
+                }
+                else
+                {
+                    BuildingSelect.SelectedItem = buildingsList.First().BuildingName;
+                    AddRoom.IsChecked = false;
+                    BuildingSelect.IsEnabled = false;
+                    _roomEnabled = false;
                 }
             }
             else
             {
-                EventTypeSelect.Items.Add("N/A");
+                BuildingSelect.IsEnabled = false;
             }
-            
-            if (_courseList.Any())
+        }
+
+        public void RenderRooms(List<Room> buildingsRooms, int roomId)
+        {
+            if (buildingsRooms.Count > 0)
             {
-                foreach (var x in _courseList)
+                RoomSelect.IsEnabled = true;
+                RoomSelect.Items.Clear();
+                foreach (var b in buildingsRooms)
                 {
-                    CourseSelect.Items.Add(x.CourseName);
+                    RoomSelect.Items.Add(b.RoomName);
+                }
+
+                var roomsDetails = buildingsRooms.SingleOrDefault(x => x.RoomId == roomId);
+
+                if (roomsDetails != null)
+                {
+                    RoomSelect.SelectedItem = roomsDetails.RoomName;
+                    AddRoom.IsChecked = true;
+                }
+                else
+                {
+                    RoomSelect.SelectedItem = buildingsRooms.First().RoomName;
+                    AddRoom.IsChecked = false;
+                    RoomSelect.IsEnabled = false;
+                    _roomEnabled = false;
                 }
             }
             else
             {
-                CourseSelect.Items.Add("N/A");
+                RoomSelect.IsEnabled = false;
             }
-            
-            if (_buildingsList.Any())
+        }
+
+        public void RenderTimes(int timeId)
+        {
+            var timeList = _client.ReturnTimes();
+            TimeList.Items.Clear();
+            if (timeList.Any())
             {
-                foreach (var x in _buildingsList)
+                TimeList.IsEnabled = true;
+                foreach (var t in timeList)
                 {
-                    BuildingSelect.Items.Add(x.BuildingName);
+                    TimeList.Items.Add(t.TimeLiteral);
+                }
+
+                var timeDetails = timeList.SingleOrDefault(x => x.TimeId == timeId);
+
+                if (timeDetails != null)
+                {
+                    TimeList.SelectedItem = timeDetails.TimeLiteral;
+                }
+                else
+                {
+                    RoomSelect.SelectedItem = timeList.First().TimeLiteral;
                 }
             }
             else
             {
-                BuildingSelect.Items.Add("N/A");
+                TimeList.IsEnabled = false;
             }
+        }
+
+        public void RenderEventTypes(int typeId)
+        {
+            var typeList = _client.ReturnEventTypes();
+            if (typeList.Any())
+            {
+                EventTypeSelect.IsEnabled = true;
+                EventTypeSelect.Items.Clear();
+                foreach (var t in typeList)
+                {
+                    EventTypeSelect.Items.Add(t.TypeName);
+                }
+                EventTypeSelect.SelectedItem = typeList.First().TypeName;
+
+                var typeDetails = typeList.SingleOrDefault(x => x.TypeId == typeId);
+
+                if (typeDetails != null)
+                {
+                    EventTypeSelect.SelectedItem = typeDetails.TypeName;
+                }
+                else
+                {
+                    EventTypeSelect.SelectedItem = typeList.First().TypeName;
+                }
+            }
+            else
+            {
+                EventTypeSelect.IsEnabled = false;
+            }
+        }
+
+        public void RenderDurations(int duration)
+        {
+            DurationList.Items.Clear();
 
             DurationList.Items.Add(15);
             DurationList.Items.Add(30);
             DurationList.Items.Add(60);
 
-            SearchFilter.Items.Add("Event Title");
-            SearchFilter.Items.Add("Event Description");
-            SearchFilter.SelectedItem = "Event Title";
-            SearchField.Text = _defaultSearchString;
-
-            #endregion
-
-            DurationList.SelectedItem = firstEvent.Duration;
-
-            #region Select Events properties in Dropdowns
-
-            var timeListItem = _timesList.SingleOrDefault(x => x.TimeId == firstEvent.Time);
-            var repeatSelectItem = _repeatsList.SingleOrDefault(x => x.RepeatTypeId == firstEvent.Repeats);
-            var eventTypeSelectItem = _eventTypes.SingleOrDefault(x => x.TypeId == firstEvent.EventType);
-            var buildingSelectItem = _buildingsList.SingleOrDefault(x => x.BuildingId == eventBuilding);
-            var courseSelectItem = _courseList.SingleOrDefault(x => x.CourseId == firstEvent.Course);
-            var moduleSelectItem = modulesList.SingleOrDefault(x => x.ModuleId == firstEvent.Module);
-            var roomSelectItem = roomsList.SingleOrDefault(x => x.RoomId == firstEvent.Room);
-
-            if (timeListItem != null)
-            {
-                TimeList.SelectedItem = timeListItem.TimeLiteral;
-            }
-            else
-            {
-                TimeList.SelectedIndex = 0;
-            }
-
-            if (repeatSelectItem != null)
-            {
-                RepeatSelect.SelectedItem = repeatSelectItem.RepeatTypeName;
-            }
-            else
-            {
-                RepeatSelect.SelectedIndex = 0;
-            }
-
-            if (eventTypeSelectItem != null)
-            {
-                EventTypeSelect.SelectedItem = eventTypeSelectItem.TypeName;
-            }
-            else
-            {
-                EventTypeSelect.SelectedIndex = 0;
-            }
-
-            if (buildingSelectItem != null)
-            {
-                BuildingSelect.SelectedItem = buildingSelectItem.BuildingName;
-            }
-            else
-            {
-                BuildingSelect.SelectedIndex = 0;
-            }
-
-
-            if (courseSelectItem != null)
-            {
-                CourseSelect.SelectedItem = courseSelectItem.CourseName;
-            }
-            else
-            {
-                CourseSelect.SelectedIndex = 0;
-            }
-
-
-            if (moduleSelectItem != null)
-            {
-                ModuleSelect.SelectedItem = moduleSelectItem.ModuleName;
-            }
-            else
-            {
-                ModuleSelect.SelectedIndex = 0;
-            }
-            
-            if (roomSelectItem != null)
-            {
-                RoomSelect.SelectedItem = roomSelectItem.RoomName;
-            }
-            else
-            {
-                RoomSelect.SelectedIndex = 0;
-            }
-            #endregion
-
-        }
-
-        public bool CheckForNonValues()
-        {
-            if (EventTypeSelect.SelectedItem.ToString() != "N/A" && RepeatSelect.SelectedItem.ToString() != "N/A" && TimeList.SelectedValue.ToString() != "N/A" && RoomSelect.SelectedValue.ToString() != "N/A" && CourseSelect.SelectedItem.ToString() != "N/A" && ModuleSelect.SelectedItem.ToString()  != "N/A")
-            {
-                return true;
-            }
-
-            return false;
+            DurationList.SelectedItem = duration;
         }
 
         public void CloseNoEventsPopup(object sender, RoutedEventArgs e)
@@ -425,9 +582,14 @@ namespace TimetablingClientApplication
             NoEvents.IsOpen = false;
         }
 
+        public void StatusChangeFailed(object sender, RoutedEventArgs e)
+        {
+            EventStatus.IsOpen = false;
+        }
+
         public void DeleteEventButtonClicked(object sender, RoutedEventArgs e)
         {
-            var deletedEvent = (Event)ListedEvents.SelectedItem;
+            var deletedEvent = (Event) ListedEvents.SelectedItem;
             if (deletedEvent != null)
             {
                 if (_client.DeleteEvent(deletedEvent.EventId))
@@ -440,12 +602,14 @@ namespace TimetablingClientApplication
                         refreshResults.AddRange(temp);
                         ListedEvents.ItemsSource = refreshResults;
                         ListedEvents.SelectedItem = refreshResults.First();
+                        DeleteEvent.IsOpen = false;
                         return;
                     }
                     ListedEvents.ItemsSource = refreshResults;
-                    NoEventsInList();
+                    DeleteEvent.IsOpen = false;
+                    DisableFeatures();
                 }
-
+                DeleteEvent.IsOpen = false;
             }
             DeleteEvent.IsOpen = false;
         }
@@ -453,6 +617,46 @@ namespace TimetablingClientApplication
         public void CloseDeleteEventPopup(object sender, RoutedEventArgs e)
         {
             DeleteEvent.IsOpen = false;
+        }
+
+        private void AddModule_OnChecked(object sender, RoutedEventArgs e)
+        {
+            AddModule.IsChecked = true;
+            CourseSelect.IsEnabled = true;
+            ModuleSelect.IsEnabled = true;
+            StudentsLabel.Visibility = Visibility.Visible;
+            ModuleStudents.Visibility = Visibility.Visible;
+            _moduleEnabled = true;
+        }
+
+        private void AddModule_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AddModule.IsChecked = false;
+            CourseSelect.IsEnabled = false;
+            ModuleSelect.IsEnabled = false;
+            StudentsLabel.Visibility = Visibility.Hidden;
+            ModuleStudents.Visibility = Visibility.Hidden;
+            _moduleEnabled = false;
+        }
+
+        private void AddRoom_OnChecked(object sender, RoutedEventArgs e)
+        {
+            AddRoom.IsChecked = true;
+            RoomSelect.IsEnabled = true;
+            BuildingSelect.IsEnabled = true;
+            CapacityLabel.Visibility = Visibility.Visible;
+            RoomCapacity.Visibility = Visibility.Visible;
+            _roomEnabled = true;
+        }
+
+        private void AddRoom_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AddRoom.IsChecked = false;
+            RoomSelect.IsEnabled = false;
+            BuildingSelect.IsEnabled = false;
+            CapacityLabel.Visibility = Visibility.Hidden;
+            RoomCapacity.Visibility = Visibility.Hidden;
+            _roomEnabled = false;
         }
     }
 }

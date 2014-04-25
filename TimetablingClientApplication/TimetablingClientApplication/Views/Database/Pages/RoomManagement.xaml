@@ -8,39 +8,10 @@
 	Title="Room Management" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
-        <TextBlock Text="Room Name:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,62,0,0" VerticalAlignment="Top" Width="198"/>
-        <TextBlock Name="RoomNameText" Margin="421,86,305,418" RenderTransformOrigin="0.5,0.5"/>
-        <TextBlock Text="Description:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,114,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="RoomDescriptionText" Margin="421,138,305,366"></TextBlock>
-        <TextBlock Text="Building Info:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="645,62,0,0" VerticalAlignment="Top"></TextBlock>
-        <TextBlock Name="BuildingText" Margin="675,83,23,366"></TextBlock>
-        <TextBlock Text="Room Type:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,164,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="RoomTypeText" Margin="421,188,305,316"></TextBlock>
-        <TextBlock Text="Capacity:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,214,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="CapacityText" Margin="421,238,305,266"></TextBlock>
-        <TextBlock Text="Events:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="645,169,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="EventsText" Margin="675,188,67,316"></TextBlock>
-        <Button Name="NewRoomButton" Content="New Room" Click="AddNewRoom" Margin="424,376,384,123"/>
-        <Button Name="EditRoomButton" Content="Edit Room" Click="EditRoom" Margin="573,376,235,123"/>
-        <Button Name="DeleteRoomButton" Content="Delete Room" Click="DeleteRoomPopup" Margin="720,376,88,123"/>
-        <TextBlock Text="Building Select:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="10,461,0,0" VerticalAlignment="Top" Width="97" Height="59"></TextBlock>
-        <Popup Name="DeleteRoom" Width="300" Height="150" Placement="Center" Visibility="Visible">
-            <StackPanel Background="#FFF1D248">
-                <TextBlock TextAlignment="Center" Height="100"><Run Text="Are you sure you want to "/><Run/><LineBreak/><Run Text="delete this room?"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Delete cannot be undone!"/></TextBlock>
-                <Button Name="ConfirmDelete" Content="Confirm" Click="ConfirmDeleteButtonClicked"/>
-                <Button Name="CancelButton" Content="Close" Click="CloseDeletePopup"/>
-            </StackPanel>
-        </Popup>
-        <Popup Name="NoBuildings" Width="300" Height="125" Placement="Center" Visibility="Visible">
-            <StackPanel Background="#FFF1D248">
-                <TextBlock TextAlignment="Center" Height="100"><Run Text="No Buildings exist "/><Run/><LineBreak/><Run Text="in the database."/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Create a 'Building' to add 'Rooms'."/></TextBlock>
-                <Button Name="Close" Content="Close" Click="CloseBuildingsAlert"/>
-            </StackPanel>
-        </Popup>
-        <ComboBox Name="SelectBuilding" HorizontalAlignment="Left" Margin="124,461,0,0" VerticalAlignment="Top" SelectionChanged="BuildingSelectionChange" Width="171" Background="{x:Null}"/>
-        <TextBox Name="SearchRooms" HorizontalAlignment="Left" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Rooms . . . " VerticalAlignment="Top" Width="250"/>
+        <ComboBox Name="SelectBuilding" HorizontalAlignment="Left" Margin="120,456,0,0" VerticalAlignment="Top" SelectionChanged="BuildingSelectionChange" Width="210" Background="{x:Null}" Height="28"/>
+        <TextBox Name="SearchRooms" HorizontalAlignment="Left" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Rooms . . . " VerticalAlignment="Top" Width="285" FontSize="14"/>
 
-        <ListView Name="RoomList" SelectionMode="Single" HorizontalAlignment="Left" Height="389" Margin="45,58,0,0" SelectionChanged="NewRoomSelected" VerticalAlignment="Top" Width="250">
+        <ListView Name="RoomList" SelectionMode="Single" FontSize="14" HorizontalAlignment="Left" Height="389" Margin="45,58,0,0" SelectionChanged="NewRoomSelected" VerticalAlignment="Top" Width="285">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="50" DisplayMemberBinding="{Binding RoomId}" Header="Id" />
@@ -52,6 +23,40 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        </Grid>
+
+        <Label Content="Room Name:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="382,64,0,0" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Description:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="382,116,0,0" VerticalAlignment="Top"/>
+        <Label Content="Building Info:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="641,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Room Type:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="382,166,0,0" VerticalAlignment="Top"/>
+        <Label Content="Capacity:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="382,216,0,0" VerticalAlignment="Top"/>
+
+        <TextBlock Name="RoomNameText" Margin="417,88,309,416" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock Name="RoomDescriptionText" Margin="417,140,309,364"/>
+        <TextBlock Name="BuildingText" Margin="671,85,27,364"></TextBlock>
+        <TextBlock Name="RoomTypeText" Margin="417,190,309,314"></TextBlock>
+        <TextBlock Name="CapacityText" Margin="417,240,309,264"></TextBlock>
+        <TextBlock Text="Events:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="641,171,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="EventsText" Margin="671,190,71,314"></TextBlock>
+        
+        <Button Name="NewRoomButton" Content="New Room" FontSize="14" Click="AddNewRoom" Margin="424,376,384,123"/>
+        <Button Name="EditRoomButton" Content="Edit Room" FontSize="14" Click="EditRoom" Margin="573,376,235,123"/>
+        <Button Name="DeleteRoomButton" Content="Delete Room" FontSize="14" Click="DeleteRoomPopup" Margin="720,376,88,123"/>
+        <TextBlock Text="Building Select:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="10,461,0,0" VerticalAlignment="Top" Width="97" Height="59"></TextBlock>
+
+        <Popup Name="DeleteRoom" Width="300" Height="150" Placement="Center" Visibility="Visible">
+            <StackPanel Background="#FFF1D248">
+                <TextBlock TextAlignment="Center" Height="100"><Run Text="Are you sure you want to "/><Run/><LineBreak/><Run Text="delete this room?"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Delete cannot be undone!"/></TextBlock>
+                <Button Name="ConfirmDelete" Content="Confirm" Click="ConfirmDeleteButtonClicked"/>
+                <Button Name="CancelButton" Content="Close" Click="CloseDeletePopup"/>
+            </StackPanel>
+        </Popup>
+        
+        <Popup Name="NoBuildings" Width="300" Height="125" Placement="Center" Visibility="Visible">
+            <StackPanel Background="#FFF1D248">
+                <TextBlock TextAlignment="Center" Height="100"><Run Text="No Buildings exist "/><Run/><LineBreak/><Run Text="in the database."/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Create a 'Building' to add 'Rooms'."/></TextBlock>
+                <Button Name="Close" Content="Close" Click="CloseBuildingsAlert"/>
+            </StackPanel>
+        </Popup>
+    </Grid>
     
 </Page>

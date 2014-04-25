@@ -59,9 +59,9 @@ namespace TimetablingClientApplication.Views.Startup.Windows
 
             if (String.IsNullOrEmpty(PasswordTextBox.Password) && !String.IsNullOrEmpty(UserNameTextBox.Text))
             {
-                var temp = _client.Encrypt(UserNameTextBox.Text);
 
-                if (_client.Check_Email_Not_Exist(temp))
+
+                if (_client.Check_Email_Not_Exist(UserNameTextBox.Text))
                 {
                     UserNameAlert();
                     ValidationError.Content = "This Email Does not exist as a User";
@@ -76,7 +76,7 @@ namespace TimetablingClientApplication.Views.Startup.Windows
 
             #endregion
 
-            var loginStatus = _client.Login(_client.Encrypt(UserNameTextBox.Text), _client.Encrypt(PasswordTextBox.Password));
+            var loginStatus = _client.Login(UserNameTextBox.Text, _client.Encrypt(PasswordTextBox.Password));
 
             if (loginStatus != 0)
             {
@@ -116,9 +116,9 @@ namespace TimetablingClientApplication.Views.Startup.Windows
         {
             if (!String.IsNullOrEmpty(UserNameTextBox.Text))
             {
-                var temp = _client.Encrypt(UserNameTextBox.Text);
 
-                if (_client.Check_Email_Not_Exist(temp))
+
+                if (_client.Check_Email_Not_Exist(UserNameTextBox.Text))
                 {
                     UserNameAlert();
                     ValidationError.Content = "This Email Does not exist as a User";

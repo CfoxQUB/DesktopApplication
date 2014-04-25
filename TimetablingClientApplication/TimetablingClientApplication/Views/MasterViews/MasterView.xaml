@@ -70,20 +70,23 @@
                     <TreeViewItem Header="Timetables" Margin="-11,0,0,0" MouseDoubleClick="Open_Timetable_Building_Page"/>
                     
                 </TreeViewItem>
-                <TreeViewItem IsExpanded="True" x:Name="TimeTableMain" Header="Events" FontSize="11" Height="88" Width="152">
+                <TreeViewItem IsExpanded="True" x:Name="TimeTableMain" Header="Events" FontSize="11" Height="134" Width="152">
                     <TreeViewItem x:Name="TimeTableSub1" Header="Create Event" Margin="-9,0,0,0" MouseDoubleClick="Open_Event_Page"/>
                     <TreeViewItem x:Name="TimeTableSub2" Header="Edit Events" Margin="-9,0,0,0" MouseDoubleClick="Open_Edit_Events_Page"/>
                     <TreeViewItem x:Name="TimeTableSub3" Header="Events Summary" Margin="-9,0,0,0" MouseDoubleClick="Open_Events_Summary_Page"/>
-                    <TreeViewItem x:Name="Timetablesub4" Header="Events Attendees" Margin="-9,0,0,0" MouseDoubleClick="Open_Events_Attendees_Page"/>
+                    <TreeViewItem x:Name="Timetablesub4" Header="Student Modules" Margin="-9,0,0,0" MouseDoubleClick="Open_Module_Students_Page"/>
+                    <TreeViewItem x:Name="Timetablesub5" Header="Event Staff" Margin="-9,0,0,0" MouseDoubleClick="Open_Event_Staff_Page"/>
+                    <TreeViewItem x:Name="Timetablesub6" Header="Invites" Margin="-9,0,0,0" MouseDoubleClick="Open_Invites_Page"/>
+                    
                 </TreeViewItem>
-                <TreeViewItem IsExpanded="True" Header="Database" FontSize="11" Height="116" Width="152">
-                    <TreeViewItem Header="Events" Margin="-11,0,0,0"/>
+                <TreeViewItem IsExpanded="True" Header="Database" FontSize="11" Height="135" Width="152">
                     <TreeViewItem Header="Buildings" MouseDoubleClick="Open_Database_Building_Page" Margin="-11,0,0,0"/>
                     <TreeViewItem Header="Rooms" Margin="-11,0,0,0" MouseDoubleClick="Open_Database_Room_Page"/>
                     <TreeViewItem Header="Courses" Margin="-11,0,0,0" MouseDoubleClick="Open_Timetable_Course_Page"/>
-                    <TreeViewItem Header="Students" Margin="-11,0,0,0"/>
-                    <TreeViewItem Header="Staff" Margin="-11,0,0,0"/>
-                    <TreeViewItem Header="Settings" Margin="-11,0,0,0"/>
+                    <TreeViewItem Header="Courses Modules" Margin="-11,0,0,0" MouseDoubleClick=" Open_Course_Module_Page"/>
+                    <TreeViewItem Header="Students" Margin="-11,0,0,0" MouseDoubleClick="Open_Timetable_Student_Page"/>
+                    <TreeViewItem Header="Staff" Margin="-11,0,0,0" MouseDoubleClick="Open_Timetable_Staff_Page"/>
+                    <TreeViewItem Header="Reports" Margin="-11,0,0,0"/>
                 </TreeViewItem>
             </TreeView>
             <Button Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="25,436,0,0" VerticalAlignment="Top" Width="54" Click="Button_Click_1" Height="25"/>
