@@ -6,11 +6,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="CourseManagement" MinHeight="530" MinWidth="930" Height="530" Width="930">
-
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
-
+        <!--Search field below-->
         <TextBox Name="SearchCourses" HorizontalAlignment="Left" FontSize="13" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Courses . . . " VerticalAlignment="Top" Width="285"/>
-
+        <!--List of courses available in database-->
         <ListView Name="CourseList" SelectionMode="Single" FontSize="14" SelectionChanged="NewCourseSelected" HorizontalAlignment="Left" Height="418" Margin="45,58,0,0" VerticalAlignment="Top" Width="285">
             <ListView.View>
                 <GridView>
@@ -22,18 +21,18 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
+        <!--fields which indicate and display course information when selected-->
         <TextBlock Text="Course Name:" HorizontalAlignment="Left"  FontWeight="SemiBold" FontSize="14" Margin="384,58,0,0" VerticalAlignment="Top"/>
         <TextBlock Name="CourseNameText" Margin="424,77,274,427"></TextBlock>
         <TextBlock Text="Description:" HorizontalAlignment="Left"  FontWeight="SemiBold" FontSize="14" Margin="384,129,0,0" VerticalAlignment="Top"/>
         <TextBlock Name="CourseDescription" Margin="424,153,198,305"></TextBlock>
         <TextBlock Text="Duration:" HorizontalAlignment="Left"  FontWeight="SemiBold" FontSize="14" Margin="384,230,0,0" VerticalAlignment="Top"/>
         <TextBlock Name="CourseDuration" Margin="424,254,274,250"/>
-        
+        <!--Buttons for course creation, deletion and editing-->
         <Button Name="NewCourseButton"  Content="New Course" Click="AddNewCourse" Margin="424,376,384,123"/>
         <Button Name="EditCourseButton" Content="Edit Course" Click="EditCourse" Margin="573,376,235,123"/>
         <Button Name="DeleteCourseButton" Content="Delete Course" Click="DeleteCoursePopup" Margin="720,376,88,123"/>
-
+        <!--Confirm delete Popup-->
         <Popup Name="DeleteCourse" Width="300" Height="150" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248">
                 <TextBlock TextAlignment="Center" Height="100"><Run Text="Are you sure you want to "/><Run/><LineBreak/><Run Text="delete this Building?"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Delete cannot be undone!"/></TextBlock>
@@ -41,7 +40,5 @@
                 <Button Name="CancelButton" Content="Close" Click="CloseDeletePopup"/>
             </StackPanel>
         </Popup>
-
-
     </Grid>
 </Page>

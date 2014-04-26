@@ -336,7 +336,7 @@ namespace TimetablingClientApplication.Views.Events.Pages
                 ListedEvents.ItemsSource = refreshResults;
                 ListedEvents.SelectedItem = refreshResults.SingleOrDefault(x => x.EventId == _editedEventId);
             }
-
+           
         }
 
         public void Save_Event_Status(object sender, RoutedEventArgs e)
@@ -344,11 +344,42 @@ namespace TimetablingClientApplication.Views.Events.Pages
             if (_selectedEventId != 0)
             {
                 var status = StatusList.Text;
-                if (_roomEnabled && _moduleEnabled)
-                {
-                    _client.ChangeEventStatus(status, _selectedEventId);
+                
+                var result = _client.ChangeEventStatus(status, _selectedEventId);
 
-                    var events = new List<Event>();
+                switch (result)
+                {
+                    case "success":
+                        EventStatus.IsOpen = true;
+                        break;
+                    case "module":
+                        ConfirmedEventExists.IsOpen = true;
+                        FailedText1.Text = "An event is already Confirmed with the same";
+                        FailedText2.Text = "Module exists";
+                        break;
+                    case "course":
+                        ConfirmedEventExists.IsOpen = true;
+                        FailedText1.Text = "An event is already Confirmed with the same";
+                        FailedText2.Text = "course for this time";
+                        break;
+                    case "room":
+                        ConfirmedEventExists.IsOpen = true;
+                        FailedText1.Text = "An event is already Confirmed with the same";
+                        FailedText2.Text = "room at this time exists";
+                        break;
+                    case "both":
+                        ConfirmedEventExists.IsOpen = true;
+                        FailedText1.Text = "An event is already Confirmed with the same";
+                        FailedText2.Text = "Time and Module exists";
+                        break;
+                    case "failed":
+                        ConfirmedEventExists.IsOpen = true;
+                        FailedText1.Text = "Event status change failed for unknown reasons";
+                        FailedText2.Text = "its is possible event no longer exists.";
+                        break;
+                }
+
+                var events = new List<Event>();
                     events.AddRange(_client.ReturnEvents());
                     _eventsList.Clear();
                     if (events.Any())
@@ -361,12 +392,7 @@ namespace TimetablingClientApplication.Views.Events.Pages
 
                     ListedEvents.ItemsSource = _eventsList;
                     ListedEvents.SelectedItem = _eventsList.SingleOrDefault(x => x.EventId == _selectedEventId);
-
-                }
-                else
-                {
-                    EventStatus.IsOpen = true;
-                }
+                
             }
         }
 
@@ -596,6 +622,11 @@ namespace TimetablingClientApplication.Views.Events.Pages
         public void StatusChangeFailed(object sender, RoutedEventArgs e)
         {
             EventStatus.IsOpen = false;
+        }
+        
+        public void EventAlreadyConfirmedClose(object sender, RoutedEventArgs e)
+        {
+            ConfirmedEventExists.IsOpen = false;
         }
 
         public void DeleteEventButtonClicked(object sender, RoutedEventArgs e)

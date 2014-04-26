@@ -15,6 +15,131 @@ namespace TimetablingClientApplication.TimetablingService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Module", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class Module : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModuleDescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ModuleIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModuleNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StaffField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Creator {
+            get {
+                return this.CreatorField;
+            }
+            set {
+                if ((this.CreatorField.Equals(value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModuleDescription {
+            get {
+                return this.ModuleDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModuleDescriptionField, value) != true)) {
+                    this.ModuleDescriptionField = value;
+                    this.RaisePropertyChanged("ModuleDescription");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ModuleId {
+            get {
+                return this.ModuleIdField;
+            }
+            set {
+                if ((this.ModuleIdField.Equals(value) != true)) {
+                    this.ModuleIdField = value;
+                    this.RaisePropertyChanged("ModuleId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModuleName {
+            get {
+                return this.ModuleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModuleNameField, value) != true)) {
+                    this.ModuleNameField = value;
+                    this.RaisePropertyChanged("ModuleName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Staff {
+            get {
+                return this.StaffField;
+            }
+            set {
+                if ((this.StaffField.Equals(value) != true)) {
+                    this.StaffField = value;
+                    this.RaisePropertyChanged("Staff");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CourseModule", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
     [System.SerializableAttribute()]
     public partial class CourseModule : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1736,131 +1861,6 @@ namespace TimetablingClientApplication.TimetablingService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Module", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
-    [System.SerializableAttribute()]
-    public partial class Module : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreateDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CreatorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModuleDescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ModuleIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModuleNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StaffField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreateDate {
-            get {
-                return this.CreateDateField;
-            }
-            set {
-                if ((this.CreateDateField.Equals(value) != true)) {
-                    this.CreateDateField = value;
-                    this.RaisePropertyChanged("CreateDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Creator {
-            get {
-                return this.CreatorField;
-            }
-            set {
-                if ((this.CreatorField.Equals(value) != true)) {
-                    this.CreatorField = value;
-                    this.RaisePropertyChanged("Creator");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModuleDescription {
-            get {
-                return this.ModuleDescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModuleDescriptionField, value) != true)) {
-                    this.ModuleDescriptionField = value;
-                    this.RaisePropertyChanged("ModuleDescription");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ModuleId {
-            get {
-                return this.ModuleIdField;
-            }
-            set {
-                if ((this.ModuleIdField.Equals(value) != true)) {
-                    this.ModuleIdField = value;
-                    this.RaisePropertyChanged("ModuleId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModuleName {
-            get {
-                return this.ModuleNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModuleNameField, value) != true)) {
-                    this.ModuleNameField = value;
-                    this.RaisePropertyChanged("ModuleName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Staff {
-            get {
-                return this.StaffField;
-            }
-            set {
-                if ((this.StaffField.Equals(value) != true)) {
-                    this.StaffField = value;
-                    this.RaisePropertyChanged("Staff");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
     [System.SerializableAttribute()]
     public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2860,6 +2860,12 @@ namespace TimetablingClientApplication.TimetablingService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TimetablingService.ITimetablingService")]
     public interface ITimetablingService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/AddModulesToCourse", ReplyAction="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse")]
+        bool AddModulesToCourse(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/AddModulesToCourse", ReplyAction="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse")]
+        System.Threading.Tasks.Task<bool> AddModulesToCourseAsync(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/AddModulesToEvent", ReplyAction="http://tempuri.org/ITimetablingService/AddModulesToEventResponse")]
         bool AddModulesToEvent(TimetablingClientApplication.TimetablingService.CourseModule[] modules, int eventId);
         
@@ -3059,10 +3065,10 @@ namespace TimetablingClientApplication.TimetablingService {
         System.Threading.Tasks.Task<bool> DeleteEventAsync(int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ChangeEventStatus", ReplyAction="http://tempuri.org/ITimetablingService/ChangeEventStatusResponse")]
-        bool ChangeEventStatus(string status, int eventId);
+        string ChangeEventStatus(string status, int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ChangeEventStatus", ReplyAction="http://tempuri.org/ITimetablingService/ChangeEventStatusResponse")]
-        System.Threading.Tasks.Task<bool> ChangeEventStatusAsync(string status, int eventId);
+        System.Threading.Tasks.Task<string> ChangeEventStatusAsync(string status, int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/StaffEvent", ReplyAction="http://tempuri.org/ITimetablingService/StaffEventResponse")]
         bool StaffEvent(int eventId, int staffId);
@@ -3129,6 +3135,12 @@ namespace TimetablingClientApplication.TimetablingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFiltersResponse")]
         System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableEventsListObject> ReturnWeeksEventsWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsForCourses", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsForCoursesResponse")]
+        TimetablingClientApplication.TimetablingService.TimetableEventsListObject ReturnWeeksEventsForCourses(System.DateTime dateRequested, int courseId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsForCourses", ReplyAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsForCoursesResponse")]
+        System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableEventsListObject> ReturnWeeksEventsForCoursesAsync(System.DateTime dateRequested, int courseId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/ReturnTimetableToolListObject", ReplyAction="http://tempuri.org/ITimetablingService/ReturnTimetableToolListObjectResponse")]
         TimetablingClientApplication.TimetablingService.TimetableDisplayListObject ReturnTimetableToolListObject();
@@ -3519,12 +3531,6 @@ namespace TimetablingClientApplication.TimetablingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/DeleteUser", ReplyAction="http://tempuri.org/ITimetablingService/DeleteUserResponse")]
         System.Threading.Tasks.Task<bool> DeleteUserAsync(int userId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/AddModulesToCourse", ReplyAction="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse")]
-        bool AddModulesToCourse(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITimetablingService/AddModulesToCourse", ReplyAction="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse")]
-        System.Threading.Tasks.Task<bool> AddModulesToCourseAsync(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3552,6 +3558,14 @@ namespace TimetablingClientApplication.TimetablingService {
         
         public TimetablingServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool AddModulesToCourse(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId) {
+            return base.Channel.AddModulesToCourse(modules, courseId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddModulesToCourseAsync(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId) {
+            return base.Channel.AddModulesToCourseAsync(modules, courseId);
         }
         
         public bool AddModulesToEvent(TimetablingClientApplication.TimetablingService.CourseModule[] modules, int eventId) {
@@ -3818,11 +3832,11 @@ namespace TimetablingClientApplication.TimetablingService {
             return base.Channel.DeleteEventAsync(eventId);
         }
         
-        public bool ChangeEventStatus(string status, int eventId) {
+        public string ChangeEventStatus(string status, int eventId) {
             return base.Channel.ChangeEventStatus(status, eventId);
         }
         
-        public System.Threading.Tasks.Task<bool> ChangeEventStatusAsync(string status, int eventId) {
+        public System.Threading.Tasks.Task<string> ChangeEventStatusAsync(string status, int eventId) {
             return base.Channel.ChangeEventStatusAsync(status, eventId);
         }
         
@@ -3912,6 +3926,14 @@ namespace TimetablingClientApplication.TimetablingService {
         
         public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableEventsListObject> ReturnWeeksEventsWithFiltersAsync(System.DateTime dateRequested, int roomId, int moduleId) {
             return base.Channel.ReturnWeeksEventsWithFiltersAsync(dateRequested, roomId, moduleId);
+        }
+        
+        public TimetablingClientApplication.TimetablingService.TimetableEventsListObject ReturnWeeksEventsForCourses(System.DateTime dateRequested, int courseId) {
+            return base.Channel.ReturnWeeksEventsForCourses(dateRequested, courseId);
+        }
+        
+        public System.Threading.Tasks.Task<TimetablingClientApplication.TimetablingService.TimetableEventsListObject> ReturnWeeksEventsForCoursesAsync(System.DateTime dateRequested, int courseId) {
+            return base.Channel.ReturnWeeksEventsForCoursesAsync(dateRequested, courseId);
         }
         
         public TimetablingClientApplication.TimetablingService.TimetableDisplayListObject ReturnTimetableToolListObject() {
@@ -4432,14 +4454,6 @@ namespace TimetablingClientApplication.TimetablingService {
         
         public System.Threading.Tasks.Task<bool> DeleteUserAsync(int userId) {
             return base.Channel.DeleteUserAsync(userId);
-        }
-        
-        public bool AddModulesToCourse(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId) {
-            return base.Channel.AddModulesToCourse(modules, courseId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> AddModulesToCourseAsync(TimetablingClientApplication.TimetablingService.Module[] modules, int courseId) {
-            return base.Channel.AddModulesToCourseAsync(modules, courseId);
         }
     }
 }

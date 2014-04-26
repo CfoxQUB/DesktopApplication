@@ -100,12 +100,12 @@ namespace TimetablingClientApplication.Views.Events.Pages
 
         public void StaffInvitesButtonClicked(Object sender, EventArgs e)
         {
-            _navigationService.Navigate(new StudentInvites(_eventId, _roomId));
+            _navigationService.Navigate(new StaffInvites(_eventId, _roomId));
         }
         
         public void StudentInvitesButtonClicked(Object sender, EventArgs e)
         {
-            _navigationService.Navigate(new StaffInvites(_eventId, _roomId));
+            _navigationService.Navigate(new StudentInvites(_eventId, _roomId));
         }
 
     }

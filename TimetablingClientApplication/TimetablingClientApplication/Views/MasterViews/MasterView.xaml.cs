@@ -115,10 +115,19 @@ namespace TimetablingClientApplication.Views.MasterViews
             Frame.Navigate(new EventStaffPage());
         }
         
-        
         private void Open_Invites_Page(object sender, MouseButtonEventArgs e)
         {
             Frame.Navigate(new Invites(Frame.NavigationService));
+        }
+        
+        private void Open_Course_Timetable_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new CourseTimetableTool());
+        }
+        
+        private void Open_Reports_Page(object sender, MouseButtonEventArgs e)
+        {
+            Frame.Navigate(new ReportsManagement());
         }
 
 

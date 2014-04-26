@@ -9,9 +9,9 @@
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
         <Label Name="PageName" Content="Course Module Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
-
+        <!--Search field below-->
         <TextBox Name="SearchField" HorizontalAlignment="Left" Height="23" Margin="70,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" FontSize="14" Text="Search Modules Available . . . ." GotFocus="SeachFieldOnFocus" LostFocus="SeachFieldLoseFocus" TextChanged="SeachFieldTextChanged"/>
-
+        <!--Modules Available listed from database-->
         <ListView Name="AvailableModules" SelectionMode="Single"  HorizontalAlignment="Left" Margin="70,93,0,0" VerticalAlignment="Top" Height="344" Width="337" FontSize="14" MouseDoubleClick="AddModuleToCourse">
             <ListView.View>
                 <GridView>
@@ -21,7 +21,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
+        <!--Selected modules that are associated with database-->
         <ListView Name="SelectedModules" SelectionMode="Single" MouseDoubleClick="RemoveModuleFromCourse" HorizontalAlignment="Left" Margin="544,106,0,0" VerticalAlignment="Top" Height="331" Width="337" FontSize="14">
             <ListView.View>
                 <GridView>
@@ -31,13 +31,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
+        <!--Course Selector for swapping between courses easily-->
         <Label Content="Course:" HorizontalAlignment="Left" Margin="544,37,0,0" VerticalAlignment="Top" FontSize="14"/>
         <ComboBox Name="CourseList" SelectionChanged="CourseSelectionChanged" HorizontalAlignment="Left"  Margin="609,37,0,0" VerticalAlignment="Top" Width="198" Background="{x:Null}" Height="29"/>
-        
+        <!--enumeration of modules selected for course-->
         <Label Content="Current Modules:" FontSize="14" HorizontalAlignment="Left" Margin="543,72,0,0" VerticalAlignment="Top"/>
         <Label Name="ModuleCount" Content="" FontSize="14" HorizontalAlignment="Left" Margin="665,71,0,0" VerticalAlignment="Top" Width="198" Height="30"/>
-
+        <!--Save button, svae modules to course-->
         <Button Name="SubmitChangesButton" Content="Save Modules" FontSize="14" Click="SaveCourseModules" HorizontalAlignment="Left" Margin="692,467,0,0" VerticalAlignment="Top" Width="189" Height="36"/>
     </Grid>
 </Page>

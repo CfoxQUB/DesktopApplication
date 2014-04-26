@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ConorFoxProject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfModule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Module" nillable="true" type="tns:Module" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModule" nillable="true" type="tns:ArrayOfModule" />
+  <xs:complexType name="Module">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
+      <xs:element minOccurs="0" name="ModuleDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleId" type="xs:int" />
+      <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Staff" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Module" nillable="true" type="tns:Module" />
   <xs:complexType name="ArrayOfCourseModule">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CourseModule" nillable="true" type="tns:CourseModule" />
@@ -227,23 +244,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Course" nillable="true" type="tns:Course" />
-  <xs:complexType name="ArrayOfModule">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Module" nillable="true" type="tns:Module" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModule" nillable="true" type="tns:ArrayOfModule" />
-  <xs:complexType name="Module">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Creator" type="xs:int" />
-      <xs:element minOccurs="0" name="ModuleDescription" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ModuleId" type="xs:int" />
-      <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Staff" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Module" nillable="true" type="tns:Module" />
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />

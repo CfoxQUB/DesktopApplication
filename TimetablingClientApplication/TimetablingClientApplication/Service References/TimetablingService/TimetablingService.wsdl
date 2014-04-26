@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:49185/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ITimetablingService_AddModulesToCourse_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModulesToCourse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_AddModulesToCourse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModulesToCourseResponse" />
+  </wsdl:message>
   <wsdl:message name="ITimetablingService_AddModulesToEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:AddModulesToEvent" />
   </wsdl:message>
@@ -276,6 +282,12 @@
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnWeeksEventsWithFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsForCourses_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsForCourses" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnWeeksEventsForCourses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnWeeksEventsForCoursesResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnTimetableToolListObject_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnTimetableToolListObject" />
@@ -667,13 +679,11 @@
   <wsdl:message name="ITimetablingService_DeleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_AddModulesToCourse_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddModulesToCourse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_AddModulesToCourse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddModulesToCourseResponse" />
-  </wsdl:message>
   <wsdl:portType name="ITimetablingService">
+    <wsdl:operation name="AddModulesToCourse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourse" message="tns:ITimetablingService_AddModulesToCourse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse" message="tns:ITimetablingService_AddModulesToCourse_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddModulesToEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToEvent" message="tns:ITimetablingService_AddModulesToEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToEventResponse" message="tns:ITimetablingService_AddModulesToEvent_OutputMessage" />
@@ -853,6 +863,10 @@
     <wsdl:operation name="ReturnWeeksEventsWithFilters">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFiltersResponse" message="tns:ITimetablingService_ReturnWeeksEventsWithFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnWeeksEventsForCourses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsForCourses" message="tns:ITimetablingService_ReturnWeeksEventsForCourses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnWeeksEventsForCoursesResponse" message="tns:ITimetablingService_ReturnWeeksEventsForCourses_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReturnTimetableToolListObject">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimetableToolListObject" message="tns:ITimetablingService_ReturnTimetableToolListObject_InputMessage" />
@@ -1114,13 +1128,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/DeleteUser" message="tns:ITimetablingService_DeleteUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/DeleteUserResponse" message="tns:ITimetablingService_DeleteUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddModulesToCourse">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourse" message="tns:ITimetablingService_AddModulesToCourse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse" message="tns:ITimetablingService_AddModulesToCourse_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITimetablingService" type="tns:ITimetablingService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddModulesToCourse">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddModulesToCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddModulesToEvent">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddModulesToEvent" style="document" />
       <wsdl:input>
@@ -1519,6 +1538,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReturnWeeksEventsWithFilters">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsWithFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnWeeksEventsForCourses">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnWeeksEventsForCourses" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2104,15 +2132,6 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/DeleteUser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddModulesToCourse">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddModulesToCourse" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
