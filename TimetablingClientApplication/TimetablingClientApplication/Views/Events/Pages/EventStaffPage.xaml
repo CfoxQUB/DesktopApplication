@@ -5,9 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="EventStaffPage" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="EventStaffPage" MinHeight="530" MinWidth="930" Height="530" Width="930" Background="#FF97F09B">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <Label Name="PageName" Content="Event Staff Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
+        <!--Labels indicating important features of page-->
+        <Label Content="Current Staff Allocated:" HorizontalAlignment="Left" Margin="411,338,0,0" VerticalAlignment="Top"/>
+        <Label Name="StaffAllocated" Content="" HorizontalAlignment="Left" Margin="478,369,0,0" VerticalAlignment="Top" Width="260"/>
+        <Label Content="Event Selected:" HorizontalAlignment="Left" Margin="454,265,0,0" VerticalAlignment="Top"/>
+        <Label Name="EventSelected" Content="" HorizontalAlignment="Left" Margin="478,296,0,0" VerticalAlignment="Top" Width="260"/>
+        <!--Search field for searching events-->
+        <TextBox Name="SearchField" HorizontalAlignment="Left" GotFocus="SearchFieldOnFocus" LostFocus="SearchFieldLoseFocus" TextChanged="SearchFieldTextChanged" Height="23" Margin="33,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" FontSize="11" Text="Search Events Available . . . "  />
+        <!--Events List -->
         <ListView Name="ListedEvents" SelectionMode="Single" SelectionChanged="NewEventSelected" HorizontalAlignment="Left" Margin="33,68,0,0" VerticalAlignment="Top" Height="412" Width="332" FontSize="11">
             <ListView.View>
                 <GridView>
@@ -18,6 +27,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <!--Staff List-->
         <ListView Name="ListedStaff" SelectionMode="Single" SelectionChanged="NewStaffMemeberAllocated" HorizontalAlignment="Left" Margin="440,68,0,0" VerticalAlignment="Top" Height="178" Width="406" FontSize="11">
             <ListView.View>
                 <GridView>
@@ -27,14 +37,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <!--save staff memebr allocation button-->
         <Button Name="SubmitChangesButton" Content="Change Staff" Click="SaveStaffAllocation" HorizontalAlignment="Left" Margin="704,444,0,0" VerticalAlignment="Top" Width="190" Height="36"/>
-        <TextBox Name="SearchField" HorizontalAlignment="Left" GotFocus="SearchFieldOnFocus" LostFocus="SearchFieldLoseFocus" TextChanged="SearchFieldTextChanged" Height="23" Margin="33,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" FontSize="11" Text="Search Events Available . . . "  />
-        <Label Name="PageName" Content="Event Staff Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
-        <Label Content="Current Staff Allocated:" HorizontalAlignment="Left" Margin="411,338,0,0" VerticalAlignment="Top"/>
-        <Label Name="StaffAllocated" Content="" HorizontalAlignment="Left" Margin="478,369,0,0" VerticalAlignment="Top" Width="260"/>
-        <Label Content="Event Selected:" HorizontalAlignment="Left" Margin="454,265,0,0" VerticalAlignment="Top"/>
-        <Label Name="EventSelected" Content="" HorizontalAlignment="Left" Margin="478,296,0,0" VerticalAlignment="Top" Width="260"/>
-
+        <!--Success popup-->
         <Popup Name="StaffAllocation" Width="300" Height="125" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248">
                 <TextBlock TextAlignment="Center" Height="100"><Run/><LineBreak/><Run Name="Line1" Text=""/><LineBreak/><Run/><LineBreak/><Run Text="Click Close to close Popup" /></TextBlock>

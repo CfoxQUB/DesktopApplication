@@ -1,16 +1,20 @@
 ﻿<Window x:Class="TimetablingClientApplication.Views.Startup.Windows.Login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Timetable Application" Height="350" MinHeight="350" Width="525" MinWidth="525" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Timetable Application" Height="350" MinHeight="350" Width="525" MinWidth="525" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FFEF99FD">
     <Viewbox Stretch="Uniform">
     <Grid Height="246" Width="400">
+        <!--User name field-->
         <Label Name="UserNameLabel"  Foreground="Black" Content="Username: " HorizontalAlignment="Left" Margin="89,52,0,0" VerticalAlignment="Top" Width="68"/>
         <TextBox Name="UserNameTextBox" Height="23" Margin="175,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" LostFocus="UserNameTextChanged" HorizontalAlignment="Left" Width="136"/>
-           
+         <!--Password Field-->
         <Label Name="PasswordLabel" Content="Password: " HorizontalAlignment="Left" Margin="91,99,0,0" VerticalAlignment="Top"/>
         <PasswordBox Name="PasswordTextBox" MaxLength="25" PasswordChar="*" Height="23" Margin="175,102,0,0" VerticalAlignment="Top" PasswordChanged="PasswordTextChanged" HorizontalAlignment="Left" Width="138"/>
+        <!--Register page link-->
         <Button Name="RegisterButton" Content="Register" Click="ClickRegisterButton" HorizontalAlignment="Left" Margin="91,164,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" IsCancel="True"/>
-            <Button Name="LoginButton" Content="Login" Click="ClickLoginButton" Margin="228,164,0,60" RenderTransformOrigin="0.228,-0.362" HorizontalAlignment="Left" Width="85"/>
+        <!--Submit login details button-->
+        <Button Name="LoginButton" Content="Login" Click="ClickLoginButton" Margin="228,164,0,60" RenderTransformOrigin="0.228,-0.362" HorizontalAlignment="Left" Width="85"/>
+        <!--Validation error-->
         <Label Name="ValidationError"  Content="" TextBlock.TextAlignment="Justify" Foreground="Red" Visibility="Visible" Margin="73,130,41,0" VerticalAlignment="Top"/>
     </Grid>
     </Viewbox>

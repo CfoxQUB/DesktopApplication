@@ -7,18 +7,6 @@
       <xsd:import schemaLocation="http://localhost:49185/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ITimetablingService_AddModulesToCourse_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddModulesToCourse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_AddModulesToCourse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddModulesToCourseResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_AddModulesToEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddModulesToEvent" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_AddModulesToEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddModulesToEventResponse" />
-  </wsdl:message>
   <wsdl:message name="ITimetablingService_AddStaffAttendentsToEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:AddStaffAttendentsToEvent" />
   </wsdl:message>
@@ -43,47 +31,11 @@
   <wsdl:message name="ITimetablingService_AddStudentInvitesToEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddStudentInvitesToEventResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveModulesFromCourse_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveModulesFromCourse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveModulesFromCourse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveModulesFromCourseResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveModulesFromEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveModulesFromEvent" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveModulesFromEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveModulesFromEventResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveStaffAttendentsFromEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveStaffAttendentsFromEvent" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveStaffAttendentsFromEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveStaffAttendentsFromEventResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveStaffInvitesFromEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveStaffInvitesFromEvent" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveStaffInvitesFromEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveStaffInvitesFromEventResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveStudentInvitesFromEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveStudentInvitesFromEvent" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_RemoveStudentInvitesFromEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveStudentInvitesFromEventResponse" />
-  </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnCoursesModules_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnCoursesModules" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnCoursesModules_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnCoursesModulesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsStudentsAttendees_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsStudentsAttendees" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsStudentsAttendees_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsStudentsAttendeesResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnEventsStaffAttendees_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnEventsStaffAttendees" />
@@ -229,18 +181,6 @@
   <wsdl:message name="ITimetablingService_ModuleEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModuleEventResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_DeleteStudentEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteStudentEvent" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_DeleteStudentEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteStudentEventResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_DeleteStaffEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteStaffEvent" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_DeleteStaffEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteStaffEventResponse" />
-  </wsdl:message>
   <wsdl:message name="ITimetablingService_DeleteModuleEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteModuleEvent" />
   </wsdl:message>
@@ -301,41 +241,11 @@
   <wsdl:message name="ITimetablingService_ReturnEvents_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnEventsResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventDetails_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventDetails" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventDetails_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventDetailsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsWithModules_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsWithModules" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsWithModules_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsWithModulesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsWithRooms_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsWithRooms" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsWithRooms_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsWithRoomsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsWithRoomsNoModules_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsWithRoomsNoModules" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventsWithRoomsNoModules_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventsWithRoomsNoModulesResponse" />
-  </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnEventTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnEventTypes" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnEventTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnEventTypesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventStaff_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventStaff" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnEventStaff_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnEventStaffResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnRoomTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnRoomTypes" />
@@ -361,78 +271,6 @@
   <wsdl:message name="ITimetablingService_ReturnModules_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnModulesResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnModuleStudents_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnModuleStudents" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnModuleStudents_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnModuleStudentsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseStaff_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseStaff" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseStaff_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseStaffResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseModules_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseModules" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseModules_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseModulesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingIdFromBuildingName_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingIdFromBuildingName" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingIdFromBuildingName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingIdFromBuildingNameResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomTypeIdFromTypeName_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomTypeIdFromTypeName" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomTypeIdFromTypeName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomTypeIdFromTypeNameResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseIdFromCourseName_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseIdFromCourseName" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseIdFromCourseName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseIdFromCourseNameResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnModuleIdFromModuleName_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnModuleIdFromModuleName" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnModuleIdFromModuleName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnModuleIdFromModuleNameResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomId_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomId" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingRooms_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingRooms" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingRooms_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingRoomsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomBuilding_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomBuilding" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomBuilding_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomBuildingResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomEvents_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomEvents" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomEvents_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomEventsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingEvents_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingEvents" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingEvents_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingEventsResponse" />
-  </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnTimes_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnTimes" />
   </wsdl:message>
@@ -457,65 +295,101 @@
   <wsdl:message name="ITimetablingService_ReturnStudents_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnStudentsResponse" />
   </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventsWithModules_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventsWithModules" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventsWithModules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventsWithModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventsWithRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventsWithRooms" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventsWithRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventsWithRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventsWithRoomsNoModules_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventsWithRoomsNoModules" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventsWithRoomsNoModules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventsWithRoomsNoModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventStaff" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingIdFromBuildingName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingIdFromBuildingName" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingIdFromBuildingName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingIdFromBuildingNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingRooms" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingEvents" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomTypeIdFromTypeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomTypeIdFromTypeName" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomTypeIdFromTypeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomTypeIdFromTypeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomId" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomBuilding_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomBuilding" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomBuilding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomEvents" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseIdFromCourseName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseIdFromCourseName" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseIdFromCourseName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseIdFromCourseNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseStaff" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseModules_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseModules" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseModules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseModulesResponse" />
+  </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnCourseStudents_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnCourseStudents" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnCourseStudents_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnCourseStudentsResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_CheckBuildingExists_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckBuildingExists" />
+  <wsdl:message name="ITimetablingService_ReturnModuleIdFromModuleName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnModuleIdFromModuleName" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_CheckBuildingExists_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckBuildingExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateNewBuilding_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNewBuilding" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateNewBuilding_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNewBuildingResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingDetail" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnBuildingDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnBuildingDetailResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CheckRoomExists_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckRoomExists" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CheckRoomExists_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckRoomExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateNewRoom_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNewRoom" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateNewRoom_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNewRoomResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomDetail" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnRoomDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnRoomDetailResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CheckCourseExists_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckCourseExists" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CheckCourseExists_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckCourseExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateCourse_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCourse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateCourse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCourseResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseDetail" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnCourseDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnCourseDetailResponse" />
+  <wsdl:message name="ITimetablingService_ReturnModuleIdFromModuleName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnModuleIdFromModuleNameResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_ReturnModuleStudentsNumbers_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnModuleStudentsNumbers" />
@@ -523,23 +397,35 @@
   <wsdl:message name="ITimetablingService_ReturnModuleStudentsNumbers_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnModuleStudentsNumbersResponse" />
   </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnModuleStudents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnModuleStudents" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnModuleStudents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnModuleStudentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CheckBuildingExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckBuildingExists" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CheckBuildingExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckBuildingExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CheckRoomExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRoomExists" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CheckRoomExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRoomExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CheckCourseExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCourseExists" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CheckCourseExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCourseExistsResponse" />
+  </wsdl:message>
   <wsdl:message name="ITimetablingService_CheckModuleExists_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckModuleExists" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CheckModuleExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckModuleExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateModule_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateModule" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateModule_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateModuleResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnModuleDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnModuleDetail" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnModuleDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnModuleDetailResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CheckStaffExists_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckStaffExists" />
@@ -547,29 +433,11 @@
   <wsdl:message name="ITimetablingService_CheckStaffExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckStaffExistsResponse" />
   </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateStaff_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateStaff" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_CreateStaff_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateStaffResponse" />
-  </wsdl:message>
   <wsdl:message name="ITimetablingService_Check_Staff_Email_Exists_InputMessage">
     <wsdl:part name="parameters" element="tns:Check_Staff_Email_Exists" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_Check_Staff_Email_Exists_OutputMessage">
     <wsdl:part name="parameters" element="tns:Check_Staff_Email_ExistsResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnStaffDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnStaffDetail" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnStaffDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnStaffDetailResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_Check_Student_Email_Exists_InputMessage">
-    <wsdl:part name="parameters" element="tns:Check_Student_Email_Exists" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_Check_Student_Email_Exists_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Check_Student_Email_ExistsResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CheckStudentExists_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckStudentExists" />
@@ -577,17 +445,47 @@
   <wsdl:message name="ITimetablingService_CheckStudentExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckStudentExistsResponse" />
   </wsdl:message>
+  <wsdl:message name="ITimetablingService_Check_Student_Email_Exists_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check_Student_Email_Exists" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_Check_Student_Email_Exists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Check_Student_Email_ExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewBuilding_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewBuilding" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewBuilding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRoom" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateNewRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateCourse_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCourse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateCourse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateModule" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStaff" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_CreateStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStaffResponse" />
+  </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateStudent_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateStudent" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateStudent_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateStudentResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnStudentDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnStudentDetail" />
-  </wsdl:message>
-  <wsdl:message name="ITimetablingService_ReturnStudentDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnStudentDetailResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateNewRoomType_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateNewRoomType" />
@@ -606,6 +504,48 @@
   </wsdl:message>
   <wsdl:message name="ITimetablingService_CreateSetting_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventDetails" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnEventDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingDetail" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnBuildingDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBuildingDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomDetail" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnRoomDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnRoomDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseDetail" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnCourseDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnCourseDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnModuleDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnModuleDetail" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnModuleDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnModuleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnStaffDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnStaffDetail" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnStaffDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnStaffDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnStudentDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnStudentDetail" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_ReturnStudentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnStudentDetailResponse" />
   </wsdl:message>
   <wsdl:message name="ITimetablingService_EditRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:EditRoom" />
@@ -679,15 +619,19 @@
   <wsdl:message name="ITimetablingService_DeleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
   </wsdl:message>
+  <wsdl:message name="ITimetablingService_AddModulesToCourse_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModulesToCourse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_AddModulesToCourse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModulesToCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_AddModulesToEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModulesToEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITimetablingService_AddModulesToEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModulesToEventResponse" />
+  </wsdl:message>
   <wsdl:portType name="ITimetablingService">
-    <wsdl:operation name="AddModulesToCourse">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourse" message="tns:ITimetablingService_AddModulesToCourse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse" message="tns:ITimetablingService_AddModulesToCourse_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddModulesToEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToEvent" message="tns:ITimetablingService_AddModulesToEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToEventResponse" message="tns:ITimetablingService_AddModulesToEvent_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="AddStaffAttendentsToEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddStaffAttendentsToEvent" message="tns:ITimetablingService_AddStaffAttendentsToEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddStaffAttendentsToEventResponse" message="tns:ITimetablingService_AddStaffAttendentsToEvent_OutputMessage" />
@@ -704,33 +648,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddStudentInvitesToEvent" message="tns:ITimetablingService_AddStudentInvitesToEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddStudentInvitesToEventResponse" message="tns:ITimetablingService_AddStudentInvitesToEvent_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RemoveModulesFromCourse">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/RemoveModulesFromCourse" message="tns:ITimetablingService_RemoveModulesFromCourse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/RemoveModulesFromCourseResponse" message="tns:ITimetablingService_RemoveModulesFromCourse_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoveModulesFromEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/RemoveModulesFromEvent" message="tns:ITimetablingService_RemoveModulesFromEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/RemoveModulesFromEventResponse" message="tns:ITimetablingService_RemoveModulesFromEvent_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoveStaffAttendentsFromEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/RemoveStaffAttendentsFromEvent" message="tns:ITimetablingService_RemoveStaffAttendentsFromEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/RemoveStaffAttendentsFromEventResponse" message="tns:ITimetablingService_RemoveStaffAttendentsFromEvent_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoveStaffInvitesFromEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/RemoveStaffInvitesFromEvent" message="tns:ITimetablingService_RemoveStaffInvitesFromEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/RemoveStaffInvitesFromEventResponse" message="tns:ITimetablingService_RemoveStaffInvitesFromEvent_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoveStudentInvitesFromEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/RemoveStudentInvitesFromEvent" message="tns:ITimetablingService_RemoveStudentInvitesFromEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/RemoveStudentInvitesFromEventResponse" message="tns:ITimetablingService_RemoveStudentInvitesFromEvent_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ReturnCoursesModules">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCoursesModules" message="tns:ITimetablingService_ReturnCoursesModules_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCoursesModulesResponse" message="tns:ITimetablingService_ReturnCoursesModules_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsStudentsAttendees">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsStudentsAttendees" message="tns:ITimetablingService_ReturnEventsStudentsAttendees_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsStudentsAttendeesResponse" message="tns:ITimetablingService_ReturnEventsStudentsAttendees_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReturnEventsStaffAttendees">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsStaffAttendees" message="tns:ITimetablingService_ReturnEventsStaffAttendees_InputMessage" />
@@ -828,14 +748,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ModuleEvent" message="tns:ITimetablingService_ModuleEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ModuleEventResponse" message="tns:ITimetablingService_ModuleEvent_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteStudentEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/DeleteStudentEvent" message="tns:ITimetablingService_DeleteStudentEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/DeleteStudentEventResponse" message="tns:ITimetablingService_DeleteStudentEvent_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteStaffEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/DeleteStaffEvent" message="tns:ITimetablingService_DeleteStaffEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/DeleteStaffEventResponse" message="tns:ITimetablingService_DeleteStaffEvent_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="DeleteModuleEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/DeleteModuleEvent" message="tns:ITimetablingService_DeleteModuleEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/DeleteModuleEventResponse" message="tns:ITimetablingService_DeleteModuleEvent_OutputMessage" />
@@ -876,29 +788,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEvents" message="tns:ITimetablingService_ReturnEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsResponse" message="tns:ITimetablingService_ReturnEvents_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReturnEventDetails">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventDetails" message="tns:ITimetablingService_ReturnEventDetails_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventDetailsResponse" message="tns:ITimetablingService_ReturnEventDetails_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsWithModules">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithModules" message="tns:ITimetablingService_ReturnEventsWithModules_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithModulesResponse" message="tns:ITimetablingService_ReturnEventsWithModules_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsWithRooms">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRooms" message="tns:ITimetablingService_ReturnEventsWithRooms_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsResponse" message="tns:ITimetablingService_ReturnEventsWithRooms_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsWithRoomsNoModules">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsNoModules" message="tns:ITimetablingService_ReturnEventsWithRoomsNoModules_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsNoModulesResponse" message="tns:ITimetablingService_ReturnEventsWithRoomsNoModules_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ReturnEventTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventTypes" message="tns:ITimetablingService_ReturnEventTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventTypesResponse" message="tns:ITimetablingService_ReturnEventTypes_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventStaff">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventStaff" message="tns:ITimetablingService_ReturnEventStaff_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventStaffResponse" message="tns:ITimetablingService_ReturnEventStaff_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReturnRoomTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypes" message="tns:ITimetablingService_ReturnRoomTypes_InputMessage" />
@@ -916,54 +808,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModules" message="tns:ITimetablingService_ReturnModules_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModulesResponse" message="tns:ITimetablingService_ReturnModules_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReturnModuleStudents">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleStudents" message="tns:ITimetablingService_ReturnModuleStudents_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleStudentsResponse" message="tns:ITimetablingService_ReturnModuleStudents_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseStaff">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseStaff" message="tns:ITimetablingService_ReturnCourseStaff_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseStaffResponse" message="tns:ITimetablingService_ReturnCourseStaff_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseModules">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseModules" message="tns:ITimetablingService_ReturnCourseModules_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseModulesResponse" message="tns:ITimetablingService_ReturnCourseModules_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingIdFromBuildingName">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingName" message="tns:ITimetablingService_ReturnBuildingIdFromBuildingName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingNameResponse" message="tns:ITimetablingService_ReturnBuildingIdFromBuildingName_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomTypeIdFromTypeName">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeName" message="tns:ITimetablingService_ReturnRoomTypeIdFromTypeName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeNameResponse" message="tns:ITimetablingService_ReturnRoomTypeIdFromTypeName_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseIdFromCourseName">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseName" message="tns:ITimetablingService_ReturnCourseIdFromCourseName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseNameResponse" message="tns:ITimetablingService_ReturnCourseIdFromCourseName_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnModuleIdFromModuleName">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleIdFromModuleName" message="tns:ITimetablingService_ReturnModuleIdFromModuleName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleIdFromModuleNameResponse" message="tns:ITimetablingService_ReturnModuleIdFromModuleName_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomId">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomId" message="tns:ITimetablingService_ReturnRoomId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomIdResponse" message="tns:ITimetablingService_ReturnRoomId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingRooms">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingRooms" message="tns:ITimetablingService_ReturnBuildingRooms_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingRoomsResponse" message="tns:ITimetablingService_ReturnBuildingRooms_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomBuilding">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomBuilding" message="tns:ITimetablingService_ReturnRoomBuilding_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomBuildingResponse" message="tns:ITimetablingService_ReturnRoomBuilding_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomEvents">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomEvents" message="tns:ITimetablingService_ReturnRoomEvents_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomEventsResponse" message="tns:ITimetablingService_ReturnRoomEvents_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingEvents">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingEvents" message="tns:ITimetablingService_ReturnBuildingEvents_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingEventsResponse" message="tns:ITimetablingService_ReturnBuildingEvents_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ReturnTimes">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimes" message="tns:ITimetablingService_ReturnTimes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnTimesResponse" message="tns:ITimetablingService_ReturnTimes_OutputMessage" />
@@ -980,93 +824,133 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStudents" message="tns:ITimetablingService_ReturnStudents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStudentsResponse" message="tns:ITimetablingService_ReturnStudents_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ReturnEventsWithModules">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithModules" message="tns:ITimetablingService_ReturnEventsWithModules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithModulesResponse" message="tns:ITimetablingService_ReturnEventsWithModules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventsWithRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRooms" message="tns:ITimetablingService_ReturnEventsWithRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsResponse" message="tns:ITimetablingService_ReturnEventsWithRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventsWithRoomsNoModules">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsNoModules" message="tns:ITimetablingService_ReturnEventsWithRoomsNoModules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsNoModulesResponse" message="tns:ITimetablingService_ReturnEventsWithRoomsNoModules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventStaff" message="tns:ITimetablingService_ReturnEventStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventStaffResponse" message="tns:ITimetablingService_ReturnEventStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingIdFromBuildingName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingName" message="tns:ITimetablingService_ReturnBuildingIdFromBuildingName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingNameResponse" message="tns:ITimetablingService_ReturnBuildingIdFromBuildingName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingRooms" message="tns:ITimetablingService_ReturnBuildingRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingRoomsResponse" message="tns:ITimetablingService_ReturnBuildingRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingEvents" message="tns:ITimetablingService_ReturnBuildingEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingEventsResponse" message="tns:ITimetablingService_ReturnBuildingEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomTypeIdFromTypeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeName" message="tns:ITimetablingService_ReturnRoomTypeIdFromTypeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeNameResponse" message="tns:ITimetablingService_ReturnRoomTypeIdFromTypeName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomId" message="tns:ITimetablingService_ReturnRoomId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomIdResponse" message="tns:ITimetablingService_ReturnRoomId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomBuilding">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomBuilding" message="tns:ITimetablingService_ReturnRoomBuilding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomBuildingResponse" message="tns:ITimetablingService_ReturnRoomBuilding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomEvents" message="tns:ITimetablingService_ReturnRoomEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomEventsResponse" message="tns:ITimetablingService_ReturnRoomEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseIdFromCourseName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseName" message="tns:ITimetablingService_ReturnCourseIdFromCourseName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseNameResponse" message="tns:ITimetablingService_ReturnCourseIdFromCourseName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseStaff" message="tns:ITimetablingService_ReturnCourseStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseStaffResponse" message="tns:ITimetablingService_ReturnCourseStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseModules">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseModules" message="tns:ITimetablingService_ReturnCourseModules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseModulesResponse" message="tns:ITimetablingService_ReturnCourseModules_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ReturnCourseStudents">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseStudents" message="tns:ITimetablingService_ReturnCourseStudents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseStudentsResponse" message="tns:ITimetablingService_ReturnCourseStudents_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CheckBuildingExists">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckBuildingExists" message="tns:ITimetablingService_CheckBuildingExists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckBuildingExistsResponse" message="tns:ITimetablingService_CheckBuildingExists_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateNewBuilding">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuilding" message="tns:ITimetablingService_CreateNewBuilding_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse" message="tns:ITimetablingService_CreateNewBuilding_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingDetail" message="tns:ITimetablingService_ReturnBuildingDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingDetailResponse" message="tns:ITimetablingService_ReturnBuildingDetail_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckRoomExists">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckRoomExists" message="tns:ITimetablingService_CheckRoomExists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckRoomExistsResponse" message="tns:ITimetablingService_CheckRoomExists_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateNewRoom">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoom" message="tns:ITimetablingService_CreateNewRoom_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomResponse" message="tns:ITimetablingService_CreateNewRoom_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomDetail" message="tns:ITimetablingService_ReturnRoomDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomDetailResponse" message="tns:ITimetablingService_ReturnRoomDetail_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckCourseExists">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckCourseExists" message="tns:ITimetablingService_CheckCourseExists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckCourseExistsResponse" message="tns:ITimetablingService_CheckCourseExists_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateCourse">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateCourse" message="tns:ITimetablingService_CreateCourse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateCourseResponse" message="tns:ITimetablingService_CreateCourse_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseDetail" message="tns:ITimetablingService_ReturnCourseDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseDetailResponse" message="tns:ITimetablingService_ReturnCourseDetail_OutputMessage" />
+    <wsdl:operation name="ReturnModuleIdFromModuleName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleIdFromModuleName" message="tns:ITimetablingService_ReturnModuleIdFromModuleName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleIdFromModuleNameResponse" message="tns:ITimetablingService_ReturnModuleIdFromModuleName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReturnModuleStudentsNumbers">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleStudentsNumbers" message="tns:ITimetablingService_ReturnModuleStudentsNumbers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleStudentsNumbersResponse" message="tns:ITimetablingService_ReturnModuleStudentsNumbers_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ReturnModuleStudents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleStudents" message="tns:ITimetablingService_ReturnModuleStudents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleStudentsResponse" message="tns:ITimetablingService_ReturnModuleStudents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckBuildingExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckBuildingExists" message="tns:ITimetablingService_CheckBuildingExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckBuildingExistsResponse" message="tns:ITimetablingService_CheckBuildingExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRoomExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckRoomExists" message="tns:ITimetablingService_CheckRoomExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckRoomExistsResponse" message="tns:ITimetablingService_CheckRoomExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCourseExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckCourseExists" message="tns:ITimetablingService_CheckCourseExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckCourseExistsResponse" message="tns:ITimetablingService_CheckCourseExists_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CheckModuleExists">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckModuleExists" message="tns:ITimetablingService_CheckModuleExists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckModuleExistsResponse" message="tns:ITimetablingService_CheckModuleExists_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateModule">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateModule" message="tns:ITimetablingService_CreateModule_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateModuleResponse" message="tns:ITimetablingService_CreateModule_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnModuleDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleDetail" message="tns:ITimetablingService_ReturnModuleDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleDetailResponse" message="tns:ITimetablingService_ReturnModuleDetail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CheckStaffExists">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckStaffExists" message="tns:ITimetablingService_CheckStaffExists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckStaffExistsResponse" message="tns:ITimetablingService_CheckStaffExists_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CreateStaff">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateStaff" message="tns:ITimetablingService_CreateStaff_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateStaffResponse" message="tns:ITimetablingService_CreateStaff_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Check_Staff_Email_Exists">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Check_Staff_Email_Exists" message="tns:ITimetablingService_Check_Staff_Email_Exists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Check_Staff_Email_ExistsResponse" message="tns:ITimetablingService_Check_Staff_Email_Exists_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnStaffDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStaffDetail" message="tns:ITimetablingService_ReturnStaffDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStaffDetailResponse" message="tns:ITimetablingService_ReturnStaffDetail_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Check_Student_Email_Exists">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Check_Student_Email_Exists" message="tns:ITimetablingService_Check_Student_Email_Exists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Check_Student_Email_ExistsResponse" message="tns:ITimetablingService_Check_Student_Email_Exists_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CheckStudentExists">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CheckStudentExists" message="tns:ITimetablingService_CheckStudentExists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CheckStudentExistsResponse" message="tns:ITimetablingService_CheckStudentExists_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Check_Student_Email_Exists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/Check_Student_Email_Exists" message="tns:ITimetablingService_Check_Student_Email_Exists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/Check_Student_Email_ExistsResponse" message="tns:ITimetablingService_Check_Student_Email_Exists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewBuilding">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuilding" message="tns:ITimetablingService_CreateNewBuilding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewBuildingResponse" message="tns:ITimetablingService_CreateNewBuilding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoom" message="tns:ITimetablingService_CreateNewRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomResponse" message="tns:ITimetablingService_CreateNewRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCourse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateCourse" message="tns:ITimetablingService_CreateCourse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateCourseResponse" message="tns:ITimetablingService_CreateCourse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateModule" message="tns:ITimetablingService_CreateModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateModuleResponse" message="tns:ITimetablingService_CreateModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateStaff" message="tns:ITimetablingService_CreateStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateStaffResponse" message="tns:ITimetablingService_CreateStaff_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateStudent">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateStudent" message="tns:ITimetablingService_CreateStudent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateStudentResponse" message="tns:ITimetablingService_CreateStudent_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnStudentDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStudentDetail" message="tns:ITimetablingService_ReturnStudentDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStudentDetailResponse" message="tns:ITimetablingService_ReturnStudentDetail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateNewRoomType">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateNewRoomType" message="tns:ITimetablingService_CreateNewRoomType_InputMessage" />
@@ -1079,6 +963,34 @@
     <wsdl:operation name="CreateSetting">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/CreateSetting" message="tns:ITimetablingService_CreateSetting_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/CreateSettingResponse" message="tns:ITimetablingService_CreateSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventDetails" message="tns:ITimetablingService_ReturnEventDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnEventDetailsResponse" message="tns:ITimetablingService_ReturnEventDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingDetail" message="tns:ITimetablingService_ReturnBuildingDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnBuildingDetailResponse" message="tns:ITimetablingService_ReturnBuildingDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomDetail" message="tns:ITimetablingService_ReturnRoomDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnRoomDetailResponse" message="tns:ITimetablingService_ReturnRoomDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseDetail" message="tns:ITimetablingService_ReturnCourseDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnCourseDetailResponse" message="tns:ITimetablingService_ReturnCourseDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnModuleDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleDetail" message="tns:ITimetablingService_ReturnModuleDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnModuleDetailResponse" message="tns:ITimetablingService_ReturnModuleDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnStaffDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStaffDetail" message="tns:ITimetablingService_ReturnStaffDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStaffDetailResponse" message="tns:ITimetablingService_ReturnStaffDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnStudentDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStudentDetail" message="tns:ITimetablingService_ReturnStudentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/ReturnStudentDetailResponse" message="tns:ITimetablingService_ReturnStudentDetail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditRoom">
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/EditRoom" message="tns:ITimetablingService_EditRoom_InputMessage" />
@@ -1128,27 +1040,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/DeleteUser" message="tns:ITimetablingService_DeleteUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/DeleteUserResponse" message="tns:ITimetablingService_DeleteUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddModulesToCourse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourse" message="tns:ITimetablingService_AddModulesToCourse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToCourseResponse" message="tns:ITimetablingService_AddModulesToCourse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModulesToEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToEvent" message="tns:ITimetablingService_AddModulesToEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimetablingService/AddModulesToEventResponse" message="tns:ITimetablingService_AddModulesToEvent_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITimetablingService" type="tns:ITimetablingService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="AddModulesToCourse">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddModulesToCourse" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddModulesToEvent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddModulesToEvent" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AddStaffAttendentsToEvent">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddStaffAttendentsToEvent" style="document" />
       <wsdl:input>
@@ -1185,62 +1087,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RemoveModulesFromCourse">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/RemoveModulesFromCourse" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveModulesFromEvent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/RemoveModulesFromEvent" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveStaffAttendentsFromEvent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/RemoveStaffAttendentsFromEvent" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveStaffInvitesFromEvent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/RemoveStaffInvitesFromEvent" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveStudentInvitesFromEvent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/RemoveStudentInvitesFromEvent" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ReturnCoursesModules">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCoursesModules" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsStudentsAttendees">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventsStudentsAttendees" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1464,24 +1312,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteStudentEvent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/DeleteStudentEvent" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteStaffEvent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/DeleteStaffEvent" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="DeleteModuleEvent">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/DeleteModuleEvent" style="document" />
       <wsdl:input>
@@ -1572,53 +1402,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnEventDetails">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventDetails" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsWithModules">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventsWithModules" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsWithRooms">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventsWithRooms" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventsWithRoomsNoModules">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsNoModules" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ReturnEventTypes">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventTypes" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnEventStaff">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventStaff" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1662,114 +1447,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnModuleStudents">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnModuleStudents" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseStaff">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseStaff" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseModules">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseModules" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingIdFromBuildingName">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomTypeIdFromTypeName">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseIdFromCourseName">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnModuleIdFromModuleName">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnModuleIdFromModuleName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomId">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingRooms">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingRooms" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomBuilding">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomBuilding" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomEvents">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomEvents" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingEvents">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingEvents" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ReturnTimes">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnTimes" style="document" />
       <wsdl:input>
@@ -1806,6 +1483,132 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ReturnEventsWithModules">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventsWithModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventsWithRooms">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventsWithRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventsWithRoomsNoModules">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventsWithRoomsNoModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventStaff">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingIdFromBuildingName">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingIdFromBuildingName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingRooms">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingEvents">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomTypeIdFromTypeName">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomTypeIdFromTypeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomId">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomBuilding">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomEvents">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseIdFromCourseName">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseIdFromCourseName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseStaff">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseModules">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ReturnCourseStudents">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseStudents" style="document" />
       <wsdl:input>
@@ -1815,80 +1618,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckBuildingExists">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CheckBuildingExists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateNewBuilding">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewBuilding" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnBuildingDetail">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingDetail" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckRoomExists">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CheckRoomExists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateNewRoom">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewRoom" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnRoomDetail">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomDetail" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckCourseExists">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CheckCourseExists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateCourse">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateCourse" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnCourseDetail">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseDetail" style="document" />
+    <wsdl:operation name="ReturnModuleIdFromModuleName">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnModuleIdFromModuleName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1905,26 +1636,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ReturnModuleStudents">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnModuleStudents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBuildingExists">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CheckBuildingExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRoomExists">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CheckRoomExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCourseExists">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CheckCourseExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CheckModuleExists">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/CheckModuleExists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateModule">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateModule" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnModuleDetail">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnModuleDetail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1941,35 +1690,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateStaff">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateStaff" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Check_Staff_Email_Exists">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/Check_Staff_Email_Exists" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnStaffDetail">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnStaffDetail" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Check_Student_Email_Exists">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Check_Student_Email_Exists" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1986,8 +1708,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateStudent">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateStudent" style="document" />
+    <wsdl:operation name="Check_Student_Email_Exists">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/Check_Student_Email_Exists" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1995,8 +1717,53 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnStudentDetail">
-      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnStudentDetail" style="document" />
+    <wsdl:operation name="CreateNewBuilding">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewRoom">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateNewRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCourse">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateModule">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStaff">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStudent">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateStudent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2024,6 +1791,69 @@
     </wsdl:operation>
     <wsdl:operation name="CreateSetting">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/CreateSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEventDetails">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnEventDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBuildingDetail">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnBuildingDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnRoomDetail">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnRoomDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCourseDetail">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnCourseDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnModuleDetail">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnModuleDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnStaffDetail">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnStaffDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnStudentDetail">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/ReturnStudentDetail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2132,6 +1962,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <soap:operation soapAction="http://tempuri.org/ITimetablingService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddModulesToCourse">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddModulesToCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddModulesToEvent">
+      <soap:operation soapAction="http://tempuri.org/ITimetablingService/AddModulesToEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

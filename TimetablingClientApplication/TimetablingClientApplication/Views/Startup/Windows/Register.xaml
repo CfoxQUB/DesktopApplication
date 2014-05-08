@@ -1,31 +1,31 @@
 ﻿<Window x:Class="TimetablingClientApplication.Views.Startup.Windows.Register"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Register" Height="482" Width="855" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Register" Height="482" Width="855" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FFEF99FD">
     <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top">
-       
-        <Grid Height="346" Width="586" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*"/>
-        </Grid.ColumnDefinitions>
+       <Grid Height="346" Width="586" >
+        <!--Labels to indicate required fields-->            
         <Label Name="UserTitle" Content="Title:" HorizontalAlignment="Left" Margin="77,19,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="Title" HorizontalAlignment="Left" Margin="167,19,0,0" VerticalAlignment="Top" Width="120" Background="{x:Null}" SelectionChanged="OnTitleChange"/>
         <Label Name="UserForename" Content="Forename:" HorizontalAlignment="Left" Margin="53,60,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="UserForenameText" HorizontalAlignment="Left" Height="29" Margin="135,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" TextChanged="OnForenameChange"/>
         <Label Name="UserSurname" Content="Surename:" HorizontalAlignment="Left" Margin="53,97,0,0" VerticalAlignment="Top"/>
-            <TextBox Name="UserSurnameText" HorizontalAlignment="Left" Height="29" Margin="135,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" TextChanged="OnSurnameChange"/>
         <Label Name="UserEmail" Content="Email:" HorizontalAlignment="Left" Margin="71,144,0,0" VerticalAlignment="Top"/>
-            <TextBox Name="UserEmailText" HorizontalAlignment="Left" Height="29" Margin="135,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" LostFocus="OnEmailChange"/>
         <Label Name="Password1" Content="Password:" HorizontalAlignment="Left" Margin="49,208,0,0" VerticalAlignment="Top"/>
-            <PasswordBox Name="Password1Text" MaxLength="25" PasswordChar="*" HorizontalAlignment="Left" Height="29" Margin="135,205,0,0" VerticalAlignment="Top" Width="188" PasswordChanged="OnPassword1Change"/>
         <Label Name="Password2" Content="Confirm Password:" HorizontalAlignment="Left" Margin="11,239,0,0" VerticalAlignment="Top" />
-            <PasswordBox Name="Password2Text"  MaxLength="25" PasswordChar="*" HorizontalAlignment="Left" Height="29" Margin="135,242,0,0" VerticalAlignment="Top" Width="188" PasswordChanged="OnPassword2Change"/>
-            <Button Content="Click To Register" Click="SubmitNewUser"  HorizontalAlignment="Left" Margin="383,301,0,0" VerticalAlignment="Top" Width="163" Height="35"/>
-
+        <!--Fields required to create new user-->
+        <ComboBox Name="Title" HorizontalAlignment="Left" Margin="167,19,0,0" VerticalAlignment="Top" Width="120" Background="#FFFFFFFF" SelectionChanged="OnTitleChange"/>
+        <TextBox Name="UserForenameText" HorizontalAlignment="Left" Height="29" Margin="135,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" TextChanged="OnForenameChange"/>
+        <TextBox Name="UserSurnameText" HorizontalAlignment="Left" Height="29" Margin="135,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" TextChanged="OnSurnameChange"/>
+        <TextBox Name="UserEmailText" HorizontalAlignment="Left" Height="29" Margin="135,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" LostFocus="OnEmailChange"/>
+        <PasswordBox Name="Password1Text" MaxLength="25" PasswordChar="*" HorizontalAlignment="Left" Height="29" Margin="135,205,0,0" VerticalAlignment="Top" Width="188" PasswordChanged="OnPassword1Change"/>
+        <PasswordBox Name="Password2Text"  MaxLength="25" PasswordChar="*" HorizontalAlignment="Left" Height="29" Margin="135,242,0,0" VerticalAlignment="Top" Width="188" PasswordChanged="OnPassword2Change"/>
+        <!--Submit new administrator details-->
+        <Button Content="Click To Register" Click="SubmitNewUser"  HorizontalAlignment="Left" Margin="383,301,0,0" VerticalAlignment="Top" Width="163" Height="35"/>
+        <!--Validation messages-->
         <Label Name="FieldsValidation" Foreground="Red" Visibility="Hidden" Content="Please complete all the highlighted fields above" HorizontalAlignment="Center" Margin="71,286,196,0" VerticalAlignment="Top" Width="327" FontSize="14"/>
         <Label Name="PasswordValidation" Foreground="Red" Visibility="Hidden" Content="Passwords do not match.&#xD;&#xA;Please re-enter you password" HorizontalAlignment="Left" Margin="366,213,0,0" VerticalAlignment="Top" Width="169" Height="58"/>
         <TextBlock Name="EmailValidation" Foreground="Red" Visibility="Hidden" Text="This Email address is already&#xD;&#xA;associated with an account." HorizontalAlignment="Left" Margin="366,139,0,0" VerticalAlignment="Top" Width="160" Height="48"/>
-        <Label  Foreground="Black" Visibility="Visible" Content="Please complete all the fields that you&#xD;&#xA;see to the left, these will be checked&#xD;&#xA;against our current registered users to&#xD;&#xA;ensure you haven't registered twice." HorizontalAlignment="Left" Margin="366,60,0,0" VerticalAlignment="Top" Width="218" Height="74"/>
+            <!--Descriptive text for window-->
+            <Label  Foreground="Black" Visibility="Visible" Content="Please complete all the fields that you&#xD;&#xA;see to the left, these will be checked&#xD;&#xA;against our current registered users to&#xD;&#xA;ensure you haven't registered twice." HorizontalAlignment="Left" Margin="366,60,0,0" VerticalAlignment="Top" Width="218" Height="74"/>
         </Grid>
     </Viewbox>
 </Window>

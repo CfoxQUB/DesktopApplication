@@ -5,9 +5,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="ModuleManagementPage" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="ModuleManagementPage" MinHeight="530" MinWidth="930" Height="530" Width="930" Background="#FF97F09B">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <!--Labels which indicate important fields and features on page-->
+        <Label Name="PageName" Content="Module Student Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
+        <Label Content="Course:" HorizontalAlignment="Left" Margin="70,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Module:" HorizontalAlignment="Left" Margin="593,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Current Students:" HorizontalAlignment="Left" Margin="544,119,0,0" VerticalAlignment="Top"/>
+        <Label Name="StudentCount" Content="" HorizontalAlignment="Left" Margin="665,119,0,0" VerticalAlignment="Top" Width="198"/>
+        <ComboBox Name="ModuleList" HorizontalAlignment="Left" SelectionChanged="ModuleSelectionChanged" Margin="665,79,0,0" VerticalAlignment="Top" Width="198" Background="#FFFFFF"/>
+        <ComboBox Name="CourseList" HorizontalAlignment="Left" SelectionChanged="CourseSelectionChanged" Margin="129,79,0,0" VerticalAlignment="Top" Width="198" Background="#FFFFFF"/>
+        <!--Search students feature-->
+        <TextBox Name="SearchField" HorizontalAlignment="Left" Height="23" Margin="75,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" FontSize="11" Text="Search Students Available . . . ." GotFocus="SeachFieldOnFocus" LostFocus="SeachFieldLoseFocus" TextChanged="SeachFieldTextChanged"/>
+        <!--Listed students for course selected-->
         <ListView Name="AvailableStudents" SelectionMode="Single" HorizontalAlignment="Left" Margin="70,161,0,0" VerticalAlignment="Top" Height="276" Width="337" FontSize="11" MouseDoubleClick="AddStudentToModule">
             <ListView.View>
                 <GridView>
@@ -18,6 +29,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <!--Listed students now associated with module-->
         <ListView Name="SelectedStudents" SelectionMode="Single" MouseDoubleClick="RemoveStudentFromModule" HorizontalAlignment="Left" Margin="544,161,0,0" VerticalAlignment="Top" Height="276" Width="337" FontSize="11">
             <ListView.View>
                 <GridView>
@@ -28,14 +40,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <!--Save student module information-->
         <Button Name="SubmitChangesButton" Content="Save Students" Click="SaveModuleStudents" HorizontalAlignment="Left" Margin="692,467,0,0" VerticalAlignment="Top" Width="189" Height="36"/>
-        <TextBox Name="SearchField" HorizontalAlignment="Left" Height="23" Margin="75,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" FontSize="11" Text="Search Students Available . . . ." GotFocus="SeachFieldOnFocus" LostFocus="SeachFieldLoseFocus" TextChanged="SeachFieldTextChanged"/>
-        <Label Name="PageName" Content="Module Student Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
-        <Label Content="Course:" HorizontalAlignment="Left" Margin="70,75,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="CourseList" HorizontalAlignment="Left" SelectionChanged="CourseSelectionChanged" Margin="129,79,0,0" VerticalAlignment="Top" Width="198" Background="{x:Null}"/>
-        <Label Content="Module:" HorizontalAlignment="Left" Margin="593,75,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="ModuleList" HorizontalAlignment="Left" SelectionChanged="ModuleSelectionChanged" Margin="665,79,0,0" VerticalAlignment="Top" Width="198" Background="{x:Null}"/>
-        <Label Content="Current Students:" HorizontalAlignment="Left" Margin="544,119,0,0" VerticalAlignment="Top"/>
-        <Label Name="StudentCount" Content="" HorizontalAlignment="Left" Margin="665,119,0,0" VerticalAlignment="Top" Width="198"/>
+
     </Grid>
 </Page>

@@ -5,8 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="CourseManagement" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="Course Management" MinHeight="530" MinWidth="930" Height="530" Width="930">
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <Label Name="PageName" Content="Course Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
         <!--Search field below-->
         <TextBox Name="SearchCourses" HorizontalAlignment="Left" FontSize="13" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Courses . . . " VerticalAlignment="Top" Width="285"/>
         <!--List of courses available in database-->

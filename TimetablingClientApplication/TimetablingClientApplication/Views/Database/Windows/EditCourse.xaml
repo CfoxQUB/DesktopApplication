@@ -1,24 +1,28 @@
 ﻿<Window x:Class="TimetablingClientApplication.Views.Database.Windows.EditCourse"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EditCourse"  MinHeight="520" MinWidth="430" Height="450" Width="520" ResizeMode="NoResize">
+        Title="Edit Course"  MinHeight="520" MinWidth="430" Height="450" Width="520" ResizeMode="NoResize" Background="#BB75C4C4">
     <Grid  MinHeight="450" MinWidth="520" Height="450" Width="520">
 
         <Label Name="PageName" Content="Edit Course" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="147" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
+        <!--Labels to indicate required fields for course edit changes-->
+        <Label Content="Name:" FontSize="15" HorizontalAlignment="Left" Margin="86,65,0,0" VerticalAlignment="Top"/>
+        <Label Content="Duration:" FontSize="15" HorizontalAlignment="Left" Margin="68,219,0,0" VerticalAlignment="Top"/>
+        <Label Content="Description:"  FontSize="15" HorizontalAlignment="Left" Margin="73,121,0,0" VerticalAlignment="Top"/>
+        <!--Textboxes which will contain values of selected course-->
+        <TextBox Name="CourseName" MaxLength="50" FontSize="15" Margin="167,67,153,355" />
+        <TextBox Name="CourseDuration" HorizontalAlignment="Left" FontSize="15" Height="28" Margin="167,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="ValidationOnCourseDuration"/>
+        <TextBox Name="CourseDescription" HorizontalAlignment="Left" FontSize="15" Height="74" Margin="167,121,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="259"/>
+        <!--Button for submission of changes of course-->
+        <Button Name="CreateCourse"  Content="Save Changes" Click="SaveCourse"  HorizontalAlignment="Left" Margin="127,288,0,0" VerticalAlignment="Top" Width="265" Height="40"/>
+        <!--Validation message to relfect errors in fields-->
         <Label Name="ValidationMessage" HorizontalAlignment="Left" Margin="46,350,0,0" VerticalAlignment="Top" Height="35" Width="420" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
-
+        <!--Popup to relfect successful changes in course-->
         <Popup Name="Success" Width="300" Height="125" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248">
                 <TextBlock TextAlignment="Center" Height="100"><Run/><LineBreak/><Run  Text="Course Creation Successful!"/><LineBreak/><Run Text=""/><LineBreak/><Run /><LineBreak/><Run Text="Click Close to close window"/></TextBlock>
                 <Button Name="CancelButton" Content="Close" Click="CloseSuccessPopup"/>
             </StackPanel>
         </Popup>
-        <Label Content="Name:" FontSize="15" HorizontalAlignment="Left" Margin="86,65,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="CourseName" MaxLength="50" FontSize="15" Margin="167,67,153,355" />
-        <Button Name="CreateCourse"  Content="Save Changes" Click="SaveCourse"  HorizontalAlignment="Left" Margin="127,288,0,0" VerticalAlignment="Top" Width="265" Height="40"/>
-        <Label Content="Duration:" FontSize="15" HorizontalAlignment="Left" Margin="68,219,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="CourseDuration" HorizontalAlignment="Left" FontSize="15" Height="28" Margin="167,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="ValidationOnCourseDuration"/>
-        <Label Content="Description:"  FontSize="15" HorizontalAlignment="Left" Margin="73,121,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="CourseDescription" HorizontalAlignment="Left" FontSize="15" Height="74" Margin="167,121,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="259"/>
     </Grid>
 </Window>

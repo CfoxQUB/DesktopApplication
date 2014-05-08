@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Navigation;
 using TimetablingClientApplication.TimetablingService;
 using TimetablingClientApplication.Views.Database.Windows;
 
@@ -24,12 +25,14 @@ namespace TimetablingClientApplication.Views.Database.Pages
         //boolean check to determine if page has been rendered for room list population
         private readonly bool _pageRendered;
 
-        //User Id passed from master page
+        //User Id passed from master page and navigation from frame
         private readonly int _userId;
+        private readonly NavigationService _navigation;
 
-        public BuildingManagement(int userId)
+        public BuildingManagement(int userId, NavigationService navigation)
         {
             _userId = userId;
+            _navigation = navigation;
             _pageRendered = false;
             InitializeComponent();
 
@@ -157,7 +160,7 @@ namespace TimetablingClientApplication.Views.Database.Pages
         //Opens new window for the creation of a new building
         public void AddNewBuilding(object sender, RoutedEventArgs e)
         {
-            var building = new CreateNewBuilding(_userId);
+            var building = new CreateNewBuilding(_userId, _navigation);
             building.Show();
         }
 

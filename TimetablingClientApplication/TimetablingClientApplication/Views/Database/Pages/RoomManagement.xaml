@@ -8,8 +8,9 @@
 	Title="Room Management" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <Label Name="PageName" Content="Room Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
         <!--building selection-->
-        <ComboBox Name="SelectBuilding" HorizontalAlignment="Left" Margin="120,456,0,0" VerticalAlignment="Top" SelectionChanged="BuildingSelectionChange" Width="210" Background="{x:Null}" Height="28"/>
+        <ComboBox Name="SelectBuilding" HorizontalAlignment="Left" Margin="120,456,0,0" VerticalAlignment="Top" SelectionChanged="BuildingSelectionChange" Width="210" Background="#FFFFFF" Height="28"/>
         <!--Search field below-->
         <TextBox Name="SearchRooms" HorizontalAlignment="Left" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Rooms . . . " VerticalAlignment="Top" Width="285" FontSize="14"/>
         <!--room list display for rooms that are available on the database-->

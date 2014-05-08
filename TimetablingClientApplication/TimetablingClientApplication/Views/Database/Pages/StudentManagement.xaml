@@ -5,25 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="StudentManagement" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="Student Management" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <Label Name="PageName" Content="Student Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
+        <!--Page content relfecting selected Student-->
         <TextBlock Text="Title:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,59,0,0" VerticalAlignment="Top" Width="43"/>
         <TextBlock Name="Title" Margin="411,83,315,421" RenderTransformOrigin="0.5,0.5"/>
         <TextBlock Text="Forename:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,114,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="Forename" Margin="411,133,315,371"></TextBlock>
-        <TextBlock Text="Surname:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="645,114,0,0" VerticalAlignment="Top"></TextBlock>
-        <TextBlock Name="Surname" Margin="666,133,73,371"></TextBlock>
+        <TextBlock Name="Forename" Margin="411,133,315,371"/>
+        <TextBlock Text="Surname:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="645,114,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="Surname" Margin="666,133,73,371"/>
         <TextBlock Text="Email:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,164,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="Email" Margin="411,188,315,316"></TextBlock>
+        <TextBlock Name="Email" Margin="411,188,315,316"/>
         <TextBlock Text="Course:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,214,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="Course" Margin="411,238,315,266"></TextBlock>
+        <TextBlock Name="Course" Margin="411,238,315,266"/>
         <TextBlock Text="Year:" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="14" Margin="386,264,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="Year" Margin="411,288,384,216"></TextBlock>
+        <TextBlock Name="Year" Margin="411,288,384,216"/>
 
+        <!--Buttons for the creation, deletion and editing of students-->
         <Button Name="NewStudentButton" Content="New Student"  FontSize="14" Click="AddNewStudent" Margin="424,376,384,123"/>
         <Button Name="EditStudentButton" Content="Edit Student" FontSize="14" Click="EditStudent" Margin="573,376,235,123"/>
         <Button Name="DeleteStudentButton" Content="Delete Student" FontSize="14" Click="DeleteStudentPopup" Margin="720,376,88,123"/>
+        <!--confirm delet of student popup-->
         <Popup Name="DeleteStudent" Width="300" Height="150" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248">
                 <TextBlock TextAlignment="Center" Height="100"><Run Text="Are you sure you want to "/><Run/><LineBreak/><Run Text="delete this Student?"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Delete cannot be undone!"/></TextBlock>
@@ -31,9 +35,9 @@
                 <Button Name="CancelButton" Content="Close" Click="CloseDeletePopup"/>
             </StackPanel>
         </Popup>
-
+        <!--Studnet search field-->
         <TextBox Name="SearchStudent" FontSize="14" HorizontalAlignment="Left" Height="23" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults" Margin="45,30,0,0" TextWrapping="Wrap" Text="Search for Students . . . " VerticalAlignment="Top" Width="285"/>
-
+        <!--Listed view of students that are available in database-->
         <ListView Name="StudentList" SelectionMode="Single" FontSize="14" HorizontalAlignment="Left" Height="389" Margin="45,58,0,0" SelectionChanged="NewStudentSelected" VerticalAlignment="Top" Width="285">
             <ListView.View>
                 <GridView>

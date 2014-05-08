@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="CourseModuleManagement" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="Course Module Management" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
         <Label Name="PageName" Content="Course Module Management" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
@@ -33,11 +33,12 @@
         </ListView>
         <!--Course Selector for swapping between courses easily-->
         <Label Content="Course:" HorizontalAlignment="Left" Margin="544,37,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox Name="CourseList" SelectionChanged="CourseSelectionChanged" HorizontalAlignment="Left"  Margin="609,37,0,0" VerticalAlignment="Top" Width="198" Background="{x:Null}" Height="29"/>
+        <ComboBox Name="CourseList" SelectionChanged="CourseSelectionChanged" HorizontalAlignment="Left"  Margin="609,37,0,0" VerticalAlignment="Top" Width="198" Background="#FFFFFFFF" Height="29"/>
         <!--enumeration of modules selected for course-->
         <Label Content="Current Modules:" FontSize="14" HorizontalAlignment="Left" Margin="543,72,0,0" VerticalAlignment="Top"/>
         <Label Name="ModuleCount" Content="" FontSize="14" HorizontalAlignment="Left" Margin="665,71,0,0" VerticalAlignment="Top" Width="198" Height="30"/>
         <!--Save button, svae modules to course-->
         <Button Name="SubmitChangesButton" Content="Save Modules" FontSize="14" Click="SaveCourseModules" HorizontalAlignment="Left" Margin="692,467,0,0" VerticalAlignment="Top" Width="189" Height="36"/>
+        <Button Name="NewModule" Content="New Module" FontSize="14" Click="CreateNewModule" HorizontalAlignment="Left" Margin="471,467,0,0" VerticalAlignment="Top" Width="189" Height="36"/>
     </Grid>
 </Page>

@@ -113,6 +113,9 @@
     <Compile Include="Views\Database\Pages\StudentManagement.xaml.cs">
       <DependentUpon>StudentManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Database\Windows\CreateNewModule.xaml.cs">
+      <DependentUpon>CreateNewModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Database\Windows\CreateNewStudent.xaml.cs">
       <DependentUpon>CreateNewStudent.xaml</DependentUpon>
     </Compile>
@@ -167,17 +170,11 @@
     <Compile Include="Views\Events\Windows\CreateEvents.xaml.cs">
       <DependentUpon>CreateEvents.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Events\Windows\DeleteConfirm.xaml.cs">
-      <DependentUpon>DeleteConfirm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Events\Windows\EditEvents.xaml.cs">
       <DependentUpon>EditEvents.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Events\Pages\EventPage.xaml.cs">
       <DependentUpon>EventPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Events\Windows\InvitesWindow.xaml.cs">
-      <DependentUpon>InvitesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MasterViews\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
@@ -221,6 +218,10 @@
     <Page Include="Views\Database\Pages\StudentManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\Windows\CreateNewModule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Database\Windows\CreateNewStudent.xaml">
       <SubType>Designer</SubType>
@@ -294,19 +295,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Events\Windows\DeleteConfirm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Events\Windows\EditEvents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Events\Pages\EventPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Events\Windows\InvitesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -413,9 +406,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.Student.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.StudentEvent.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TimetablingService\TimetablingClientApplication.TimetablingService.StudentInvite.datasource">

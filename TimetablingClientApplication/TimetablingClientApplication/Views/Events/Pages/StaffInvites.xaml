@@ -5,40 +5,42 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="StaffInvites" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="StaffInvites" MinHeight="530" MinWidth="930" Height="530" Width="930" Background="#FF97F09B">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <!--Labels indicating important fields-->
+        <Label Name="PageName" Content="Staff Invites" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="147" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
+        <Label Content="Room Capacity:" HorizontalAlignment="Left" Margin="757,114,0,0" VerticalAlignment="Top"/>
+        <Label Name="RoomCapacity" HorizontalAlignment="Left" Margin="757,140,0,0" VerticalAlignment="Top" Height="34" Width="106"/>
+        <Label Content="Available Space:" HorizontalAlignment="Left" Margin="757,179,0,0" VerticalAlignment="Top"/>
+        <Label Name="AvailableSpace" HorizontalAlignment="Left" Margin="757,205,0,0" VerticalAlignment="Top" Height="25" Width="131"/>
+        <Label Content="Staff Invited:" HorizontalAlignment="Left" Margin="757,230,0,0" VerticalAlignment="Top"/>
+        <Label Name="InvitesNumber" HorizontalAlignment="Left" Margin="757,256,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <!--Search Staff available-->
         <TextBox Name="SearchAvailableStaff" HorizontalAlignment="Left" Height="23" Margin="50,38,0,0" TextWrapping="Wrap" Text="Search Staff Available . . ." VerticalAlignment="Top" Width="290" GotFocus="SearchFieldOnFocus" LostFocus="SearchFieldLoseFocus" TextChanged="SearchFieldTextChanged"/>
+        <!--Staff List-->
         <ListView Name="ListedStaff" HorizontalAlignment="Left" MouseDoubleClick="AddStaffInvite" VerticalAlignment="Top" Height="327" Width="290" Margin="50,66,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
             <ListView.View>
                 <GridView TextBlock.TextAlignment="Center">
                     <GridViewColumn Width="50" DisplayMemberBinding="{Binding StaffId}" Header="Id" />
-                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffTitle}" Header="Title" />
-                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffForename}" Header="Forename" />
-                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffSurname}" Header="Surname" />
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding StaffTitle}" Header="Title" />
+                    <GridViewColumn Width="60" DisplayMemberBinding="{Binding StaffForename}" Header="Forename" />
+                    <GridViewColumn Width="60" DisplayMemberBinding="{Binding StaffSurname}" Header="Surname" />
              </GridView>
             </ListView.View>
         </ListView>
+        <!--Staff that have been invited-->
         <ListView Name="ListedSelectedStaff" HorizontalAlignment="Left" MouseDoubleClick="RemoveStaffInvite" VerticalAlignment="Top" Height="327" Width="290" Margin="431,66,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
             <ListView.View>
                 <GridView TextBlock.TextAlignment="Center">
                     <GridViewColumn Width="50" DisplayMemberBinding="{Binding EventId}" Header="Id" />
-                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffTitle}" Header="Title" />
-                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffForename}" Header="Forename" />
-                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StaffSurname}" Header="Surname" />
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding StaffTitle}" Header="Title" />
+                    <GridViewColumn Width="60" DisplayMemberBinding="{Binding StaffForename}" Header="Forename" />
+                    <GridViewColumn Width="60" DisplayMemberBinding="{Binding StaffSurname}" Header="Surname" />
              </GridView>
             </ListView.View>
         </ListView>
+        <!--Button for submission for staff invitations-->
         <Button Content="Save Staff Invites" Click="SaveStaffInvites" FontSize="15" HorizontalAlignment="Left" Margin="654,435,0,0" VerticalAlignment="Top" Width="158" Height="38"/>
-       
-        <Label Content="Room Capacity:" HorizontalAlignment="Left" Margin="757,114,0,0" VerticalAlignment="Top"/>
-        <Label Name="RoomCapacity" HorizontalAlignment="Left" Margin="757,140,0,0" VerticalAlignment="Top" Height="34" Width="106"/>
-        
-        <Label Content="Available Space:" HorizontalAlignment="Left" Margin="757,179,0,0" VerticalAlignment="Top"/>
-        <Label Name="AvailableSpace" HorizontalAlignment="Left" Margin="757,205,0,0" VerticalAlignment="Top" Height="25" Width="131"/>
-       
-        <Label Content="Staff Invited:" HorizontalAlignment="Left" Margin="757,230,0,0" VerticalAlignment="Top"/>
-        <Label Name="InvitesNumber" HorizontalAlignment="Left" Margin="757,256,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
-    
     </Grid>
 </Page>

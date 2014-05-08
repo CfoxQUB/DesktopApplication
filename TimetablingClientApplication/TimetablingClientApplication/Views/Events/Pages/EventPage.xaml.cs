@@ -1,117 +1,158 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using TimetablingClientApplication.TimetablingService;
 
 namespace TimetablingClientApplication.Views.Events.Pages
 {
     /// <summary>
     /// Interaction logic for EventPage.xaml
     /// </summary>
-    public partial class EventPage : Page
+    public partial class EventPage 
     {
-        private TimetablingService.TimetablingServiceClient client = new TimetablingService.TimetablingServiceClient();
-
-        private ObservableCollection<TimetablingService.Event> EventsList = new ObservableCollection<TimetablingService.Event>();
+        //Webservice functionality exposed through service reference
+        private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
+        //observable collection used to display events associated with a particular room
+        private readonly ObservableCollection<Event> _eventsList = new ObservableCollection<Event>();
+        //Boolean value used to indicate building select is rendered
         private bool _buildingSelected;
-        //private int LoggedInUserId;
-
+     
         public EventPage()
         {
             InitializeComponent();
+            //rendering of buildings List
             _buildingSelected = false;
-            //LoggedInUserId = userId;
-            var eventList = client.ReturnEvents();
-            var buildingsList = client.ReturnBuildings();
-
-            var roomsList = client.ReturnBuildingRooms(buildingsList.First().BuildingId);
-
-            if (eventList != null)
+            var buildingsList = _client.ReturnBuildings();
+            if (buildingsList != null)
             {
-                foreach (TimetablingService.Event e in eventList)
+                foreach (var b in buildingsList)
                 {
-                    EventsList.Add(e);
+                    //Popuation of buildings List
+                    BuildingList.Items.Add(b.BuildingName);
+                }
+                BuildingList.Text = buildingsList.First().BuildingName;
+                //Rendering of rooms associated with building
+                var roomsList = _client.ReturnBuildingRooms(buildingsList.First().BuildingId);
+                if (roomsList != null)
+                {
+                    foreach (var r in roomsList)
+                    {   //Population of room select item
+                        RoomList.Items.Add(r.RoomName);
+                    }
+                    RoomList.Text = roomsList.First().RoomName;
+                    //Rendering of events List for room events
+                    var eventList = _client.ReturnRoomEvents(roomsList.First().RoomId);
+                    if (eventList != null)
+                    {
+                        //Population of events list
+                        foreach (Event e in eventList)
+                        {
+                            _eventsList.Add(e);
+                        }
+                        EventCount.Content = eventList.Count().ToString("D");
+                    }
+                    ListedEvents.ItemsSource = _eventsList;
+                }
+                else
+                {
+                    //No rooms
+                    RoomList.IsEnabled = false;
                 }
             }
-
-            foreach (TimetablingService.Building b in buildingsList)
+            else
             {
-                BuildingList.Items.Add(b.BuildingName);
+                //No buildings or rooms so filters disabled
+                RoomList.IsEnabled = false;
+                BuildingList.IsEnabled = false;
             }
 
-            foreach (TimetablingService.Room r in roomsList)
-            {
-                RoomList.Items.Add(r.RoomName);
-            }
-            
-            BuildingList.Text = buildingsList.First().BuildingName;
-            RoomList.Text = roomsList.First().RoomName;
-            
-           ListedEvents.ItemsSource = EventsList;
-           
-        }
+       }
         
+        //Building selection changed, update rooms and events
         public void Building_Selection_Changed(object sender, RoutedEventArgs e)
         {
-            _buildingSelected = false;
+            if (!_buildingSelected)
+            {
+                return;
+            }
+            //building selected information
             var tempName = BuildingList.SelectedItem;
-            var buildingId = client.ReturnBuildingIdFromBuildingName(tempName.ToString());
-            var roomList = client.ReturnBuildingRooms(buildingId);
-
-            RoomList.Items.Clear();         
+            var buildingId = _client.ReturnBuildingIdFromBuildingName(tempName.ToString());
             
-            foreach (var x in roomList)
+            //Rooms list of building returned
+            var roomList = _client.ReturnBuildingRooms(buildingId);
+            RoomList.Items.Clear();
+            if (roomList != null)
             {
-                RoomList.Items.Add(x.RoomName);
-            }
-            RoomList.Text = roomList.First().RoomName;
-            var events = client.ReturnRoomEvents(roomList.First().RoomId);
-            EventsList.Clear();
- 
-            foreach (TimetablingService.Event s in events)
-            {
-                EventsList.Add(s);
-            }
+                //rooms List enabled and populated
+                RoomList.IsEnabled = true;
+                foreach (var x in roomList)
+                {
+                    RoomList.Items.Add(x.RoomName);
+                }
+                RoomList.Text = roomList.First().RoomName;
 
-            ListedEvents.ItemsSource = EventsList;
+                //Events list of room populated
+                var events = _client.ReturnRoomEvents(roomList.First().RoomId);
+                _eventsList.Clear();
+                if (events != null)
+                {   //Events added to the events List
+                    foreach (Event s in events)
+                    {
+                        _eventsList.Add(s);
+                    }
+                    EventCount.Content = events.Count().ToString("D");
+                    ListedEvents.ItemsSource = _eventsList;
+                }
+            }
+            else
+            {
+                //rooms list disabled
+                RoomList.IsEnabled = false;
+                EventCount.Content = "0";
+                _eventsList.Clear();
+            }
             _buildingSelected = true;
       
         }
 
+        //room secltion changed update events list
         public void Room_Selection_Changed(object sender, RoutedEventArgs e)
         {
-            if (_buildingSelected == false)
+            if (!_buildingSelected)
             {
                 _buildingSelected = true;
                 return;
             }
 
+            //Building In formation selected
             var tempName = BuildingList.SelectedItem;
-            var buildingId = client.ReturnBuildingIdFromBuildingName(tempName.ToString());
-
-            var tempRoom = RoomList.SelectedItem;
-            var roomId = client.ReturnRoomId(buildingId, RoomList.SelectedItem.ToString());
-            var events = client.ReturnRoomEvents(roomId);
-     
-            EventsList.Clear();
-
-            foreach (TimetablingService.Event s in events)
+            var buildingId = _client.ReturnBuildingIdFromBuildingName(tempName.ToString());
+            //Room information checked if valid
+            if (RoomList.SelectedItem != null)
             {
-                EventsList.Add(s);
-            }
+                //Room inforamtion returned
+                var roomId = _client.ReturnRoomId(buildingId, RoomList.SelectedItem.ToString());
+                var events = _client.ReturnRoomEvents(roomId);
 
-            ListedEvents.ItemsSource = EventsList;
-           
+                //EventsLsit cleard for repopoulation
+                _eventsList.Clear();
+                if (events != null)
+                {
+                    //Events list repopulated
+                    foreach (Event s in events)
+                    {
+                        _eventsList.Add(s);
+                    }
+                    EventCount.Content = events.Count().ToString("D");
+                    ListedEvents.ItemsSource = _eventsList;
+                }
+                else
+                {
+                    //Event count reset
+                    EventCount.Content = "0";
+                }
+            }
         }
     
     }

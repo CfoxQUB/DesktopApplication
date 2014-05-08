@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
-using Org.BouncyCastle.Utilities.Encoders;
 using TimetablingClientApplication.TimetablingService;
 namespace TimetablingClientApplication.Views.Timetables.Pages
 {
@@ -16,17 +13,14 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
     {
 
         private int _roomId;
-        private int _courseId;
-        private int _moduleId;
-
         private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
         private readonly List<Building> _buildings = new List<Building>();
         private readonly List<Room> _rooms = new List<Room>();
-        private readonly List<Course> _courses = new List<Course>();
-        private readonly List<Module> _modules = new List<Module>();
-        private readonly TimetableEventsListObject _eventsList = new TimetableEventsListObject();
+        
         private readonly SolidColorBrush _occupied = new SolidColorBrush(Colors.GreenYellow);
-        private readonly SolidColorBrush _normal = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFEAEAEA"));
+
+        private readonly SolidColorBrush _normal =
+            new SolidColorBrush((Color) ColorConverter.ConvertFromString("#FFEAEAEA"));
 
         private bool _buildingSelected;
         private bool _courseSelected;
@@ -34,19 +28,18 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
         public RoomTimetableTool()
         {
             _buildingSelected = false;
-            _courseSelected = false;
-
-            InitializeComponent();
             
+            InitializeComponent();
+
             _buildings.AddRange(_client.ReturnBuildings());
-            if (_buildings.Any() && _buildings != null)
+            if (_buildings != null)
             {
                 foreach (var x in _buildings)
                 {
                     BuildingSelect.Items.Add(x.BuildingName);
                 }
                 BuildingSelect.SelectedItem = _buildings.First().BuildingName;
-                
+
                 _rooms.AddRange(_client.ReturnBuildingRooms(_buildings.First().BuildingId));
 
                 if (_rooms.Any() && _rooms != null)
@@ -66,51 +59,25 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             }
             else
             {
+                _roomId = 0;
+                RoomSelect.IsEnabled = false;
                 BuildingSelect.IsEnabled = false;
             }
-           
-            _courses.AddRange(_client.ReturnCourses());
-            if (_courses.Any() && _courses != null)
-            {
-                foreach (var x in _courses)
-                {
-                    CourseSelect.Items.Add(x.CourseName);
-                }
-                CourseSelect.SelectedItem = _courses.First().CourseName;
-                _modules.AddRange(_client.ReturnCourseModules(_courses.First().CourseId));
 
-                if (_modules.Any() && _modules != null)
-                {
-                    foreach (var x in _modules)
-                    {
-                        ModuleSelect.Items.Add(x.ModuleName);
-                    }
-                    ModuleSelect.SelectedItem = _modules.First().ModuleName;
-                    _moduleId = _modules.First().ModuleId;
-                }
-                else
-                {
-                    _moduleId = 0;
-                    ModuleSelect.IsEnabled = false;
-                }
-             }
-            else
-            {
-                CourseSelect.IsEnabled = false;
-            }
+           
 
             DateSelected.SelectedDate = DateTime.Now;
 
-            if (_roomId != 0 && _moduleId != 0)
+            if (_roomId != 0 )
             {
-                var temp = _client.ReturnWeeksEventsWithFilters(DateTime.Now, _roomId, _moduleId);
+                var temp = _client.ReturnWeeksEventsWithFilters(DateTime.Now, _roomId);
                 if (temp != null)
                 {
                     Populate_Timetable_Display(temp);
                 }
             }
         }
-        
+
         public void Building_Selection_Changed(object sender, RoutedEventArgs e)
         {
             if (_buildingSelected == false)
@@ -119,40 +86,53 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
                 return;
             }
 
-            var building = _buildings.SingleOrDefault(x=>x.BuildingName == BuildingSelect.SelectedItem.ToString());
+            var building = _buildings.SingleOrDefault(x => x.BuildingName == BuildingSelect.SelectedItem.ToString());
 
             if (building != null)
             {
-                _rooms.Clear();
-                _rooms.AddRange(_client.ReturnBuildingRooms(building.BuildingId));
-                RoomSelect.Items.Clear();
-                if (_rooms.Any() && _rooms != null)
+                BuildingSelect.IsEnabled = true;
+                var rooms = _client.ReturnBuildingRooms(building.BuildingId);
+                if (rooms != null)
                 {
-                    foreach (var x in _rooms)
-                    {
-                        RoomSelect.Items.Add(x.RoomName);
-                    }
-                    RoomSelect.SelectedItem = _rooms.First().RoomName;
-                    _roomId = _rooms.First().RoomId;
+                    RoomSelect.IsEnabled = true;
+                    _rooms.Clear();
+                    RoomSelect.Items.Clear();
+                    
+                        foreach (var x in rooms)
+                        {
+                            RoomSelect.Items.Add(x.RoomName);
+                            _rooms.Add(x);
+                        }
+                        RoomSelect.SelectedItem = _rooms.First().RoomName;
+                        _roomId = _rooms.First().RoomId;
+                    
                 }
                 else
                 {
                     _roomId = 0;
                     RoomSelect.IsEnabled = false;
+                    ClearTimetableOfEvents();
                 }
-                RoomSelect.IsEnabled = true;
             }
-            var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
-            if (_roomId != 0 && _moduleId != 0)
+            else
             {
-                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId, _moduleId);
+                _roomId = 0;
+                BuildingSelect.IsEnabled = false;
+                RoomSelect.IsEnabled = false;
+                ClearTimetableOfEvents();
+            }
+
+            var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
+            if (_roomId != 0)
+            {
+                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId);
                 if (temp != null)
                 {
                     Populate_Timetable_Display(temp);
                 }
             }
         }
-        
+
         public void Room_Selection_Changed(object sender, RoutedEventArgs e)
         {
             if (_buildingSelected)
@@ -160,7 +140,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
                 return;
             }
 
-            var room = _rooms.SingleOrDefault(x=>x.RoomName == RoomSelect.SelectedItem.ToString());
+            var room = _rooms.SingleOrDefault(x => x.RoomName == RoomSelect.SelectedItem.ToString());
 
             if (room == null)
             {
@@ -170,9 +150,9 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             _roomId = room.RoomId;
 
             var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
-            if (_roomId != 0 && _moduleId != 0)
+            if (_roomId != 0)
             {
-                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId, _moduleId);
+                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId);
                 if (temp != null)
                 {
                     Populate_Timetable_Display(temp);
@@ -180,77 +160,12 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             }
         }
 
-        public void Course_Selection_Changed(object sender, RoutedEventArgs e)
-        {
-            if (_courseSelected == false)
-            {
-                _courseSelected = true;
-                return;
-            }
-
-            var course = _courses.SingleOrDefault(x => x.CourseName == CourseSelect.SelectedItem.ToString());
-
-            if (course != null)
-            {
-                 _modules.Clear();
-                 ModuleSelect.Items.Clear();
-                _modules.AddRange(_client.ReturnCourseModules(course.CourseId));
-                if (_modules.Any() && _rooms != null)
-                {
-                    foreach (var x in _modules)
-                    {
-                        ModuleSelect.Items.Add(x.ModuleName);
-                    }
-                    ModuleSelect.SelectedItem = _modules.First().ModuleName;
-                    _moduleId = _modules.First().ModuleId;
-                }
-                else
-                {
-                    _moduleId = 0;
-                    ModuleSelect.IsEnabled = false;
-                }
-                ModuleSelect.IsEnabled = true;
-            }
-
-            var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
-            if (_roomId != 0 && _moduleId != 0)
-            {
-                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId, _moduleId);
-                if (temp != null)
-                {
-                    Populate_Timetable_Display(temp);
-                }
-            }
-        }
-
-        public void Module_Selection_Changed(object sender, RoutedEventArgs e)
-        {
-            var module = _modules.SingleOrDefault(x => x.ModuleName == ModuleSelect.SelectedItem.ToString());
-
-            if (module == null)
-            {
-                return;
-            }
-
-            _moduleId = module.ModuleId;
-
-            var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
-            if (_roomId != 0 && _moduleId != 0)
-            {
-                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId, _moduleId);
-                if (temp != null)
-                {
-                    Populate_Timetable_Display(temp);
-                }
-            }
-        }
-        
         public void Date_Selection_Changed(object sender, RoutedEventArgs e)
         {
             var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
-            if (_roomId != 0 && _moduleId != 0)
+            if (_roomId != 0 )
             {
-                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId, _moduleId);
+                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId);
                 if (temp != null)
                 {
                     Populate_Timetable_Display(temp);
@@ -546,9 +461,9 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             #endregion
             
             #region Sunday
-            if (timetableObjectList.SaturdayList.Any())
+            if (timetableObjectList.SundayList.Any())
             {
-                foreach (var e in timetableObjectList.SaturdayList)
+                foreach (var e in timetableObjectList.SundayList)
                 {
                     if (e.Event != null)
                     {
@@ -601,9 +516,9 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
 
             var dateSelected = DateSelected.DisplayDate;
 
-            if (_roomId != 0 && _moduleId != 0)
+            if (_roomId != 0)
             {
-                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId, _moduleId);
+                var temp = _client.ReturnWeeksEventsWithFilters(dateSelected, _roomId);
                 if (temp != null)
                 {
                     Populate_Timetable_Display(temp);

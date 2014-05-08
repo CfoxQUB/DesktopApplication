@@ -5,15 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="RoomTimetableTool" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="Room Timetables" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid MinHeight="530" MinWidth="930" Height="530" Width="930">
-        <Label Name="DateTitle" Content="Date:" BorderThickness="0" Margin="147,59,740,444" Background="{x:Null}" FontSize="11"/>
-        <Label Content="Course:" BorderThickness="0" Margin="471,59,394,436" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="CourseSelect"  Margin="541,59,201,446" Background="{x:Null}" FontSize="11" SelectionChanged="Course_Selection_Changed"/>
+        <Label Name="PageName" Content="Course Timetables" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
 
-
-        <DatePicker Name="DateSelected" HorizontalAlignment="Left" Margin="213,60,0,0" VerticalAlignment="Top" Height="26" Width="145" FontSize="11" SelectedDateChanged="Date_Selection_Changed"/>
+        <Label Name="DateTitle" Content="Date:" BorderThickness="0" Margin="168,36,719,467" Background="{x:Null}" FontSize="11"/>
+        <!--Course selector-->
+        <Label Content="Course:" BorderThickness="0" Margin="471,36,394,459" Background="{x:Null}" FontSize="11"/>
+        <ComboBox Name="CourseSelect"  Margin="536,37,206,468" Background="#FFFFFFFF" FontSize="11" SelectionChanged="Course_Selection_Changed"/>
+        <!--Date selector-->
+        <DatePicker Name="DateSelected" HorizontalAlignment="Left" Margin="226,36,0,0" VerticalAlignment="Top" Height="26" Width="144" FontSize="11" SelectedDateChanged="Date_Selection_Changed" Background="#FFFFFFFF"/>
+        <!--Day labels-->
         <Label Content="Monday" Name="Mon1" BorderThickness="0" Margin="168,103,700,388" Background="{x:Null}"/>
         <Label Content="Tuesday" Name="Tue1" BorderThickness="0"  Margin="276,103,594,388" Background="{x:Null}" />
         <Label Content="Wednesday" Name="Wed1" BorderThickness="0" Margin="375,103,482,388" Background="{x:Null}"/>
@@ -21,6 +24,7 @@
         <Label Content="Friday" Name="Fri1" BorderThickness="0" Margin="601,103,284,388" Background="{x:Null}"/>
         <Label Content="Saturday" Name="Sat1" BorderThickness="0" Margin="700,103,174,388" Background="{x:Null}"/>
         <Label Content="Sunday" Name="Sun1" BorderThickness="0" Margin="810,103,65,388" Background="{x:Null}"/>
+        <!--Time labels-->
         <Label Content="9:00 am" Margin="76,127,746,364" FontSize="10"/>
         <Label Content="10:00 am" Margin="71,162,751,336" FontSize="10"/>
         <Label Content="11:00 am" Margin="71,194,751,304" FontSize="10"/>
@@ -30,7 +34,9 @@
         <Label Content="3:00 pm" Margin="79,321,744,177" FontSize="10"/>
         <Label Content="4:00 pm" Margin="79,353,744,145" FontSize="10"/>
         <Label Content="5:00 pm" Margin="79,385,744,113" FontSize="10"/>
+        <!--Backgroud to timetable display-->
         <Rectangle Fill="Gainsboro" Margin="143,138,39,127"/>
+        <!--Timeslots-->
         <Button Name="Mon10" Margin="147,142,676,355" Background="#FFEAEAEA"/>
         <Button Name="Mon11" Margin="147,175,676,324" Background="#FFEAEAEA"/>
         <Button Name="Mon12" Margin="147,206,676,292" Background="#FFEAEAEA"/>
@@ -87,7 +93,5 @@
         <Button Name="Sun15" Margin="781,303,42,195" Background="#FFEAEAEA"/>
         <Button Name="Sun16" Margin="781,335,42,162" Background="#FFEAEAEA"/>
         <Button Name="Sun17" Margin="781,368,42,131" Background="#FFEAEAEA"/>
-        
-
-    </Grid>
+     </Grid>
 </Page>

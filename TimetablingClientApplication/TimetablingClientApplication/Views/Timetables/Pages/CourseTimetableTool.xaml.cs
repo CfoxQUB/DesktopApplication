@@ -11,25 +11,25 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
     /// </summary>
     public partial class CourseTimetableTool
     {
-
+        //course Id maintained
         private int _courseId;
-
+        //Webservice functionality exposed through service reference
         private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
-     
+        //Courses list used to populate course selector
         private readonly List<Course> _courses = new List<Course>();
-
+        //Timetable event colour
         private readonly SolidColorBrush _occupied = new SolidColorBrush(Colors.GreenYellow);
         private readonly SolidColorBrush _normal = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFEAEAEA"));
 
-        
         public CourseTimetableTool()
         {
             
             InitializeComponent();
-            
-           _courses.AddRange(_client.ReturnCourses());
-            if (_courses.Any() && _courses != null)
+            //Course Select Populated    
+            var courses = _client.ReturnCourses();
+            if (courses != null)
             {
+                _courses.AddRange(courses);
                 foreach (var x in _courses)
                 {
                     CourseSelect.Items.Add(x.CourseName);
@@ -39,50 +39,56 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             }
             else
             {
+                //no courses available timetable display disabled
                 CourseSelect.IsEnabled = false;
+                DateSelected.IsEnabled = false;
             }
-
+            //todays date selected
             DateSelected.SelectedDate = DateTime.Now;
-
+            //course events details returned
             if ( _courseId != 0)
             {
                 var temp = _client.ReturnWeeksEventsForCourses(DateTime.Now, _courseId);
                 if (temp != null)
                 {
+                    //Timetable display populated
                     Populate_Timetable_Display(temp);
                 }
             }
         }
         
+        //Course selection changed timetable redrawn
         public void Course_Selection_Changed(object sender, RoutedEventArgs e)
         {
-            
+            //new course information returned
             var course = _courses.SingleOrDefault(x => x.CourseName == CourseSelect.SelectedItem.ToString());
-
             if (course != null)
             {
                 _courseId = course.CourseId;
             }
-
+            //Date selected
             var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
             if (_courseId != 0)
-            {
+            {   //events for course for selected dates week returend
                 var temp = _client.ReturnWeeksEventsForCourses(dateSelected, _courseId);
                 if (temp != null)
                 {
+                    //Timetable repopulated
                     Populate_Timetable_Display(temp);
                 }
             }
         }
         
+        //Date selection changed
         public void Date_Selection_Changed(object sender, RoutedEventArgs e)
         {
             var dateSelected = DateSelected.SelectedDate.GetValueOrDefault();
             if (_courseId != 0)
-            {
+            {   //Events for selected course with new date returned
                 var temp = _client.ReturnWeeksEventsForCourses(dateSelected, _courseId);
                 if (temp != null)
                 {
+                    //Timetable redrawn
                     Populate_Timetable_Display(temp);
                 }
             }
@@ -90,8 +96,9 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
 
         public void Populate_Timetable_Display(TimetableEventsListObject timetableObjectList)
         {
+            //Events currently displayed reset to default colours
             ClearTimetableOfEvents();
-
+            //Monday times list used to repopulate all monday events
             #region Monday
             if (timetableObjectList.MondayList.Any())
             {
@@ -139,7 +146,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             }
 
             #endregion
-
+            //Tuesday times list used to repopulate all Tuesday events
             #region Tuesday
             if (timetableObjectList.TuesdayList.Any())
             {
@@ -186,6 +193,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
                 }
             }
             #endregion
+            //Wednesday times list used to repopulate all Wednesday events
 
             #region Wednesday
             if (timetableObjectList.WednesdayList.Any())
@@ -233,7 +241,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
                 }
             }
             #endregion
-
+            //Thursday times list used to repopulate all Thursday events
             #region Thursday
             if (timetableObjectList.ThursdayList.Any())
             {
@@ -280,7 +288,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
                 }
             }
             #endregion
-
+            //Friday times list used to repopulate all Friday events
             #region Friday
             if (timetableObjectList.FridayList.Any())
             {
@@ -327,7 +335,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
                 }
             }
             #endregion
-
+            //Saturday times list used to repopulate all Saturday events
             #region Saturday
             if (timetableObjectList.SaturdayList.Any())
             {
@@ -374,11 +382,11 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
                 }
             }
             #endregion
-            
+            //Sunday times list used to repopulate all Sunday events
             #region Sunday
-            if (timetableObjectList.SaturdayList.Any())
+            if (timetableObjectList.SundayList.Any())
             {
-                foreach (var e in timetableObjectList.SaturdayList)
+                foreach (var e in timetableObjectList.SundayList)
                 {
                     if (e.Event != null)
                     {
@@ -423,13 +431,13 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             #endregion
         }
 
-
+        //Events returned for new selected date
         public void ReturnDateSelectedWeeksEvents(object sender, EventArgs e)
         {
+            //Timetable disaply cleared
             ClearTimetableOfEvents();
-
+            //events returned and timetable redrawn
             var dateSelected = DateSelected.DisplayDate;
-
             if (_courseId != 0)
             {
                 var temp = _client.ReturnWeeksEventsForCourses(dateSelected, _courseId);
@@ -440,6 +448,7 @@ namespace TimetablingClientApplication.Views.Timetables.Pages
             }
         }
 
+        //Timetable fields cleared
         public void ClearTimetableOfEvents()
         {
             #region Clear Monday

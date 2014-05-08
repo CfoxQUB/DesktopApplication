@@ -8,18 +8,16 @@
 	Title="RoomTimetableTool" MinHeight="530" MinWidth="930" Height="530" Width="930">
 
     <Grid MinHeight="530" MinWidth="930" Height="530" Width="930">
+        <Label Name="PageName" Content="Room Timetables" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="208" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
+        <!--Labels for date, building and room select-->
         <Label Name="DateTitle" Content="Date:" BorderThickness="0" Margin="90,35,797,468" Background="{x:Null}" FontSize="11"/>
-        <Label  Content="Building:" BorderThickness="0" Margin="328,18,537,477" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="BuildingSelect" Margin="398,18,344,487" Background="{x:Null}" FontSize="11" SelectionChanged="Building_Selection_Changed"/>
-        <Label  Content="Room:" BorderThickness="0"  Margin="632,18,252,481" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="RoomSelect" Margin="700,18,42,487" Background="{x:Null}" FontSize="11" SelectionChanged="Room_Selection_Changed"/>
-        <Label Content="Course:" BorderThickness="0" Margin="328,58,537,437" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="CourseSelect"  Margin="398,57,344,448" Background="{x:Null}" FontSize="11" SelectionChanged="Course_Selection_Changed"/>
-        <Label  Content="Module:" BorderThickness="0"  Margin="623,58,252,441" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="ModuleSelect" Margin="700,58,42,447" Background="{x:Null}" FontSize="11" SelectionChanged="Module_Selection_Changed"/>
-
-
-        <DatePicker Name="DateSelected" HorizontalAlignment="Left" Margin="147,36,0,0" VerticalAlignment="Top" Height="26" Width="145" FontSize="11" SelectedDateChanged="Date_Selection_Changed"/>
+        <Label  Content="Building:" BorderThickness="0" Margin="328,35,537,460" Background="{x:Null}" FontSize="11"/>
+        <Label  Content="Room:" BorderThickness="0"  Margin="632,35,252,464" Background="{x:Null}" FontSize="11"/>
+        <!--Date, building and room select-->
+        <ComboBox Name="BuildingSelect" Margin="398,35,344,470" Background="#FFFFFFFF" FontSize="11" SelectionChanged="Building_Selection_Changed"/>
+        <ComboBox Name="RoomSelect" Margin="700,35,42,470" Background="#FFFFFFFF" FontSize="11" SelectionChanged="Room_Selection_Changed"/>
+        <DatePicker Name="DateSelected" HorizontalAlignment="Left" Background="#FFFFFFFF" Margin="147,36,0,0" VerticalAlignment="Top" Height="26" Width="145" FontSize="11" SelectedDateChanged="Date_Selection_Changed"/>
+        <!--Day labels-->
         <Label Content="Monday" Name="Mon1" BorderThickness="0" Margin="168,103,700,388" Background="{x:Null}"/>
         <Label Content="Tuesday" Name="Tue1" BorderThickness="0"  Margin="276,103,594,388" Background="{x:Null}" />
         <Label Content="Wednesday" Name="Wed1" BorderThickness="0" Margin="375,103,482,388" Background="{x:Null}"/>
@@ -27,6 +25,7 @@
         <Label Content="Friday" Name="Fri1" BorderThickness="0" Margin="601,103,284,388" Background="{x:Null}"/>
         <Label Content="Saturday" Name="Sat1" BorderThickness="0" Margin="700,103,174,388" Background="{x:Null}"/>
         <Label Content="Sunday" Name="Sun1" BorderThickness="0" Margin="810,103,65,388" Background="{x:Null}"/>
+        <!--Time labels-->
         <Label Content="9:00 am" Margin="76,127,746,364" FontSize="10"/>
         <Label Content="10:00 am" Margin="71,162,751,336" FontSize="10"/>
         <Label Content="11:00 am" Margin="71,194,751,304" FontSize="10"/>
@@ -36,7 +35,9 @@
         <Label Content="3:00 pm" Margin="79,321,744,177" FontSize="10"/>
         <Label Content="4:00 pm" Margin="79,353,744,145" FontSize="10"/>
         <Label Content="5:00 pm" Margin="79,385,744,113" FontSize="10"/>
+        <!--Timetable display background-->
         <Rectangle Fill="Gainsboro" Margin="143,138,39,127"/>
+        <!--Timeslots-->
         <Button Name="Mon10" Margin="147,142,676,355" Background="#FFEAEAEA"/>
         <Button Name="Mon11" Margin="147,175,676,324" Background="#FFEAEAEA"/>
         <Button Name="Mon12" Margin="147,206,676,292" Background="#FFEAEAEA"/>
@@ -93,7 +94,5 @@
         <Button Name="Sun15" Margin="781,303,42,195" Background="#FFEAEAEA"/>
         <Button Name="Sun16" Margin="781,335,42,162" Background="#FFEAEAEA"/>
         <Button Name="Sun17" Margin="781,368,42,131" Background="#FFEAEAEA"/>
-
-
     </Grid>
 </Page>

@@ -4,14 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="EventPage" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="EventPage" MinHeight="530" MinWidth="930" Height="530" Width="930" Background="#FF97F09B">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <Label Name="PageName" Content="Events Summary" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="35" Width="147" RenderTransformOrigin="1.495,0.392" FontSize="14" FontWeight="SemiBold"/>
+        <!--Building and Room filters-->
         <Label Content="Building:" Margin="351,52,506,452" RenderTransformOrigin="-38.4,-10.7" FontSize="11"/>
-        <ComboBox Name="BuildingList" HorizontalAlignment="Left" Margin="424,56,0,0" VerticalAlignment="Top" Width="215" Background="{x:Null}" Height="22" SelectionChanged="Building_Selection_Changed" FontSize="11"/>
+        <ComboBox Name="BuildingList" HorizontalAlignment="Left" Margin="424,52,0,0" VerticalAlignment="Top" Width="215" Background="#FFFFFF" Height="22" SelectionChanged="Building_Selection_Changed" FontSize="11"/>
         <Label Content="Room:" Margin="665,52,199,448" RenderTransformOrigin="-38.4,-10.7" FontSize="11"/>
-        <ComboBox Name="RoomList" HorizontalAlignment="Left" Margin="731,52,0,0" VerticalAlignment="Top" Width="176" Background="{x:Null}" Height="22" SelectionChanged="Room_Selection_Changed" FontSize="11"/>
-        <ListView Name="ListedEvents" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="277" Width="572" Margin="348,84,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
+        <ComboBox Name="RoomList" HorizontalAlignment="Left" Margin="731,52,0,0" VerticalAlignment="Top" Width="176" Background="#FFFFFF" Height="22" SelectionChanged="Room_Selection_Changed" FontSize="11"/>
+        <ListView Name="ListedEvents" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="342" Width="857" Margin="50,89,0,0" BorderBrush="#FFB0B4B9" Foreground="Black" FontSize="11" >
             <ListView.View>
                 <GridView TextBlock.TextAlignment="Center">
                     <GridViewColumn Width="50" DisplayMemberBinding="{Binding EventId}" Header="Id" />
@@ -25,7 +27,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Total Events:" Margin="74,115,746,383" FontSize="11"></Label>
+        <Label Content="Total Events:" Margin="50,52,770,446" FontSize="11"></Label>
+        <Label Name="EventCount" Content="" Margin="135,52,685,446" FontSize="11"></Label>
 
     </Grid>
 </Page>

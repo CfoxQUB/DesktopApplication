@@ -5,9 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="EditEventsPage" MinHeight="530" MinWidth="930" Height="530" Width="930">
+	Title="EditEventsPage" MinHeight="530" MinWidth="930" Height="530" Width="930" Background="#FF97F09B">
 
     <Grid  MinHeight="450" MinWidth="930" Height="530" Width="930">
+        <!--Labels indicating the values required when editing events-->
         <Label Name="Title" Content="Title:" HorizontalAlignment="Left" Margin="391,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.439,0.446" FontSize="11"/>
         <Label Name="Description" Content="Description:" HorizontalAlignment="Left" Margin="356,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.497" FontSize="11"/>
         <Label Name="Time" Content="Time:" HorizontalAlignment="Left" Margin="677,109,0,0" VerticalAlignment="Top" Width="51" FontSize="11"/>
@@ -25,29 +26,29 @@
         <Label Name="ModuleStudents" Content="" HorizontalAlignment="Left" Margin="456,356,0,0" VerticalAlignment="Top"/>
         <Label Content="Search By:" HorizontalAlignment="Left" Margin="20,453,0,0" VerticalAlignment="Top" FontSize="11"/>
         <Label Content="Update Event Status:" HorizontalAlignment="Left" Margin="348,436,0,0" VerticalAlignment="Top"/>
-
+        <!--Search field used to search through available events-->
         <TextBox Name="SearchField" HorizontalAlignment="Left" Height="23" Margin="20,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="11" Text="" GotFocus="SearchField_GotFocus" LostFocus="SearchField_LoseFocus" TextChanged="ReturnSearchResults"/>
         <TextBox Name="EventTitle" HorizontalAlignment="Left" Height="22" Margin="429,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="144" FontSize="11"/>
         <TextBox Name="EventDescription" HorizontalAlignment="Left" Height="55" Margin="429,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="203" FontSize="11"/>
-        
-        <DatePicker Name="StartDate" HorizontalAlignment="Left" Margin="721,71,0,0" VerticalAlignment="Top" Width="144" FontSize="11"/>
-        
-        <ComboBox Name="EventTypeSelect" HorizontalAlignment="Left" Margin="429,179,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.5,0.544" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="TimeList" HorizontalAlignment="Left" Height="22" Margin="721,112,0,0" VerticalAlignment="Top" Width="102" Background="{x:Null}" RenderTransformOrigin="0.445,0.564" FontSize="11"/>
-        <ComboBox Name="DurationList" HorizontalAlignment="Left" Height="22" Margin="721,151,0,0" VerticalAlignment="Top" Width="102" RenderTransformOrigin="0.554,0.543" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="BuildingSelect" HorizontalAlignment="Left" Margin="724,292,0,0" VerticalAlignment="Top" Width="144" Background="{x:Null}" SelectionChanged="Building_Selection_Changed" FontSize="11"/>
-        <ComboBox Name="RoomSelect" HorizontalAlignment="Left" Margin="724,319,0,0" VerticalAlignment="Top" Width="119" Background="{x:Null}" FontSize="11" />
-        <ComboBox Name="SearchFilter" HorizontalAlignment="Left" Margin="89,457,0,0" VerticalAlignment="Top" Width="119" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="CourseSelect" HorizontalAlignment="Left" Margin="415,292,0,0" VerticalAlignment="Top" Width="178" Background="{x:Null}" SelectionChanged="Course_Selection_Changed" FontSize="11"/>
-        <ComboBox Name="ModuleSelect" HorizontalAlignment="Left" Margin="415,319,0,0" VerticalAlignment="Top" Width="157" Background="{x:Null}" FontSize="11"/>
-        <ComboBox Name="StatusList" HorizontalAlignment="Left" Margin="472,439,0,0" VerticalAlignment="Top" Width="174" Background="{x:Null}" Height="23"/>
-        
+        <!--Date selector used to indicate events startdate-->
+        <DatePicker Name="StartDate" HorizontalAlignment="Left" Margin="721,71,0,0" VerticalAlignment="Top" Width="144" FontSize="11" Background="#FFFFFFFF"/>
+        <!--Selectors which indicate speific fields required for editing/creating events-->
+        <ComboBox Name="EventTypeSelect" HorizontalAlignment="Left" Margin="429,179,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.5,0.544" Background="#FFFFFFFF" FontSize="11"/>
+        <ComboBox Name="TimeList" HorizontalAlignment="Left" Height="22" Margin="721,112,0,0" VerticalAlignment="Top" Width="102" Background="#FFFFFFFF" RenderTransformOrigin="0.445,0.564" FontSize="11"/>
+        <ComboBox Name="DurationList" HorizontalAlignment="Left" Height="22" Margin="721,151,0,0" VerticalAlignment="Top" Width="102" RenderTransformOrigin="0.554,0.543" Background="#FFFFFFFF" FontSize="11"/>
+        <ComboBox Name="BuildingSelect" HorizontalAlignment="Left" Margin="724,292,0,0" VerticalAlignment="Top" Width="144" Background="#FFFFFFFF" SelectionChanged="Building_Selection_Changed" FontSize="11"/>
+        <ComboBox Name="RoomSelect" HorizontalAlignment="Left" Margin="724,319,0,0" VerticalAlignment="Top" Width="119" Background="#FFFFFFFF" FontSize="11" />
+        <ComboBox Name="SearchFilter" HorizontalAlignment="Left" Margin="89,457,0,0" VerticalAlignment="Top" Width="119" Background="#FFFFFFFF" FontSize="11"/>
+        <ComboBox Name="CourseSelect" HorizontalAlignment="Left" Margin="415,292,0,0" VerticalAlignment="Top" Width="178" Background="#FFFFFFFF" SelectionChanged="Course_Selection_Changed" FontSize="11"/>
+        <ComboBox Name="ModuleSelect" HorizontalAlignment="Left" Margin="415,319,0,0" VerticalAlignment="Top" Width="157" Background="#FFFFFFFF" FontSize="11"/>
+        <ComboBox Name="StatusList" HorizontalAlignment="Left" Margin="472,439,0,0" VerticalAlignment="Top" Width="174" Background="#FFFFFFFF" Height="23"/>
+        <!--Buttons for changing the status and changes to event itself-->
         <Button Name="SaveStatus" Click="Save_Event_Status" Content="Save Status" HorizontalAlignment="Left" Margin="552,467,0,0" VerticalAlignment="Top" Width="94" Height="36"/>
         <Button Name="SubmitChangesButton" Content="Save Event Changes" HorizontalAlignment="Left" Margin="711,467,0,0" VerticalAlignment="Top" Width="189" Height="36" Click="Save_Event_Changes"/>
-        
+        <!--Add module and room options-->
         <CheckBox Name="AddModule" Content="Add Module" IsChecked="True" Checked="AddModule_OnChecked" Unchecked="AddModule_Unchecked" HorizontalAlignment="Left" Margin="415,256,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="AddRoom" Content="Add Room" IsChecked="True" Checked="AddRoom_OnChecked" Unchecked="AddRoom_Unchecked" HorizontalAlignment="Left" Margin="721,256,0,0" VerticalAlignment="Top"/>
-
+        <!--Listed view of events available-->
         <ListView Name="ListedEvents" SelectionMode="Single" HorizontalAlignment="Left" Margin="20,79,0,0" VerticalAlignment="Top" Height="369" Width="290" SelectionChanged="NewEventSelected" MouseDoubleClick="ListedEvents_DeleteEvent" FontSize="11">
             <ListView.View>
                 <GridView>
@@ -57,46 +58,31 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Text="Basic Information" Margin="357,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="556" BorderThickness="0,0,0,1" Padding="0,0,0,1" FontSize="11">
-            <TextBox.BorderBrush>
-                <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
-                    <GradientStop Color="#FFABADB3" Offset="0.05"/>
-                    <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </TextBox.BorderBrush>
-        </TextBox>
-        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="21" Text="Additional Information" Margin="357,217,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="556" BorderThickness="0,0,0,1" Padding="0,0,0,1" FontSize="11">
-            <TextBox.BorderBrush>
-                <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
-                    <GradientStop Color="#FFABADB3" Offset="0.05"/>
-                    <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </TextBox.BorderBrush>
-        </TextBox>
-       
+        <!--Section details-->
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="348,30,0,0" TextWrapping="Wrap" Text="Basic Information" VerticalAlignment="Top" Width="548" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" Background="#FF97F09B"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="348,223,0,0" TextWrapping="Wrap" Text="Additional Information" VerticalAlignment="Top" Width="548" Padding="0,0,0,1" BorderThickness="0,0,0,1.5" BorderBrush="Black" FontWeight="SemiBold" Background="#FF97F09B"/>
+        <!--Events popup indicating no events available-->
         <Popup Name="NoEvents" Width="300" Height="150" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248"  >
                 <TextBlock TextAlignment="Center" Height="100"><Run/><LineBreak/><Run Text="There appears to be no events available to Edit."/><LineBreak/><Run/><LineBreak/><Run Text=" To create events, go to the Create Event section"/></TextBlock>
                 <Button Width="60" Content="Close" Click="CloseNoEventsPopup"/>
             </StackPanel>
         </Popup>
-      
+        <!--Change events status success-->
         <Popup Name="EventStatus" Width="300" Height="125" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248"  >
                 <TextBlock TextAlignment="Center" Height="100"><Run/><LineBreak/><Run Text="Event Status change Successful."/><LineBreak/><Run/><LineBreak/><Run Text="Select Close to close this Popup"/><LineBreak/><Run/><LineBreak/><Run Text=""/></TextBlock>
                 <Button Width="60" Content="Close" Click="StatusChangeFailed"/>
             </StackPanel>
         </Popup>
-
+        <!--Event satus change failed-->
         <Popup Name="ConfirmedEventExists" Width="300" Height="125" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248">
                 <TextBlock TextAlignment="Center" Height="100"><Run/><LineBreak/><Run Text="Event Status change failed."/><LineBreak/><Run/><LineBreak/><Run Name="FailedText1" Text="An event is already Confirmed with the same"/><LineBreak/><Run Name="FailedText2" /><LineBreak/><Run Text=""/></TextBlock>
                  <Button Name="CloseExistsButton" Content="Cancel" Click="EventAlreadyConfirmedClose"/>
             </StackPanel>
         </Popup>
-        
+        <!--Confirm deletion of selected event-->
         <Popup Name="DeleteEvent" Width="300" Height="150" Placement="Center" Visibility="Visible">
             <StackPanel Background="#FFF1D248">
                 <TextBlock Text="Are you sure you want to delete this event?" Height="100"/>
@@ -104,7 +90,5 @@
                 <Button Name="CancelButton" Content="Cancel" Click="CloseDeleteEventPopup"/>
             </StackPanel>
         </Popup>
-       
-        
-    </Grid>
+     </Grid>
 </Page>

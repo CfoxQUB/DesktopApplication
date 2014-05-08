@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Navigation;
 using TimetablingClientApplication.TimetablingService;
+using TimetablingClientApplication.Views.Database.Windows;
 
 namespace TimetablingClientApplication.Views.Database.Pages
 {
@@ -21,6 +23,9 @@ namespace TimetablingClientApplication.Views.Database.Pages
         private readonly ObservableCollection<Module> _availableModules = new ObservableCollection<Module>(); 
         private readonly ObservableCollection<Module> _selectedModules = new ObservableCollection<Module>();
 
+        private int _userId;
+        private NavigationService _navigation;
+
         //Course list added to the dropdown to select course
         private readonly ObservableCollection<String> _courseList = new ObservableCollection<String>();
         
@@ -30,9 +35,12 @@ namespace TimetablingClientApplication.Views.Database.Pages
         //Timetabling client used to expose web service functionality
         private readonly TimetablingServiceClient _client = new TimetablingServiceClient();
 
-        public CourseModuleManagement()
+        public CourseModuleManagement(int userId, NavigationService navigation)
         {
             _pageRendered = false;
+            _userId = userId;
+            _navigation = navigation;
+
             InitializeComponent();
 
             //default course Id 0 does not exists in database
@@ -211,6 +219,13 @@ namespace TimetablingClientApplication.Views.Database.Pages
             //Modules saved to associated course
             _client.AddModulesToCourse(courseModuleList.ToArray(), _courseId);
          }
+        
+        //Opens new window to create a new module
+        public void CreateNewModule(Object sender, EventArgs e)
+        {
+            var newModule = new CreateNewModule(_userId, _navigation);
+            newModule.Show();
+        }
 
     }
 }
